@@ -7,7 +7,10 @@ import thunkUser from './Redux/Username/thunk/thunk';
 import Splash from './components/registeration/Splash';
 import Signin from './components/registeration/Signin';
 import Signup from './components/registeration/Signup';
-// import Home from './components/Home/home';
+import Detail from './components/cars/detail';
+import MyReservations from './components/Reservations/MyReservations';
+import Reserve from './components/Reservations/reserve';
+import NewCar from './components/cars/newcar';
 
 function App() {
   const dispatch = useDispatch();
@@ -20,6 +23,10 @@ function App() {
           <Route path="/" element={<Splash />} />
           <Route path="/Signin" element={<Signin />} />
           <Route path="/Signup" element={<Signup />} />
+          <Route path="/Details" element={<Detail />} />
+          <Route path="/Myreservations" element={<MyReservations />} />
+          <Route path="/Newcar" element={<NewCar />} />
+          <Route path="/Reserve" element={<Reserve />} />
         </Routes>
       </Router>
     </div>
