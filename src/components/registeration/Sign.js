@@ -35,15 +35,21 @@ const Sign = () => {
     const signWrapper = document.querySelector('.sign-wrapper');
     const otherUp = document.querySelector('.other-option-up');
     const signUp = document.querySelector('.sign-form-wrapper');
+    const signTitle = document.querySelector('.sign-title');
     const h = window.innerHeight;
-    if (signWrapper) {
-      signWrapper.style.height = `${h}px`;
-    }
-    if (otherUp) {
-      otherUp.style.height = `${h}px`;
-    }
-    if (signUp) {
-      signUp.style.height = `${h}px`;
+    const w = window.innerWidth;
+    if (w >= 1024) {
+      if (signWrapper) {
+        signWrapper.style.height = `${h}px`;
+      }
+      if (otherUp) {
+        otherUp.style.height = `${h}px`;
+      }
+      if (signUp) {
+        signUp.style.height = `${h}px`;
+      }
+    } else {
+      signTitle.style.marginTop = `${0.1 * h}px`;
     }
   };
   const signChange = () => {
@@ -63,7 +69,6 @@ const Sign = () => {
           <h1 className="other-option-title">Welcome Back!</h1>
           <p className="option-description">
             To keep connected with us please
-            <br />
             login with your personal info.
           </p>
           <button type="submit" onClick={signChange} className="switch-btn"> SIGN IN </button>
