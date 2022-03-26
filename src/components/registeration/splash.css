@@ -62,3 +62,69 @@ body { margin: 0; }
 .app-inf {
   display: none;
 }
+
+@media screen and (min-width: 1024px) {
+  .app-presentation {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 1fr;
+  }
+
+  .logo-wrapper {
+    grid-column: 2 / span 1;
+    position: static;
+    grid-row: 1 / span 1;
+  }
+  .app-inf {
+    grid-column: 1 / span 1;
+    display: block;
+    grid-row: 1 / span 1;
+    align-self: center;
+  }
+
+  .logo-img {
+    width: 70%;
+    margin-left: 15%;
+  }
+
+  .app-name {
+    width: 80%;
+    color: white;
+    margin-left: 10%;
+    margin-bottom: 0;
+  }
+
+  hr {
+    width: 80%;
+    margin-left: 10%;
+    background-color: white;
+    color: white;
+    margin-top: 0;
+  }
+
+  .app-description {
+    width: 80%;
+    margin-left: 10%;
+    text-align: justify;
+    color: #463c3c;
+    font-weight: 550;
+    font-size: 16px;
+  }
+
+  .registration-links {
+    position: relative;
+    flex-direction: row;
+    width: 32%;
+    margin-left: 4%;
+    top: -40px;
+  }
+  .sign {
+    width: 48,75%;
+  }
+
+  .up {
+    margin-bottom: 0;
+    margin-right: 2.5%;
+  }
+
+}

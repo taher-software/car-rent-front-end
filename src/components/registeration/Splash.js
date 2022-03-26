@@ -13,12 +13,19 @@ const Splash = () => {
   const session = useSelector((state) => state.session);
   const adjustSize = () => {
     const h = window.innerHeight;
+    const w = window.innerWidth;
     const splash = document.querySelector('.splash-wrapper');
     splash.style.height = `${h}px`;
-    const logo = document.querySelector('.logo-wrapper');
-    logo.style.top = `${0.3 * h}px`;
-    const registration = document.querySelector('.registration-links');
-    registration.style.top = `${0.6 * h}px`;
+    if (w < 1024) {
+      const logo = document.querySelector('.logo-wrapper');
+      logo.style.top = `${0.3 * h}px`;
+      const registration = document.querySelector('.registration-links');
+      registration.style.top = `${0.575 * h}px`;
+    } else {
+      const presentation = document.querySelector('.app-presentation');
+      presentation.style.height = `${0.8 * h}px`;
+      presentation.style.paddingTop = `${0.1 * h}px`;
+    }
   };
 
   useEffect(() => adjustSize(), []);
@@ -27,7 +34,7 @@ const Splash = () => {
       {!session
     && (
     <div className="splash-wrapper">
-      <div className="app-presentaion">
+      <div className="app-presentation">
         <div className="logo-wrapper">
           <img src={LOGO} alt="logo" className="logo-img" />
           <p className="logo-text">CARRENTAL</p>
