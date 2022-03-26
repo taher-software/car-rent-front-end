@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import USER from '../../assets/images/user-icon.png';
-import ADRESS from '../../assets/images/adress-icon.jpg';
+import ADRESS from '../../assets/images/adress.png';
 import PHOTO from '../../assets/images/photo-icon.png';
 import './sign.css';
 
@@ -34,7 +34,7 @@ const Sign = () => {
   const adjustSize = () => {
     const signWrapper = document.querySelector('.sign-wrapper');
     const otherUp = document.querySelector('.other-option-up');
-    const signUp = document.querySelector('.sign-up-wrapper');
+    const signUp = document.querySelector('.sign-form-wrapper');
     const h = window.innerHeight;
     if (signWrapper) {
       signWrapper.style.height = `${h}px`;
@@ -68,21 +68,28 @@ const Sign = () => {
           </p>
           <button type="submit" onClick={signChange} className="switch-btn"> SIGN IN </button>
         </div>
-        <div className="sign-up-wrapper">
-          <h2>Create Account</h2>
+        <div className="sign-form-wrapper">
+          <h2 className="sign-title">Create Account</h2>
           <form>
             <div className="user-info">
-              <img src={USER} alt="user-icon" className="icon-data" />
+              <div className="icon-data">
+                <img src={USER} alt="user-icon" />
+              </div>
               <input type="text" placeholder="USERNAME" className="input-data" required />
             </div>
             <div className="user-info">
-              <img src={ADRESS} alt="adress-icon" className="icon-data" />
+              <div className="icon-data">
+                <img src={ADRESS} alt="adress-icon" />
+              </div>
               <input type="text" placeholder="CITY" className="input-data" />
             </div>
             <div className="user-info">
-              <img src={PHOTO} alt="profile-icon" className="icon-data" />
+              <div className="icon-data">
+                <img src={PHOTO} alt="profile-icon" />
+              </div>
               <input type="url" placeholder="PHOTO URL" className="input-data" />
             </div>
+            <button type="submit" className="submit-btn">SIGN UP</button>
           </form>
         </div>
       </div>
