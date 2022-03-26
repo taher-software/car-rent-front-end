@@ -1,0 +1,52 @@
+@media screen and (min-width: 1024px){
+    .sign-wrapper {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 35% 65%;
+      
+    }
+
+    .other-option-up{
+      grid-column: 1 / span 1;
+      background: rgb(52, 155, 154);
+      width: 100%;
+    }
+
+    .sign-up-wrapper {
+      grid-column: 2 / span 1;
+      width: 100%;
+    }
+
+    .user-info {
+      display: flex;
+    }
+
+    .icon-data {
+      width: 10%;
+    }
+
+    .other-option-title {
+      margin-left: 20%;
+      margin-top: 50%;
+      color: white;
+    }
+
+    .option-description {
+      color: white;
+      margin-left: 20.5%;
+      text-align: center;
+      width: 50%;
+      font-size: 16px;
+    }
+
+    .switch-btn {
+      color: white;
+      background-color: rgb(52, 155, 154);
+      border : 1px solid white;
+      border-radius: 40px;
+      padding: 10px 75px;
+      margin-left: 22.5%;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import USER from '../../assets/images/user-icon.png';
@@ -13,7 +13,7 @@ const Sign = () => {
   const navigate = useNavigate();
   let usernames = [];
   const [message, setMessage] = useState('');
-  const { operation } = location.state;
+  const [operation, setOperation] = useState(location.state.operation);
   try {
     usernames = usersData.users.map((user) => user.username);
   } catch {
@@ -31,19 +31,42 @@ const Sign = () => {
       messagewrapper.style.display = 'block';
     }
   };
-
+  const adjustSize = () => {
+    const signWrapper = document.querySelector('.sign-wrapper');
+    const otherUp = document.querySelector('.other-option-up');
+    const signUp = document.querySelector('.sign-up-wrapper');
+    const h = window.innerHeight;
+    if (signWrapper) {
+      signWrapper.style.height = `${h}px`;
+    }
+    if (otherUp) {
+      otherUp.style.height = `${h}px`;
+    }
+    if (signUp) {
+      signUp.style.height = `${h}px`;
+    }
+  };
+  const signChange = () => {
+    if (operation === 'in') {
+      setOperation('up');
+    } else {
+      setOperation('in');
+    }
+  };
+  useEffect(() => adjustSize(), []);
   return (
     <>
       { operation === 'up'
     && (
       <div className="sign-wrapper">
-        <div className="other-option">
+        <div className="other-option-up">
           <h1 className="other-option-title">Welcome Back!</h1>
           <p className="option-description">
             To keep connected with us please
             <br />
             login with your personal info.
           </p>
+          <button type="submit" onClick={signChange} className="switch-btn"> SIGN IN </button>
         </div>
         <div className="sign-up-wrapper">
           <h2>Create Account</h2>
