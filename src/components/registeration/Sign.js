@@ -1,0 +1,85 @@
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate, useLocation } from 'react-router-dom';
+import USER from '../../assets/images/user-icon.png';
+import ADRESS from '../../assets/images/adress-icon.jpg';
+import PHOTO from '../../assets/images/photo-icon.png';
+import './sign.css';
+
+const Sign = () => {
+  const location = useLocation();
+  const dispatch = useDispatch();
+  const usersData = useSelector((state) => state.Users);
+  const navigate = useNavigate();
+  let usernames = [];
+  const [message, setMessage] = useState('');
+  const { operation } = location.state;
+  try {
+    usernames = usersData.users.map((user) => user.username);
+  } catch {
+    usernames = [];
+  }
+  const handleSignin = (event) => {
+    event.preventDefault();
+    const username = document.querySelector('.username').value;
+    if (usernames.includes(username)) {
+      dispatch({ type: 'LOGIN' });
+      navigate('/', { state: { alert: 'signed in successfully!' } });
+    } else {
+      setMessage('Something went wrong!');
+      const messagewrapper = document.querySelector('.alert-message');
+      messagewrapper.style.display = 'block';
+    }
+  };
+
+  return (
+    <>
+      { operation === 'up'
+    && (
+      <div className="sign-wrapper">
+        <div className="other-option">
+          <h1 className="other-option-title">Welcome Back!</h1>
+          <p className="option-description">
+            To keep connected with us please
+            <br />
+            login with your personal info.
+          </p>
+        </div>
+        <div className="sign-up-wrapper">
+          <h2>Create Account</h2>
+          <form>
+            <div className="user-info">
+              <img src={USER} alt="user-icon" className="icon-data" />
+              <input type="text" placeholder="USERNAME" className="input-data" required />
+            </div>
+            <div className="user-info">
+              <img src={ADRESS} alt="adress-icon" className="icon-data" />
+              <input type="text" placeholder="CITY" className="input-data" />
+            </div>
+            <div className="user-info">
+              <img src={PHOTO} alt="profile-icon" className="icon-data" />
+              <input type="url" placeholder="PHOTO URL" className="input-data" />
+            </div>
+          </form>
+        </div>
+      </div>
+    )}
+      { operation === 'in'
+  && (
+    <section>
+      <div className="alert-message" style={{ display: 'none' }}>
+        <p>{message}</p>
+      </div>
+      <form>
+
+        Username:
+        <input className="username" type="text" name="username" />
+
+        <input type="submit" value="Log in" onClick={handleSignin} />
+      </form>
+    </section>
+  )}
+    </>
+  );
+};
+export default Sign;

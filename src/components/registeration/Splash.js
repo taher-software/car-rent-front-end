@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LOGO from '../../assets/images/logo.png';
 import './splash.css';
@@ -57,8 +57,20 @@ const Splash = () => {
         </div>
       </div>
       <div className="registration-links">
-        <NavLink className="sign up" to="/Signup">SIGN UP</NavLink>
-        <NavLink className="sign in" to="/Signin">LOG IN</NavLink>
+        <Link
+          className="sign up"
+          to="/Sign"
+          state={{ operation: 'up' }}
+        >
+          SIGN UP
+        </Link>
+        <Link
+          className="sign in"
+          to="/Sign"
+          state={{ operation: 'in' }}
+        >
+          LOG IN
+        </Link>
       </div>
     </div>
     )}
