@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import fetchAllCars from '../../Redux/cars/fetch/fetchcars';
 
 const Splash = () => {
   const { state } = useLocation();
@@ -8,8 +9,12 @@ const Splash = () => {
   if (state) {
     alert = state.alert;
   }
+  const dispatch = useDispatch();
+
+  useEffect(() => dispatch(fetchAllCars()), []);
   const session = useSelector((state) => state.session);
-  console.log(alert);
+  const cars = useSelector((state) => state.Cars.cars);
+
   return (
     <>
       {!session
@@ -25,7 +30,19 @@ const Splash = () => {
     )}
       {session
    && (
-   <div className="message-alert"><p>{alert}</p></div>
+     <div>
+       <div className="message-alert"><p>{alert}</p></div>
+       <div>
+         {cars.map((car) => (
+           <ul key={car.id}>
+             <li>
+               <p>{car.brand}</p>
+               <p>{car.model}</p>
+             </li>
+           </ul>
+         ))}
+       </div>
+     </div>
    )}
     </>
   );
