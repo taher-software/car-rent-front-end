@@ -127,7 +127,7 @@ const Sign = () => {
           <div className="icon-data">
             <img src={USER} alt="user-icon" />
           </div>
-          <input type="text" placeholder="USERNAME" className="input-data" required />
+          <input type="text" placeholder="USERNAME" className="input-data username" required />
         </div>
         <button type="submit" className="submit-btn" onClick={handleSignin}>SIGN IN</button>
       </form>

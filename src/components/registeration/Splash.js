@@ -28,7 +28,26 @@ const Splash = () => {
     }
   };
 
+  const animation = () => {
+    const w = window.innerWidth;
+    let t = 50;
+    if (w < 1024) {
+      t = 25;
+    }
+    const forward = (t) => {
+      const object = document.querySelector('.logo-img');
+      object.style.transform += `translateY(${t}px)`;
+    };
+    const backward = (t) => {
+      const object = document.querySelector('.logo-img');
+      object.style.transform += `translateY(${-t}px)`;
+    };
+    forward(t);
+    setTimeout(backward, 1000, t);
+  };
+
   useEffect(() => adjustSize(), []);
+  useEffect(() => setInterval(animation, 2000));
   return (
     <>
       {!session
