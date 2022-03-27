@@ -96,95 +96,47 @@
   }
 @media screen and (min-width: 1024px){
     .sign-wrapper {
-      width: 100%;
-      display: grid;
       grid-template-columns: 35% 65%;
-      
+      grid-template-rows: none;
     }
-
+   
     .other-option-up{
       grid-column: 1 / span 1;
-      background: rgb(52, 155, 154);
-      width: 100%;
+      grid-row: none;
     }
-
+    
     .sign-form-wrapper {
       grid-column: 2 / span 1;
-      width: 100%;
+      grid-row: none;
     }
-
-    .user-info {
-      display: flex;
-      width: 100%;
-      height: 50px;
-      margin-bottom: 10px;
+    
+    
+    .other-option-title {
+      margin-top: 50%;
     }
-
-    .icon-data {
-      width: 10%;
-      background-color: #f1f1f1;
-    }
-
-    .icon-data img {
+    
+    .option-description {
       width: 50%;
       margin-left: 25%;
-      margin-top: 15px;
-    
     }
-
-    .other-option-title {
-      margin-left: 20%;
-      margin-top: 50%;
-      color: white;
-    }
-
-    .option-description {
-      color: white;
-      margin-left: 20.5%;
-      text-align: center;
-      width: 50%;
-      font-size: 16px;
-    }
-
+   
     .switch-btn {
-      color: white;
-      background-color: rgb(52, 155, 154);
-      border : 1px solid white;
-      border-radius: 40px;
       padding: 10px 75px;
-      margin-left: 22.5%;
-      cursor: pointer;
-      margin-top: 20px;
     }
 
     .sign-title {
       width: 60%;
       margin-left: 20%;
-      margin-top: 12.5%;
-      text-align: center;
-      color: rgb(52, 155, 154);
-      font-size: 36px;
     }
 
     form {
       width: 60%;
       margin-left: 20%;
     }
-
-    .input-data {
-      width: 95%;
-      border: none;
-      background-color: #f1f1f1;
-    }
     
     .submit-btn {
-      color: white;
-      background-color: rgb(52, 155, 154);
-      border : 1px solid white;
-      border-radius: 40px;
       padding: 10px 75px;
       margin-left: 30%;
-      cursor: pointer;
-      margin-top: 20px;
+      width: auto;
     }
 }
