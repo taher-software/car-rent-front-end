@@ -4,15 +4,30 @@
     grid-template-rows: 37.5% 62.5%;
     
   }
-
+.sign-wrapper-in {
+  width: 100%;
+  display: grid;
+}
   .other-option-up{
     grid-row: 1 / span 1;
     background: rgb(52, 155, 154);
     width: 100%;
   }
 
+  .other-option-in {
+    grid-row: 2 / span 1;
+    background: rgb(52, 155, 154);
+    width: 100%;
+  }
+
   .sign-form-wrapper {
     grid-row: 2 / span 1;
+    width: 100%;
+    background-color: white;
+  }
+
+  .sign-form-wrapper-in {
+    grid-row: 1 / span 1;
     width: 100%;
     background-color: white;
   }
@@ -99,17 +114,30 @@
       grid-template-columns: 35% 65%;
       grid-template-rows: none;
     }
+
+    .sign-wrapper-in {
+      grid-template-columns: 65% 35%;
+      grid-template-rows: none;
+    }
    
     .other-option-up{
       grid-column: 1 / span 1;
       grid-row: none;
     }
     
+    .other-option-in{
+      grid-column: 2 / span 1;
+      grid-row: none;
+    }
     .sign-form-wrapper {
       grid-column: 2 / span 1;
       grid-row: none;
     }
     
+    .sign-form-wrapper-in {
+      grid-column: 1 / span 1;
+      grid-row: none;
+    }
     
     .other-option-title {
       margin-top: 50%;
@@ -127,11 +155,15 @@
     .sign-title {
       width: 60%;
       margin-left: 20%;
+      position: relative;
+      top : 15%;
     }
 
     form {
       width: 60%;
       margin-left: 20%;
+      position: relative;
+      top: 15%;
     }
     
     .submit-btn {

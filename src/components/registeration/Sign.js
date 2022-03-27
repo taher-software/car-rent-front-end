@@ -33,8 +33,11 @@ const Sign = () => {
   };
   const adjustSize = () => {
     const signWrapper = document.querySelector('.sign-wrapper');
+    const signWrapperIn = document.querySelector('.sign-wrapper-in');
     const otherUp = document.querySelector('.other-option-up');
     const signUp = document.querySelector('.sign-form-wrapper');
+    const otherIn = document.querySelector('.other-option-in');
+    const signIn = document.querySelector('.sign-form-wrapper-in');
     const signTitle = document.querySelector('.sign-title');
     const h = window.innerHeight;
     const w = window.innerWidth;
@@ -48,7 +51,19 @@ const Sign = () => {
       if (signUp) {
         signUp.style.height = `${h}px`;
       }
+      if (signWrapperIn) {
+        signWrapperIn.style.height = `${h}px`;
+      }
+      if (otherIn) {
+        otherIn.style.height = `${h}px`;
+      }
+      if (signIn) {
+        signIn.style.height = `${h}px`;
+      }
     } else {
+      if (signWrapperIn) {
+        signWrapperIn.style.gridTemplateRows = `${0.625 * h}px ${0.375 * h}px`;
+      }
       signTitle.style.marginTop = `${0.1 * h}px`;
     }
   };
@@ -101,11 +116,11 @@ const Sign = () => {
     )}
       { operation === 'in'
   && (
-  <div className="sign-wrapper">
-    <div className="alert-message" style={{ display: 'none' }}>
-      <p>{message}</p>
-    </div>
-    <div className="sign-form-wrapper">
+  <div className="sign-wrapper-in">
+    <div className="sign-form-wrapper-in">
+      <div className="alert-message" style={{ display: 'none' }}>
+        <p>{message}</p>
+      </div>
       <h2 className="sign-title">Sign in to CARRENTAL</h2>
       <form>
         <div className="user-info">
@@ -117,7 +132,7 @@ const Sign = () => {
         <button type="submit" className="submit-btn" onClick={handleSignin}>SIGN IN</button>
       </form>
     </div>
-    <div className="other-option-up">
+    <div className="other-option-in">
       <h1 className="other-option-title">Hello, Friend!</h1>
       <p className="option-description">
         Enter your personal details and start journey with us.
