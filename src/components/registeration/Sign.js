@@ -59,7 +59,7 @@ const Sign = () => {
       setOperation('in');
     }
   };
-  useEffect(() => adjustSize(), []);
+  useEffect(() => adjustSize(), [operation]);
   return (
     <>
       { operation === 'up'
@@ -101,18 +101,31 @@ const Sign = () => {
     )}
       { operation === 'in'
   && (
-    <section>
-      <div className="alert-message" style={{ display: 'none' }}>
-        <p>{message}</p>
-      </div>
+  <div className="sign-wrapper">
+    <div className="alert-message" style={{ display: 'none' }}>
+      <p>{message}</p>
+    </div>
+    <div className="sign-form-wrapper">
+      <h2 className="sign-title">Sign in to CARRENTAL</h2>
       <form>
-
-        Username:
-        <input className="username" type="text" name="username" />
-
-        <input type="submit" value="Log in" onClick={handleSignin} />
+        <div className="user-info">
+          <div className="icon-data">
+            <img src={USER} alt="user-icon" />
+          </div>
+          <input type="text" placeholder="USERNAME" className="input-data" required />
+        </div>
+        <button type="submit" className="submit-btn" onClick={handleSignin}>SIGN IN</button>
       </form>
-    </section>
+    </div>
+    <div className="other-option-up">
+      <h1 className="other-option-title">Hello, Friend!</h1>
+      <p className="option-description">
+        Enter your personal details and start journey with us.
+      </p>
+      <button type="submit" onClick={signChange} className="switch-btn"> SIGN UP </button>
+    </div>
+  </div>
+
   )}
     </>
   );
