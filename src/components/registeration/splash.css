@@ -1,0 +1,82 @@
+* {
+  list-style: none;
+}
+
+.home-main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.nav-element {
+  width: 20%;
+  border: 2px solid lightblue;
+}
+
+.main-nav {
+  margin-top: 70%;
+}
+
+.cars-list {
+  margin-top: 5%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  /* border: 1px solid lightblue; */
+
+  /* box-shadow: 2px 2px 2px 5px lightblue; */
+  height: 380px;
+  margin-left: 10%;
+  display: flex;
+  text-align: center;
+}
+
+.cars-element {
+  height: 200px;
+  width: 70%;
+  margin-top: 5%;
+  text-align: center;
+}
+
+.car-image {
+  border-radius: 50%;
+}
+
+.car-brand {
+  font-size: 3vh;
+}
+
+.car-model {
+  font-size: 3vh;
+}
+
+.car-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: space-between;
+}
+
+.car-description {
+  font-size: 1.5vh;
+  font-style: normal;
+  height: 50px;
+  width: 100%;
+}
+
+.brand-model {
+  display: flex;
+  flex-direction: row;
+  margin-left: 30%;
+  margin-top: 5%;
+}
+
+.leftscrollbtn {
+  background-color: rgb(199, 253, 235);
+  width: 20px;
+}
+
+.rightscrollbtn {
+  background-color: rgb(199, 253, 235);
+  width: 20px;
+}
