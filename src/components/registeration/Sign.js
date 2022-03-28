@@ -39,6 +39,7 @@ const Sign = () => {
     const otherIn = document.querySelector('.other-option-in');
     const signIn = document.querySelector('.sign-form-wrapper-in');
     const signTitle = document.querySelector('.sign-title');
+    const otherOptionTitle = document.querySelector('.other-option-title');
     const h = window.innerHeight;
     const w = window.innerWidth;
     if (w >= 1024) {
@@ -60,6 +61,9 @@ const Sign = () => {
       if (signIn) {
         signIn.style.height = `${h}px`;
       }
+      if (otherOptionTitle) {
+        otherOptionTitle.style.marginTop = `${0.3 * h}px`;
+      }
     } else {
       if (signWrapperIn) {
         signWrapperIn.style.gridTemplateRows = `${0.625 * h}px ${0.375 * h}px`;
@@ -73,6 +77,28 @@ const Sign = () => {
     } else {
       setOperation('in');
     }
+  };
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    const username = document.querySelector('.username').value;
+    const city = document.querySelector('.adress').value;
+    const photo = document.querySelector('.photo').value;
+    const user = { username, city, photo };
+    const userUrl = 'https://agile-sands-67161.herokuapp.com/api/users';
+    const messageUrl = 'https://agile-sands-67161.herokuapp.com/api/current_infos';
+    await fetch(userUrl, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({ user }),
+    });
+    const message = await fetch(messageUrl)
+      .then((res) => res.json());
+    const { statut, content } = message;
+    console.log(statut);
+    console.log(content);
+    console.log(message);
   };
   useEffect(() => adjustSize(), [operation]);
   return (
@@ -95,21 +121,21 @@ const Sign = () => {
               <div className="icon-data">
                 <img src={USER} alt="user-icon" />
               </div>
-              <input type="text" placeholder="USERNAME" className="input-data" required />
+              <input type="text" placeholder="USERNAME" className="input-data username" required />
             </div>
             <div className="user-info">
               <div className="icon-data">
                 <img src={ADRESS} alt="adress-icon" />
               </div>
-              <input type="text" placeholder="CITY" className="input-data" />
+              <input type="text" placeholder="CITY" className="input-data adress" />
             </div>
             <div className="user-info">
               <div className="icon-data">
                 <img src={PHOTO} alt="profile-icon" />
               </div>
-              <input type="url" placeholder="PHOTO URL" className="input-data" />
+              <input type="url" placeholder="PHOTO URL" className="input-data photo" />
             </div>
-            <button type="submit" className="submit-btn">SIGN UP</button>
+            <button type="submit" className="submit-btn" onClick={handleSignUp}>SIGN UP</button>
           </form>
         </div>
       </div>
