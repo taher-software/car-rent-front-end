@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { updateCurrentUser } from '../../Redux/current_user';
 import USER from '../../assets/images/user-icon.png';
 import ADRESS from '../../assets/images/adress.png';
 import PHOTO from '../../assets/images/photo-icon.png';
@@ -24,6 +25,8 @@ const Sign = () => {
     event.preventDefault();
     const username = document.querySelector('.username').value;
     if (usernames.includes(username)) {
+      const currentUser = usersData.users.filter((user) => user.username === username)[0];
+      dispatch(updateCurrentUser(currentUser));
       dispatch({ type: 'LOGIN' });
       navigate('/', { state: { alert: 'signed in successfully!' } });
     } else {
