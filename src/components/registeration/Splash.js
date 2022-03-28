@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LOGO from '../../assets/images/logo.png';
+import CLOSE from '../../assets/images/close.png';
 import './splash.css';
 
 const Splash = () => {
@@ -15,16 +16,19 @@ const Splash = () => {
     const h = window.innerHeight;
     const w = window.innerWidth;
     const splash = document.querySelector('.splash-wrapper');
-    splash.style.height = `${h}px`;
-    if (w < 1024) {
-      const logo = document.querySelector('.logo-wrapper');
-      logo.style.top = `${0.3 * h}px`;
-      const registration = document.querySelector('.registration-links');
-      registration.style.top = `${0.575 * h}px`;
-    } else {
-      const presentation = document.querySelector('.app-presentation');
-      presentation.style.height = `${0.8 * h}px`;
-      presentation.style.paddingTop = `${0.1 * h}px`;
+    if (splash) {
+      splash.style.height = `${h}px`;
+
+      if (w < 1024) {
+        const logo = document.querySelector('.logo-wrapper');
+        logo.style.top = `${0.3 * h}px`;
+        const registration = document.querySelector('.registration-links');
+        registration.style.top = `${0.575 * h}px`;
+      } else {
+        const presentation = document.querySelector('.app-presentation');
+        presentation.style.height = `${0.8 * h}px`;
+        presentation.style.paddingTop = `${0.1 * h}px`;
+      }
     }
   };
 
@@ -36,16 +40,23 @@ const Splash = () => {
     }
     const forward = (t) => {
       const object = document.querySelector('.logo-img');
-      object.style.transform += `translateY(${t}px)`;
+      if (object) {
+        object.style.transform += `translateY(${t}px)`;
+      }
     };
     const backward = (t) => {
       const object = document.querySelector('.logo-img');
-      object.style.transform += `translateY(${-t}px)`;
+      if (object) {
+        object.style.transform += `translateY(${-t}px)`;
+      }
     };
     forward(t);
     setTimeout(backward, 1000, t);
   };
-
+  const closeAlert = () => {
+    const alert = document.querySelector('.alert');
+    alert.style.display = 'none';
+  };
   useEffect(() => adjustSize(), []);
   useEffect(() => setInterval(animation, 2000));
   return (
@@ -95,7 +106,12 @@ const Splash = () => {
     )}
       {session
    && (
-   <div className="message-alert"><p>{alert}</p></div>
+   <div className="alert alert-success" style={{ display: alert === '' ? 'none' : 'flex', justifyContent: 'space-between' }}>
+     <p>{alert}</p>
+     <div className="close-icon-wrapper" onClick={closeAlert} onKeyDown={closeAlert} aria-hidden="true">
+       <img src={CLOSE} alt="close-icon" className="close-icon" />
+     </div>
+   </div>
    )}
     </>
   );

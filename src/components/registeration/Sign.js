@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import USER from '../../assets/images/user-icon.png';
 import ADRESS from '../../assets/images/adress.png';
 import PHOTO from '../../assets/images/photo-icon.png';
+import CLOSE from '../../assets/images/close.png';
 import './sign.css';
 
 const Sign = () => {
@@ -28,7 +29,7 @@ const Sign = () => {
     } else {
       setMessage('Something went wrong!');
       const messagewrapper = document.querySelector('.alert');
-      messagewrapper.style.display = 'block';
+      messagewrapper.style.display = 'flex';
     }
   };
   const adjustSize = () => {
@@ -98,10 +99,14 @@ const Sign = () => {
     });
     const message = await fetch(messageUrl)
       .then((res) => res.json());
-    const { statut, content } = message;
+    const { statut, content } = message.message;
     console.log(statut);
     console.log(content);
     console.log(message);
+  };
+  const closeAlert = () => {
+    const alert = document.querySelector('.alert');
+    alert.style.display = 'none';
   };
   useEffect(() => adjustSize(), [operation]);
   return (
@@ -147,8 +152,11 @@ const Sign = () => {
   && (
   <div className="sign-wrapper-in">
     <div className="sign-form-wrapper-in">
-      <div className="alert alert-danger " style={{ display: 'none' }}>
+      <div className="alert alert-danger " style={{ display: 'none', justifyContent: 'space-between' }}>
         <p>{message}</p>
+        <div className="close-icon-wrapper" onClick={closeAlert} onKeyDown={closeAlert} aria-hidden="true">
+          <img src={CLOSE} alt="close-icon" className="close-icon" />
+        </div>
       </div>
       <h2 className="sign-title">Sign in to CARRENTAL</h2>
       <form>
