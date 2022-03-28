@@ -27,7 +27,7 @@ const Sign = () => {
       navigate('/', { state: { alert: 'signed in successfully!' } });
     } else {
       setMessage('Something went wrong!');
-      const messagewrapper = document.querySelector('.alert-message');
+      const messagewrapper = document.querySelector('.alert');
       messagewrapper.style.display = 'block';
     }
   };
@@ -66,7 +66,10 @@ const Sign = () => {
       }
     } else {
       if (signWrapperIn) {
-        signWrapperIn.style.gridTemplateRows = `${0.625 * h}px ${0.375 * h}px`;
+        signWrapperIn.style.gridTemplateRows = `${0.65 * h}px ${0.35 * h}px`;
+      }
+      if (signWrapper) {
+        signWrapper.style.gridTemplateRows = `${0.35 * h}px ${0.65 * h}px`;
       }
       signTitle.style.marginTop = `${0.1 * h}px`;
     }
@@ -144,7 +147,7 @@ const Sign = () => {
   && (
   <div className="sign-wrapper-in">
     <div className="sign-form-wrapper-in">
-      <div className="alert-message" style={{ display: 'none' }}>
+      <div className="alert alert-danger " style={{ display: 'none' }}>
         <p>{message}</p>
       </div>
       <h2 className="sign-title">Sign in to CARRENTAL</h2>
