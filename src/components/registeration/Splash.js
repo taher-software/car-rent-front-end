@@ -106,12 +106,14 @@ const Splash = () => {
     )}
       {session
    && (
-   <div className="alert alert-success" style={{ display: alert === '' ? 'none' : 'flex', justifyContent: 'space-between' }}>
-     <p>{alert}</p>
-     <div className="close-icon-wrapper" onClick={closeAlert} onKeyDown={closeAlert} aria-hidden="true">
-       <img src={CLOSE} alt="close-icon" className="close-icon" />
+
+     <div className="alert alert-success" style={{ display: alert === '' ? 'none' : 'flex', justifyContent: 'space-between' }}>
+       <p>{alert}</p>
+       <div className="close-icon-wrapper" onClick={closeAlert} onKeyDown={closeAlert} aria-hidden="true">
+         <img src={CLOSE} alt="close-icon" className="close-icon" />
+       </div>
      </div>
-   </div>
+
    )}
     </>
   );

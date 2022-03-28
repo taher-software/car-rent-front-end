@@ -88,6 +88,12 @@ const Sign = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     const username = document.querySelector('.username').value;
+    if (usernames.includes(username)) {
+      setMessage('username is invalid or already taken');
+      const messagewrapper = document.querySelector('.alert');
+      messagewrapper.style.display = 'flex';
+      return;
+    }
     const city = document.querySelector('.adress').value;
     const photo = document.querySelector('.photo').value;
     const user = { username, city, photo };
@@ -126,6 +132,12 @@ const Sign = () => {
           <button type="submit" onClick={signChange} className="switch-btn"> SIGN IN </button>
         </div>
         <div className="sign-form-wrapper">
+          <div className="alert alert-danger " style={{ display: 'none', justifyContent: 'space-between' }}>
+            <p>{message}</p>
+            <div className="close-icon-wrapper" onClick={closeAlert} onKeyDown={closeAlert} aria-hidden="true">
+              <img src={CLOSE} alt="close-icon" className="close-icon" />
+            </div>
+          </div>
           <h2 className="sign-title">Create Account</h2>
           <form>
             <div className="user-info">

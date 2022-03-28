@@ -3,8 +3,10 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import Usernamereducer from './Username/reducer/reducer';
 import { currentUserReducer } from './current_user';
+import { fetchStorage } from '../helper/localStorage';
 
-const sessionReducer = (state = false, action) => {
+const initialSessionState = fetchStorage('current_user') !== null;
+const sessionReducer = (state = initialSessionState, action) => {
   switch (action.type) {
     case 'LOGIN':
       return true;
