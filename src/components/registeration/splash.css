@@ -1,5 +1,13 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+
 * {
   list-style: none;
+}
+
+@media screen and (min-width: 720px) {
+
+.hamburger-btn {
+  display: none;
 }
 
 .home-main {
@@ -77,4 +85,59 @@
   width: 50px;
   text-align: center;
   border: 1px solid transparent;
+}
+
+.close-btn {
+  display: none;
+}
+}
+@media screen and (max-width: 720px) {
+
+  .main-nav {
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: fixed; 
+    z-index: 1; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0, 0.9); 
+    overflow-x: hidden; 
+    transition: 0.5s;
+  }
+
+  .scroll-btns {
+    display: none
+  }
+
+  .car-image {
+    height: 80px;
+    width: 80px;
+  }
+
+  .cars-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .car-item {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .brand-model {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .hamburger-btn {
+    position: relative;
+    color: black;
+    z-index: 5;
+  }
+
+  .close-btn {
+    display: none;
+    z-index: 1;
+  }
 }
