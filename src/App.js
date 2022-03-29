@@ -1,6 +1,7 @@
 import {
   BrowserRouter as Router, Route, Routes,
 } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import thunkUser from './Redux/Username/thunk/thunk';

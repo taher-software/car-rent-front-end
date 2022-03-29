@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import Usernamereducer from './Username/reducer/reducer';
+import Carsreducer from './cars/reducers/reducer';
 
 const sessionReducer = (state = false, action) => {
   switch (action.type) {
@@ -18,6 +19,7 @@ const sessionReducer = (state = false, action) => {
 const reducer = combineReducers({
   Users: Usernamereducer,
   session: sessionReducer,
+  Cars: Carsreducer,
 });
 
 const store = createStore(reducer, applyMiddleware(logger, thunk));
