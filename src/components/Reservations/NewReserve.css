@@ -1,0 +1,59 @@
+form {
+    width: 100%
+}
+
+.reserve-form {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    background-color: red;
+    height: 100vh;
+}
+
+.reserve-form button {
+    padding: 10px;
+    border-radius: 30px;
+    color: red;
+    background-color: blue;
+}
+
+.city-style {
+    margin-right: 20px;
+} 
+
+.city-style select {
+   padding: 10px;
+   border-radius: 30px;
+   display: flex;
+   justify-content: space-around;
+   color: blue;
+   background-color: red;
+}
+
+.city-style select:hover {
+   color: rgb(53, 53, 148);
+   background-color: red;
+}
+
+div select {
+      display: flex;
+      flex-direction: row;
+  }
+
+#dropdown-date {
+    display: flex;
+}
+
+#dropdown-date select {
+    padding: 10px;
+    border-radius: 30px;
+    color: blue;
+    margin-left: 5px;
+    background-color: red;
+}
+
+#dropdown-date select:hover {
+    color: rgb(53, 53, 148);
+    background-color: red;
+}
