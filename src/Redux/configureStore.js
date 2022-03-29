@@ -7,14 +7,21 @@ import { fetchStorage } from '../helper/localStorage';
 
 const initialSession = fetchStorage('current_user') !== null;
 let initialSessionState = initialSession;
-if (initialSession) {
-  const users = fetch('http://127.0.0.1:3002/api/users')
-    .then((res) => res.json());
-  const usernames = users.users.map((user) => user.username);
-  if (!usernames.includes(fetchStorage('current_user'))) {
-    initialSessionState = false;
+const checkUser = async () => {
+  let users = [];
+  if (initialSession) {
+    users = await fetch('http://127.0.0.1:3002/api/users')
+      .then((res) => res.json())
+      .then((result) => result.users);
+    console.log(users);
+    const usernames = users.map((user) => user.username);
+    if (!usernames.includes(fetchStorage('current_user'))) {
+      initialSessionState = false;
+    }
   }
-}
+};
+checkUser();
+
 const sessionReducer = (state = initialSessionState, action) => {
   switch (action.type) {
     case 'LOGIN':

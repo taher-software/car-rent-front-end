@@ -97,17 +97,19 @@ const Sign = () => {
     const city = document.querySelector('.adress').value;
     const photo = document.querySelector('.photo').value;
     const user = { username, city, photo };
-    const userUrl = 'https://agile-sands-67161.herokuapp.com/api/users';
-    const message = await fetch(userUrl, {
+    const userUrl = 'http://127.0.0.1:3002/api/users';
+    const result = await fetch(userUrl, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
       },
       body: JSON.stringify({ user }),
     });
-    console.log(message);
-    if (message === 'User created successfully.') {
-      useNavigate('/', { state: { alert: 'Signed up successfully' } });
+    const message = result.statusText;
+    if (message === 'Created') {
+      dispatch({ type: 'SIGNUP' });
+      dispatch(updateCurrentUser(user));
+      navigate('/', { state: { alert: 'Signed up successfully' } });
     } else {
       setMessage('Something went wrong!');
       const messagewrapper = document.querySelector('.alert');
