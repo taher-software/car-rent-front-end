@@ -5,7 +5,16 @@ import Usernamereducer from './Username/reducer/reducer';
 import { currentUserReducer } from './current_user';
 import { fetchStorage } from '../helper/localStorage';
 
-const initialSessionState = fetchStorage('current_user') !== null;
+const initialSession = fetchStorage('current_user') !== null;
+let initialSessionState = initialSession;
+if (initialSession) {
+  const users = fetch('http://127.0.0.1:3002/api/users')
+    .then((res) => res.json());
+  const usernames = users.users.map((user) => user.username);
+  if (!usernames.includes(fetchStorage('current_user'))) {
+    initialSessionState = false;
+  }
+}
 const sessionReducer = (state = initialSessionState, action) => {
   switch (action.type) {
     case 'LOGIN':

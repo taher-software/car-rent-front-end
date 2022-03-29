@@ -98,20 +98,21 @@ const Sign = () => {
     const photo = document.querySelector('.photo').value;
     const user = { username, city, photo };
     const userUrl = 'https://agile-sands-67161.herokuapp.com/api/users';
-    const messageUrl = 'https://agile-sands-67161.herokuapp.com/api/current_infos';
-    await fetch(userUrl, {
+    const message = await fetch(userUrl, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
       },
       body: JSON.stringify({ user }),
     });
-    const message = await fetch(messageUrl)
-      .then((res) => res.json());
-    const { statut, content } = message.message;
-    console.log(statut);
-    console.log(content);
     console.log(message);
+    if (message === 'User created successfully.') {
+      useNavigate('/', { state: { alert: 'Signed up successfully' } });
+    } else {
+      setMessage('Something went wrong!');
+      const messagewrapper = document.querySelector('.alert');
+      messagewrapper.style.display = 'flex';
+    }
   };
   const closeAlert = () => {
     const alert = document.querySelector('.alert');
