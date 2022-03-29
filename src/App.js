@@ -11,11 +11,13 @@ import Detail from './components/cars/detail';
 import MyReservations from './components/Reservations/MyReservations';
 import Reserve from './components/Reservations/reserve';
 import NewCar from './components/cars/newcar';
+import fetchAllCars from './Redux/cars/fetch/fetchcars';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => dispatch(thunkUser()), []);
+  useEffect(() => dispatch(fetchAllCars()), []);
   return (
     <div>
       <Router>

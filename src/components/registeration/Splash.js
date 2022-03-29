@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { NavLink, useLocation, Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useLocation, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { Col, Nav, Row } from 'react-bootstrap';
-import fetchAllCars from '../../Redux/cars/fetch/fetchcars';
 import LOGO from '../../assets/images/logo.png';
 import CLOSE from '../../assets/images/close.png';
 import './splash.css';
@@ -13,11 +12,12 @@ const Splash = () => {
   if (state) {
     alert = state.alert;
   }
-  const dispatch = useDispatch();
-
-  useEffect(() => dispatch(fetchAllCars()), []);
   const session = useSelector((state) => state.session);
-  const cars = useSelector((state) => state.Cars.cars);
+  const carData = useSelector((state) => state.Cars);
+  let cars = [];
+  if (Object.keys(carData).includes('cars')) {
+    cars = carData.cars;
+  }
   const ref = useRef(null);
   const scroll = (scrollOffset) => {
     ref.current.scrollLeft += scrollOffset;
@@ -117,14 +117,13 @@ const Splash = () => {
       {session
    && (
      <div className="home-main">
-       <div className="alert alert-success" style={{ display: alert === '' ? 'none' : 'flex', justifyContent: 'space-between' }}>
-       <p>{alert}</p>
-       <div className="close-icon-wrapper" onClick={closeAlert} onKeyDown={closeAlert} aria-hidden="true">
-         <img src={CLOSE} alt="close-icon" className="close-icon" />
-       </div>
-     </div>
        <div className="nav-element">
-         <div className="message-alert"><p>{alert}</p></div>
+         <div className="alert alert-success" style={{ display: alert === '' ? 'none' : 'flex', justifyContent: 'space-between' }}>
+           <p>{alert}</p>
+           <div className="close-icon-wrapper" onClick={closeAlert} onKeyDown={closeAlert} aria-hidden="true">
+             <img src={CLOSE} alt="close-icon" className="close-icon" />
+           </div>
+         </div>
          <Nav bg="light" className="main-nav flex-column">
            <Nav.Link href="/">All Cars</Nav.Link>
            <Nav.Link href="/Reserve">Reserve</Nav.Link>
