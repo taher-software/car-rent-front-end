@@ -51,21 +51,20 @@ const Splash = () => {
          <h3>Please select a car to rent</h3>
          <Row className="scroll-btns">
            <Col>
-             <button className="leftscrollbtn" type="button" onClick={() => scroll(-50)}>&lt;</button>
-             <button className="rightscrollbtn" type="button" onClick={() => scroll(50)}>&gt;</button>
+             <button className="leftscrollbtn" type="button" onClick={() => scroll(-80)}>&lt;</button>
+             <button className="rightscrollbtn" type="button" onClick={() => scroll(80)}>&gt;</button>
            </Col>
          </Row>
          <ul className="cars-list" ref={ref}>
            {cars.map((car) => (
              <li className="car-item" key={car.id}>
-               <a href="/"><img className="car-image" src={car.photo_url} alt="car" width={150} height={150} /></a>
+               <a href="/"><img className="car-image" src={car.photo_url} alt="car" width={180} height={180} /></a>
                <div className="brand-model">
                  <p className="car-brand">{car.brand}</p>
                  -
                  <p className="car-model">{car.model}</p>
                </div>
                <p>{car.model_year}</p>
-               <p className="car-description container-fluid">{car.description}</p>
              </li>
            ))}
 
