@@ -2,34 +2,16 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import Usernamereducer from './Username/reducer/reducer';
-import { currentUserReducer } from './current_user';
+import { currentUserReducer } from './Current_user/current_user';
 import { fetchStorage } from '../helper/localStorage';
 
 const initialSession = fetchStorage('current_user') !== null;
-let initialSessionState = initialSession;
-const checkUser = async () => {
-  let users = [];
-  if (initialSession) {
-    users = await fetch('http://127.0.0.1:3002/api/users')
-      .then((res) => res.json())
-      .then((result) => result.users);
-    console.log(users);
-    const usernames = users.map((user) => user.username);
-    if (!usernames.includes(fetchStorage('current_user'))) {
-      initialSessionState = false;
-    }
-  }
-};
-checkUser();
-
-const sessionReducer = (state = initialSessionState, action) => {
+const sessionReducer = (state = initialSession, action) => {
   switch (action.type) {
     case 'LOGIN':
       return true;
     case 'LOGOUT':
       return false;
-    case 'SIGNUP':
-      return true;
     default:
       return state;
   }

@@ -1,4 +1,4 @@
-import { populateStorage } from '../helper/localStorage';
+import { populateStorage } from '../../helper/localStorage';
 
 export const UPDATE_CURRENT_USER = 'CAR-RENT/CURRENT-USER/UPDATE';
 

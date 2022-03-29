@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { updateCurrentUser } from '../../Redux/current_user';
+import { updateCurrentUser } from '../../Redux/Current_user/current_user';
+import thunkUser from '../../Redux/Username/thunk/thunk';
 import USER from '../../assets/images/user-icon.png';
 import ADRESS from '../../assets/images/adress.png';
 import PHOTO from '../../assets/images/photo-icon.png';
@@ -16,6 +17,7 @@ const Sign = () => {
   let usernames = [];
   const [message, setMessage] = useState('');
   const [operation, setOperation] = useState(location.state.operation);
+  const [disp, setDisplay] = useState('none');
   try {
     usernames = usersData.users.map((user) => user.username);
   } catch {
@@ -90,8 +92,7 @@ const Sign = () => {
     const username = document.querySelector('.username').value;
     if (usernames.includes(username)) {
       setMessage('username is invalid or already taken');
-      const messagewrapper = document.querySelector('.alert');
-      messagewrapper.style.display = 'flex';
+      setDisplay('flex');
       return;
     }
     const city = document.querySelector('.adress').value;
@@ -107,13 +108,13 @@ const Sign = () => {
     });
     const message = result.statusText;
     if (message === 'Created') {
-      dispatch({ type: 'SIGNUP' });
-      dispatch(updateCurrentUser(user));
-      navigate('/', { state: { alert: 'Signed up successfully' } });
+      dispatch(thunkUser());
+      setOperation('in');
+      setDisplay('flex');
+      setMessage('Signed up successfully');
     } else {
       setMessage('Something went wrong!');
-      const messagewrapper = document.querySelector('.alert');
-      messagewrapper.style.display = 'flex';
+      setDisplay('flex');
     }
   };
   const closeAlert = () => {
@@ -135,7 +136,7 @@ const Sign = () => {
           <button type="submit" onClick={signChange} className="switch-btn"> SIGN IN </button>
         </div>
         <div className="sign-form-wrapper">
-          <div className="alert alert-danger " style={{ display: 'none', justifyContent: 'space-between' }}>
+          <div className="alert alert-warning " style={{ display: disp, justifyContent: 'space-between' }}>
             <p>{message}</p>
             <div className="close-icon-wrapper" onClick={closeAlert} onKeyDown={closeAlert} aria-hidden="true">
               <img src={CLOSE} alt="close-icon" className="close-icon" />
@@ -170,7 +171,7 @@ const Sign = () => {
   && (
   <div className="sign-wrapper-in">
     <div className="sign-form-wrapper-in">
-      <div className="alert alert-danger " style={{ display: 'none', justifyContent: 'space-between' }}>
+      <div className="alert alert-warning" style={{ display: disp, justifyContent: 'space-between' }}>
         <p>{message}</p>
         <div className="close-icon-wrapper" onClick={closeAlert} onKeyDown={closeAlert} aria-hidden="true">
           <img src={CLOSE} alt="close-icon" className="close-icon" />
