@@ -1,6 +1,6 @@
 import { loadUsername, failUsername } from '../actions/action';
 
-const fetchUser = () => fetch('http://[::1]:3000/api/users');
+const fetchUser = () => fetch('http://[::1]:3001/api/users');
 
 const thunkUser = () => (dispatch) => {
   fetchUser()

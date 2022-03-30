@@ -1,25 +1,31 @@
-import React, { useEffect, useRef } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import {
+  Route, Routes, NavLink, useLocation,
+} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Col, Nav, Row } from 'react-bootstrap';
 import fetchAllCars from '../../Redux/cars/fetch/fetchcars';
+import Navbar from '../Navbar/Navbar';
+// import MobileHambuger from '../Navbar/mobile';
+import Cars from '../cars/cars';
+import Detail from '../cars/detail';
+import MyReservations from '../Reservations/MyReservations';
+import NewReservation from '../Reservations/NewReserve';
+import NewCar from '../cars/newcar';
 import './splash.css';
 
 const Splash = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => dispatch(fetchAllCars()), []);
+  const cars = useSelector((state) => state.Cars.cars);
   const { state } = useLocation();
   let alert = '';
   if (state) {
     alert = state.alert;
   }
-  const dispatch = useDispatch();
 
-  useEffect(() => dispatch(fetchAllCars()), []);
   const session = useSelector((state) => state.session);
-  const cars = useSelector((state) => state.Cars.cars);
-  const ref = useRef(null);
-  const scroll = (scrollOffset) => {
-    ref.current.scrollLeft += scrollOffset;
-  };
+
   return (
     <>
       {!session
@@ -36,40 +42,17 @@ const Splash = () => {
       {session
    && (
      <div className="home-main">
-       <div className="nav-element">
+       <div className="nav-element flex-column justify-content-between">
          <div className="message-alert"><p>{alert}</p></div>
-         <Nav bg="light" className="main-nav flex-column">
-           <Nav.Link href="/">All Cars</Nav.Link>
-           <Nav.Link href="/Reserve">Reserve</Nav.Link>
-           <Nav.Link href="/Myreservations">My Reservations</Nav.Link>
-           <Nav.Link href="/NewCar">Add a Car</Nav.Link>
-           <Nav.Link>Delete a Car</Nav.Link>
-         </Nav>
+         <Navbar />
        </div>
-       <div className="cars-element">
-         <h2>Our List Of Cars</h2>
-         <h3>Please select a car to rent</h3>
-         <Row className="scroll-btns">
-           <Col>
-             <button className="leftscrollbtn" type="button" onClick={() => scroll(-80)}>&lt;</button>
-             <button className="rightscrollbtn" type="button" onClick={() => scroll(80)}>&gt;</button>
-           </Col>
-         </Row>
-         <ul className="cars-list" ref={ref}>
-           {cars.map((car) => (
-             <li className="car-item" key={car.id}>
-               <a href="/"><img className="car-image" src={car.photo_url} alt="car" width={180} height={180} /></a>
-               <div className="brand-model">
-                 <p className="car-brand">{car.brand}</p>
-                 -
-                 <p className="car-model">{car.model}</p>
-               </div>
-               <p>{car.model_year}</p>
-             </li>
-           ))}
-
-         </ul>
-       </div>
+       <Routes>
+         <Route path="/" element={<Cars cars={cars} />} />
+         <Route path="/Details" element={<Detail />} />
+         <Route path="/Myreservations" element={<MyReservations />} />
+         <Route path="/Newcar" element={<NewCar />} />
+         <Route path="/Reserve" element={<NewReservation />} />
+       </Routes>
      </div>
    )}
     </>
