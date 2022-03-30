@@ -1,6 +1,6 @@
 import { loadUsername, failUsername } from '../actions/action';
 
-const fetchUser = () => fetch('https://agile-sands-67161.herokuapp.com/api/users');
+const fetchUser = () => fetch('http://[::1]:3002/api/users');
 
 const thunkUser = () => (dispatch) => {
   fetchUser()

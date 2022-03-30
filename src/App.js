@@ -1,6 +1,7 @@
 import {
   BrowserRouter as Router, Route, Routes,
 } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import thunkUser from './Redux/Username/thunk/thunk';
@@ -9,7 +10,7 @@ import Signin from './components/registeration/Signin';
 import Signup from './components/registeration/Signup';
 import Detail from './components/cars/detail';
 import MyReservations from './components/Reservations/MyReservations';
-import Reserve from './components/Reservations/reserve';
+import NewReservation from './components/Reservations/NewReserve';
 import NewCar from './components/cars/newcar';
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
           <Route path="/Details" element={<Detail />} />
           <Route path="/Myreservations" element={<MyReservations />} />
           <Route path="/Newcar" element={<NewCar />} />
-          <Route path="/Reserve" element={<Reserve />} />
+          <Route path="/Reserve" element={<NewReservation />} />
         </Routes>
       </Router>
     </div>
