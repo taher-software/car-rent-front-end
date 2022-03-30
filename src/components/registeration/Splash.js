@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Col, Nav, Row } from 'react-bootstrap';
 import LOGO from '../../assets/images/logo.png';
@@ -7,6 +7,7 @@ import CLOSE from '../../assets/images/close.png';
 import './splash.css';
 
 const Splash = () => {
+  const navigate = useNavigate();
   const { state } = useLocation();
   let alert = '';
   if (state) {
@@ -66,6 +67,14 @@ const Splash = () => {
   const closeAlert = () => {
     const alert = document.querySelector('.alert');
     alert.style.display = 'none';
+  };
+  const showItem = (e) => {
+    let parent = e.target;
+    while (parent.className !== 'car-item') {
+      parent = parent.parentNode;
+    }
+    const selectedCar = cars.filter((car) => car.id === parseInt(parent.id, 10));
+    navigate('/Details');
   };
   useEffect(() => adjustSize(), []);
   useEffect(() => setInterval(animation, 2000));
@@ -143,8 +152,8 @@ const Splash = () => {
          </Row>
          <ul className="cars-list" ref={ref}>
            {cars.map((car) => (
-             <li className="car-item" key={car.id}>
-               <a href="/"><img className="car-image" src={car.photo_url} alt="car" width={180} height={180} /></a>
+             <li className="car-item" id={car.id} key={car.id} onClick={(e) => showItem(e)} onKeyDown={(e) => showItem(e)} aria-hidden="true">
+               <img className="car-image" src={car.photo_url} alt="car" width={180} height={180} />
                <div className="brand-model">
                  <p className="car-brand">{car.brand}</p>
                  -
