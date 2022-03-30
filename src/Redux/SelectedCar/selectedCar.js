@@ -4,8 +4,8 @@ export const selectCar = (payload) => ({
   payload,
 });
 export const selectCarReducer = (state = {}, action) => {
-  switch(action.type) {
-    case SELECT: 
+  switch (action.type) {
+    case SELECT:
       return action.payload;
     default:
       return state;

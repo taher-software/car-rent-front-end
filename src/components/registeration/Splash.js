@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Col, Nav, Row } from 'react-bootstrap';
+import { selectCar } from '../../Redux/SelectedCar/selectedCar';
 import LOGO from '../../assets/images/logo.png';
 import CLOSE from '../../assets/images/close.png';
 import './splash.css';
@@ -9,6 +10,7 @@ import './splash.css';
 const Splash = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
+  const dispatch = useDispatch();
   let alert = '';
   if (state) {
     alert = state.alert;
@@ -73,7 +75,8 @@ const Splash = () => {
     while (parent.className !== 'car-item') {
       parent = parent.parentNode;
     }
-    const selectedCar = cars.filter((car) => car.id === parseInt(parent.id, 10));
+    const selectedCar = cars.filter((car) => car.id === parseInt(parent.id, 10))[0];
+    dispatch(selectCar(selectedCar));
     navigate('/Details');
   };
   useEffect(() => adjustSize(), []);
