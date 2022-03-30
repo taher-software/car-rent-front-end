@@ -106,6 +106,7 @@
   .car-image {
     height: 80px;
     width: 80px;
+    border-radius: 50%;
   }
 
   .cars-list {
@@ -117,11 +118,29 @@
     margin-top: 10%;
     display: flex;
     flex-direction: row;
+    width: 100%;
+    border: 1px solid blueviolet;
+    box-shadow: 2px 2px 2px 5px rgb(180, 180, 180);
   }
 
   .brand-model {
     display: flex;
     flex-direction: row;
+    border-left: 1px solid skyblue;
+    font-size: 2.6vh;
+    width: 50%;
+    margin-left: 5%;
+  }
+
+  .car-brand {
+    margin-left: 5%;
+  }
+
+  .car-model-year {
+    position: relative;
+    right: 50%;
+    margin-top: 12%;
+    margin-left: 3%;
   }
 
   .hamburger-btn {
@@ -133,5 +152,9 @@
   .close-btn {
     display: none;
     z-index: 1;
+  }
+
+  .cars-element {
+    text-align: center;
   }
 }

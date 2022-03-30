@@ -42,8 +42,8 @@ const Splash = () => {
          <div className="message-alert"><p>{alert}</p></div>
        </div>
        <div className="cars-element">
-         <h2>Our List Of Cars</h2>
-         <h3>Please select a car to rent</h3>
+         <h2 className="title1">Our List Of Cars</h2>
+         <h3 className="title2">Please select a car to rent</h3>
          <Row className="scroll-btns">
            <Col>
              <button className="leftscrollbtn" type="button" onClick={() => scroll(-80)}>&lt;</button>
@@ -59,7 +59,7 @@ const Splash = () => {
                  -
                  <p className="car-model">{car.model}</p>
                </div>
-               <p>{car.model_year}</p>
+               <p className="car-model-year">{car.model_year}</p>
              </li>
            ))}
 

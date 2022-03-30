@@ -10,7 +10,7 @@
     border: 1px solid lightseagreen;
 }
 
-.user-name-pro:active {
+.user-name-pro:enabled {
     background-color: #e3f2fd;
     color: seagreen;
     border: 1px solid lightseagreen;
@@ -29,4 +29,36 @@
     color: seagreen;
     font-style: italic;
     margin-right: 5%;
+}
+
+@media screen and (max-width: 720px) {
+    .user-name-pro {
+        background-color: #e3f2fd;
+        border: 1px solid transparent;
+        color: seagreen;
+        
+        
+    }
+    
+    .user-name-pro:hover {
+        background-color: #e3f2fd;
+        color: seagreen;
+        border: 1px solid lightseagreen;
+    }
+ 
+    .user-dropdown {
+        position: relative;
+    }
+    
+    .profile-photo {
+        position: relative;
+        margin-left: 1%;
+    }
+    .dateandtime {
+        display: none;
+    }
+
+    .title1 {
+      align-self: center;
+    }
 }
