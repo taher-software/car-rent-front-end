@@ -13,7 +13,6 @@ import Reserve from './components/Reservations/reserve';
 import NewCar from './components/cars/newcar';
 import fetchAllCars from './Redux/cars/fetch/fetchcars';
 import DOWN from './assets/images/down.png';
-import LIST from './assets/images/liste.png';
 import './app.css';
 
 function App() {
@@ -74,17 +73,20 @@ function App() {
           padding: '5% 0',
         }}
       >
-        <img
-          src={LIST}
-          alt="menu-icon"
-          className="menu-icon"
-          width="10%"
-          style={{
-            border: '1px solid rgb(152, 191, 25)',
-            height: '40px',
-            marginLeft: '2.5%',
-          }}
-        />
+
+        <div className="dropdown menu-icon">
+          <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown button
+          </button>
+          <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+            <li><a className="dropdown-item active" href="/">All Cars</a></li>
+            <li><a className="dropdown-item" href="/Reserve">Reserve</a></li>
+            <li><a className="dropdown-item" href="/Myreservation">My Reservations</a></li>
+            <li><hr className="dropdown-divider" /></li>
+            <li><a className="dropdown-item" href="/NewCar">Add a Car</a></li>
+            <li className="dropdown-item">Delete a Car</li>
+          </ul>
+        </div>
         <div
           className="profile-icon"
           style={{

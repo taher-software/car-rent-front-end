@@ -54,4 +54,34 @@ hr {
     left: 67.5%;
     top : 6%;
   }
+
+  .btn-secondary {
+    background-color: rgb(152, 191, 25);
+    border: none;
+    outline: none;
+  }
+
+  .btn-secondary:focus {
+    background-color: rgb(152, 191, 25);
+    border: none;
+    outline: none;
+  }
+
+  .btn-secondary:hover {
+    background-color: rgb(152, 191, 25);
+    border: none;
+    outline: none;
+  }
+
+  .dropdown-menu-dark {
+    background-color: white;
+    color: black;
+  }
+
+  .dropdown-item {
+    color: black;
+  }
+  .dropdown-menu-dark .dropdown-item {
+    color: black;
+  }
 }
