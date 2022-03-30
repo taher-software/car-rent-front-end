@@ -9,7 +9,7 @@
 }
 
 .menu-bars {
- display: none;
+  display: none;
 }
 
 .nav-element {
@@ -17,7 +17,7 @@
   display: flex;
   width: 180px;
   height: 100vh;
-  background-color: #F3F6F5;
+  background-color: #f3f6f5;
 }
 
 .message-alert {
@@ -30,41 +30,40 @@
   padding: 0;
   justify-content: space-around;
   padding-bottom: 20px;
-
 }
 
 a.logo {
-text-decoration: none;
-color:#000;
-font-weight: 700;
-margin: 10px 0 0px 18px
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+  margin: 10px 0 0 18px;
 }
 
 .justify-self {
   justify-self: flex-end;
 }
 
-.nav-element ul li img{
+.nav-element ul li img {
   width: auto;
   height: 18px;
-  filter: invert(35%) sepia(0%) saturate(0%) hue-rotate(146deg) brightness(95%) contrast(91%)
+  filter: invert(35%) sepia(0%) saturate(0%) hue-rotate(146deg) brightness(95%) contrast(91%);
 }
 
 .main-nav a {
- color: #000;
- font-weight: 600;
- padding: 18px;
- text-decoration: none;
- font-size: 17px;
+  color: #000;
+  font-weight: 600;
+  padding: 18px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
 .main-nav a:hover {
- background-color: #97BF0F;
- color: #fff;
+  background-color: #97bf0f;
+  color: #fff;
 }
 
 .active-link {
-  background-color: #97BF0F !important;
+  background-color: #97bf0f !important;
   color: #fff !important;
 }
 
@@ -128,15 +127,15 @@ margin: 10px 0 0px 18px
   border: 1px solid transparent;
 }
 
-@media screen and (max-width: 700px){
-  .menu-bars{
+@media screen and (max-width: 700px) {
+  .menu-bars {
     position: fixed;
     display: inline-block;
   }
 
   .nav-element {
-   display: fixed;
-   left: -180px;
+    position: fixed;
+    left: -180px;
   }
 
   .cars-element {
