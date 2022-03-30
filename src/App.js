@@ -40,7 +40,7 @@ function App() {
     while (target.className !== 'profile-icon') {
       target = target.parentNode;
     }
-    const signOut = document.querySelector('.sign-out-wrapper');
+    let signOut = document.querySelector('.sign-out-wrapper');
     if (!signOut) {
       const div = document.createElement('div');
       div.className = 'sign-out-wrapper';
@@ -50,12 +50,23 @@ function App() {
       wrapper.zIndex = 1;
       div.zIndex = 999;
     }
+    signOut = document.querySelector('.sign-out-wrapper');
+    signOut.style.display = 'flex';
     const leaveBtn = document.querySelector('.sign-out');
     leaveBtn.addEventListener('click', () => {
       localStorage.clear();
       dispatch({
         type: 'LOGOUT',
       });
+    });
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.profile-icon')) {
+        return;
+      }
+      if (e.target.closest('.sign-out-wrapper')) {
+        return;
+      }
+      signOut.style.display = 'none';
     });
   };
   useEffect(() => dispatch(thunkUser()), []);
