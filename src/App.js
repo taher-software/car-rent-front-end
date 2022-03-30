@@ -19,7 +19,8 @@ function App() {
   const dispatch = useDispatch();
   const session = useSelector((state) => state.session);
   useEffect(() => dispatch(thunkUser()), []);
-
+  const current = new Date();
+  const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
   return (
     <div>
       {!session
@@ -29,8 +30,8 @@ function App() {
       {session
    && (
    <nav className="header navbar navbar-light" style={{ backgroundColor: '#e3f2fd' }}>
-     <a className="navbar-brand" href="/#">
-       <img src="Userimage" width="30" height="30" className="d-inline-block align-top" alt="..." />
+     <a className="profile-photo navbar-brand" href="/#">
+       <img src="Userimage" width="30" height="30" className="d-inline-block align-top" alt="." />
      </a>
      <Dropdown className="user-dropdown">
        Logged in as:
@@ -42,7 +43,7 @@ function App() {
          <Dropdown.Item href="#/action-2">Sign out</Dropdown.Item>
        </Dropdown.Menu>
      </Dropdown>
-
+     <h3 className="dateandtime">{date}</h3>
    </nav>
    )}
       <Router>
