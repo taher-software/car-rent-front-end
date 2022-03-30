@@ -14,6 +14,7 @@ const Navbar = () => (
       <NavLink to="/Reserve" className={(navData) => (navData.isActive ? 'active-link' : '')}>Reserve</NavLink>
       <NavLink to="/Myreservations" className={(navData) => (navData.isActive ? 'active-link' : '')}>My Reservations</NavLink>
       <NavLink to="/NewCar" className={(navData) => (navData.isActive ? 'active-link' : '')}>Add a Car</NavLink>
+      <NavLink to="/">Delete Car</NavLink>
     </div>
     <ul className="d-flex social-icon">
       <li><img src={github} alt="github" /></li>
