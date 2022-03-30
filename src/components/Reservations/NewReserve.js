@@ -56,7 +56,7 @@ const NewReservation = () => {
   const [selectDate, setSelectedDate] = useState(TodayDate());
 
   return (
-    <>
+    <div>
       <h1>MyReservations page</h1>
       <form>
         <div className="reserve-form">
@@ -95,7 +95,7 @@ const NewReservation = () => {
           <button type="button">Reserve</button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 
