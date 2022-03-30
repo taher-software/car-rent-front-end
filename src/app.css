@@ -1,0 +1,57 @@
+.sign-out-wrapper {
+  background: white;
+  border: 1px solid rgb(224, 224, 224);
+  border-radius: 10px;
+  display: 'flex';
+  flex-direction: column;
+  width: 10%;
+  position: absolute;
+  left: 87.5%;
+  top: 7.5%;
+  z-index: 999;
+}
+
+.sign-in-as {
+  margin-left: 5%;
+  font-family: sans-serif;
+  font-size: medium;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 0;
+}
+
+.user-name {
+  margin-left: 5%;
+  font-size: medium;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+hr {
+  background-color: rgb(224, 224, 224);
+  margin-top: 0;
+  width: 100%;
+  margin-left: 0;
+  height: 0;
+  border: none;
+  border-top: 2px solid rgb(224, 224, 224);
+}
+
+.sign-out {
+  margin-left: 5%;
+  font-family: sans-serif;
+  font-size: medium;
+  font-family: 'Times New Roman', Times, serif;
+  opacity: 0.6;
+  text-decoration: none;
+  color: black;
+}
+
+@media screen and (max-width: 1000px){
+  .sign-out-wrapper {
+    width: 30%;
+    left: 67.5%;
+    top : 6%;
+  }
+}

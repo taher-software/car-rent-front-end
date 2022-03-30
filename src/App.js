@@ -14,6 +14,7 @@ import NewCar from './components/cars/newcar';
 import fetchAllCars from './Redux/cars/fetch/fetchcars';
 import DOWN from './assets/images/down.png';
 import LIST from './assets/images/liste.png';
+import './app.css';
 
 function App() {
   const dispatch = useDispatch();
@@ -30,15 +31,39 @@ function App() {
     const w = window.innerWidth;
     if (w >= 1024) {
       header.style.padding = '1.25% 0';
-      menu.style.width = '3%';
+      menu.style.display = 'none';
+      header.style.justifyContent = 'flex-end';
       profile.style.width = '4%';
     }
+  };
+  const profileMenu = (e) => {
+    let { target } = e;
+    while (target.className !== 'profile-icon') {
+      target = target.parentNode;
+    }
+    const signOut = document.querySelector('.sign-out-wrapper');
+    if (!signOut) {
+      const div = document.createElement('div');
+      div.className = 'sign-out-wrapper';
+      div.innerHTML = `<p class='sign-in-as'> Signed in as </p><p class='user-name'>${currentUser.username}</p><hr/><a href="/" class="sign-out">Sign out</a>`;
+      const wrapper = document.querySelector('.wrapper-app');
+      wrapper.appendChild(div);
+      wrapper.zIndex = 1;
+      div.zIndex = 999;
+    }
+    const leaveBtn = document.querySelector('.sign-out');
+    leaveBtn.addEventListener('click', () => {
+      localStorage.clear();
+      dispatch({
+        type: 'LOGOUT',
+      });
+    });
   };
   useEffect(() => dispatch(thunkUser()), []);
   useEffect(() => dispatch(fetchAllCars()), []);
   useEffect(() => adjustSize());
   return (
-    <div>
+    <div className="wrapper-app">
       <header
         className="header"
         style={{
@@ -68,6 +93,9 @@ function App() {
             marginRight: '2.5%',
             width: '10%',
           }}
+          onClick={profileMenu}
+          onKeyDown={profileMenu}
+          aria-hidden="true"
         >
           <img
             src={userPhoto}
