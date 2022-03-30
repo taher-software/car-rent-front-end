@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import IconButton from '@mui/material/IconButton';
 import { useSelector, useDispatch } from 'react-redux';
-import { Col, Nav, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import fetchAllCars from '../../Redux/cars/fetch/fetchcars';
 import './splash.css';
 
@@ -21,17 +20,8 @@ const Splash = () => {
   const scroll = (scrollOffset) => {
     ref.current.scrollLeft += scrollOffset;
   };
-  const menutoggle = () => {
-    const x = document.querySelector('.main-nav');
-    const y = document.querySelector('.hamburger-btn');
-    if (x.style.display === 'flex') {
-      x.style.display = 'none';
-      y.style.color = 'black';
-    } else {
-      x.style.display = 'flex';
-      y.style.color = 'white';
-    }
-  };
+  console.log(session);
+
   return (
     <>
       {!session
@@ -50,15 +40,7 @@ const Splash = () => {
      <div className="home-main">
        <div className="nav-element">
          <div className="message-alert"><p>{alert}</p></div>
-         <Nav bg="light" className="main-nav flex-column">
-           <Nav.Link href="/">All Cars</Nav.Link>
-           <Nav.Link href="/Reserve">Reserve</Nav.Link>
-           <Nav.Link href="/Myreservations">My Reservations</Nav.Link>
-           <Nav.Link href="/NewCar">Add a Car</Nav.Link>
-           <Nav.Link>Delete a Car</Nav.Link>
-         </Nav>
        </div>
-       <IconButton type="button" onClick={menutoggle} onKeyDown={menutoggle} style={{ float: 'right' }}><i className="hamburger-btn bi bi-list" style={{ float: 'right', fontSize: '1.5rem' }} /></IconButton>
        <div className="cars-element">
          <h2>Our List Of Cars</h2>
          <h3>Please select a car to rent</h3>

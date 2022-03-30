@@ -6,6 +6,7 @@
 
 @media screen and (min-width: 720px) {
 
+
 .hamburger-btn {
   display: none;
 }
@@ -16,23 +17,16 @@
   width: 100%;
 }
 
-.nav-element {
-  width: 20%;
-  border: 2px solid lightblue;
-}
 
-.main-nav {
-  margin-top: 70%;
-}
 
 .cars-list {
-  margin-top: 5%;
+  margin-top: 3%;
   overflow-x: hidden;
   white-space: nowrap;
-
-  /* border: 1px solid lightblue; */
+  border: 1px solid aqua;
+  box-shadow: 1px 1px 10px 15px lightgrey;
   height: 300px;
-  margin-left: 10%;
+  margin-left: 6%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
