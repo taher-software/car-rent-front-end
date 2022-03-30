@@ -141,7 +141,6 @@ a.logo {
   .cars-element {
     width: 100%;
   }
-
 }
 
 body { margin: 0; }
@@ -175,7 +174,7 @@ body { margin: 0; }
   text-align: center;
 }
 
-.registration-links{
+.registration-links {
   position: relative;
   width: 80%;
   margin-left: 10%;
@@ -191,12 +190,12 @@ body { margin: 0; }
   padding: 10px 0;
   border-radius: 40px;
   font-weight: 600;
-  font-family: Montserrat,sans-serif;
+  font-family: Montserrat, sans-serif;
   font-size: 12px;
 }
 
 .up {
-  background-color: linear-gradient(rgb(52, 155, 154), rgb(98, 200, 152));
+  /* background-color: linear-gradient(rgb(52, 155, 154), rgb(98, 200, 152), rgb(98, 200, 152)); */
   color: white;
   margin-bottom: 10px;
 }
