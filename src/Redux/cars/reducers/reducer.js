@@ -1,6 +1,6 @@
 import { GET_CARS_DATA, FAIL_CARS_DATA } from '../actions/actions';
 
-const intialState = [];
+const intialState = {};
 
 const Carsreducer = (state = intialState, action) => {
   switch (action.type) {

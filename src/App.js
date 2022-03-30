@@ -6,8 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import thunkUser from './Redux/Username/thunk/thunk';
 import Splash from './components/registeration/Splash';
-import Signin from './components/registeration/Signin';
-import Signup from './components/registeration/Signup';
+import Sign from './components/registeration/Sign';
 
 function App() {
   const dispatch = useDispatch();
@@ -18,8 +17,7 @@ function App() {
       <Router>
         <Splash />
         <Routes>
-          <Route path="/Signin" element={<Signin />} />
-          <Route path="/Signup" element={<Signup />} />
+          <Route path="/Sign" element={<Sign />} />
         </Routes>
       </Router>
     </div>

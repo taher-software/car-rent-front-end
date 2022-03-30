@@ -127,7 +127,7 @@ a.logo {
   border: 1px solid transparent;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 720px) {
   .menu-bars {
     position: fixed;
     display: inline-block;
@@ -141,4 +141,137 @@ a.logo {
   .cars-element {
     width: 100%;
   }
+
 }
+
+body { margin: 0; }
+
+.splash-wrapper {
+  width: 100%;
+  background: linear-gradient(rgb(52, 155, 154), rgb(98, 200, 152));
+}
+
+.logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin-left: 15%;
+  border: 3px solid white;
+  border-radius: 50%;
+  position: relative;
+}
+
+.logo-img {
+  width: 40%;
+  margin-left: 30%;
+}
+
+.logo-text {
+  width: 100%;
+  color: white;
+  font-weight: 600;
+  font-size: 2rem;
+  margin-top: 0;
+  text-align: center;
+}
+
+.registration-links{
+  position: relative;
+  width: 80%;
+  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sign {
+  width: 100%;
+  text-decoration: none;
+  border: 1px solid white;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 40px;
+  font-weight: 600;
+  font-family: Montserrat,sans-serif;
+  font-size: 12px;
+}
+
+.up {
+  background-color: linear-gradient(rgb(52, 155, 154), rgb(98, 200, 152));
+  color: white;
+  margin-bottom: 10px;
+}
+
+.in {
+  background-color: white;
+  color: rgb(52, 155, 154);
+}
+
+.app-inf {
+  display: none;
+}
+
+/* @media (max-width: 719px) and (min-width: 1024px) {
+  .app-presentation {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 1fr;
+  }
+
+  .logo-wrapper {
+    grid-column: 2 / span 1;
+    position: static;
+    grid-row: 1 / span 1;
+  }
+  .app-inf {
+    grid-column: 1 / span 1;
+    display: block;
+    grid-row: 1 / span 1;
+    align-self: center;
+  }
+
+  .logo-img {
+    width: 70%;
+    margin-left: 15%;
+  }
+
+  .app-name {
+    width: 80%;
+    color: white;
+    margin-left: 10%;
+    margin-bottom: 0;
+  }
+
+  hr {
+    width: 80%;
+    margin-left: 10%;
+    background-color: white;
+    color: white;
+    margin-top: 0;
+  }
+
+  .app-description {
+    width: 80%;
+    margin-left: 10%;
+    text-align: justify;
+    color: #463c3c;
+    font-weight: 550;
+    font-size: 16px;
+  }
+
+  .registration-links {
+    position: relative;
+    flex-direction: row;
+    width: 32%;
+    margin-left: 4%;
+    top: -40px;
+  }
+  .sign {
+    width: 48,75%;
+  }
+
+  .up {
+    margin-bottom: 0;
+    margin-right: 2.5%;
+  }
+
+} */
