@@ -9,7 +9,7 @@
 }
 
 .menu-bars {
- display: none;
+  display: none;
 }
 
 .nav-element {
@@ -17,7 +17,7 @@
   display: flex;
   width: 180px;
   height: 100vh;
-  background-color: #F3F6F5;
+  background-color: #f3f6f5;
 }
 
 .message-alert {
@@ -30,43 +30,43 @@
   padding: 0;
   justify-content: space-around;
   padding-bottom: 20px;
-
 }
 
 a.logo {
-text-decoration: none;
-color:#000;
-font-weight: 700;
-margin: 10px 0 0px 18px
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+  margin: 10px 0 0 18px;
 }
 
 .justify-self {
   justify-self: flex-end;
 }
 
-.nav-element ul li img{
+.nav-element ul li img {
   width: auto;
   height: 18px;
-  filter: invert(35%) sepia(0%) saturate(0%) hue-rotate(146deg) brightness(95%) contrast(91%)
+  filter: invert(35%) sepia(0%) saturate(0%) hue-rotate(146deg) brightness(95%) contrast(91%);
 }
 
 .main-nav a {
- color: #000;
- font-weight: 600;
- padding: 18px;
- text-decoration: none;
- font-size: 17px;
+  color: #000;
+  font-weight: 600;
+  padding: 18px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
 .main-nav a:hover {
- background-color: #97BF0F;
- color: #fff;
+  background-color: #97bf0f;
+  color: #fff;
 }
 
 .active-link {
-  background-color: #97BF0F !important;
+  background-color: #97bf0f !important;
   color: #fff !important;
 }
+
 .nav-element {
   width: 20%;
   border: 2px solid lightblue;
@@ -136,6 +136,7 @@ margin: 10px 0 0px 18px
   border: 1px solid transparent;
 }
 body { margin: 0; }
+
 .splash-wrapper {
   width: 100%;
   background: linear-gradient(rgb(52, 155, 154), rgb(98, 200, 152));
@@ -165,7 +166,7 @@ body { margin: 0; }
   text-align: center;
 }
 
-.registration-links{
+.registration-links {
   position: relative;
   width: 80%;
   margin-left: 10%;
@@ -181,7 +182,7 @@ body { margin: 0; }
   padding: 10px 0;
   border-radius: 40px;
   font-weight: 600;
-  font-family: Montserrat,sans-serif;
+  font-family: Montserrat, sans-serif;
   font-size: 12px;
 }
 
@@ -212,6 +213,7 @@ body { margin: 0; }
     position: static;
     grid-row: 1 / span 1;
   }
+
   .app-inf {
     grid-column: 1 / span 1;
     display: block;
@@ -255,13 +257,13 @@ body { margin: 0; }
     margin-left: 4%;
     top: -40px;
   }
+
   .sign {
-    width: 48,75%;
+    width: 48, 75%;
   }
 
   .up {
     margin-bottom: 0;
     margin-right: 2.5%;
   }
-
 }
