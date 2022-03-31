@@ -89,7 +89,6 @@ const NewReservation = () => {
     <>
       <div className="new-reserve-container">
         <h1>MyReservations page</h1>
-        <p>{Alertmessage}</p>
         <form>
           <div className="reserve-form">
             <div className="city-style">
@@ -102,6 +101,7 @@ const NewReservation = () => {
                 <option>---Select City---</option>
                 {cities.map((city) => <option key={city.id}>{city.name}</option>)}
               </select>
+              <p className="alert-reserve">{Alertmessage}</p>
             </div>
             <div className="date-style">
               <DropdownDate

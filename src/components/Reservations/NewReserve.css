@@ -6,7 +6,7 @@ form {
   display: flex;
   flex-direction: column;
   background-color: #97bf0f20;
-  height: 100%
+  height: 100%;
 }
 
 .reserve-form {
@@ -29,6 +29,11 @@ form {
   margin-right: 20px;
 }
 
+div select {
+  display: flex;
+  flex-direction: row;
+}
+
 .city-style select {
   padding: 10px;
   border-radius: 30px;
@@ -38,16 +43,6 @@ form {
   background-color: #97bf0f;
 }
 
-/* .city-style select:hover {
-  color: rgb(53, 53, 148);
-  background-color: red;
-} */
-
-div select {
-  display: flex;
-  flex-direction: row;
-}
-
 #dropdown-date {
   display: flex;
 }
@@ -55,32 +50,34 @@ div select {
 #dropdown-date select {
   padding: 10px;
   border-radius: 30px;
-  color: blue;
+  color: #fff;
+  background-color: #97bf0f;
   margin-left: 5px;
-  background-color: red;
 }
 
-#dropdown-date select:hover {
-  color: rgb(53, 53, 148);
-  background-color: red;
+.alert-reserve {
+  margin-bottom: 0;
+  margin-top: 20px;
+  text-align: center;
+  color: rgb(179, 71, 71);
 }
 
 @media screen and (max-width: 720px) {
-
-  .reserve-form{
+  .reserve-form {
     flex-direction: column;
     gap: 40px;
     justify-content: center;
   }
 
-  .reserve-form :nth-child(1){
+  .reserve-form :nth-child(1) {
     order: 2;
   }
 
-  .reserve-form :nth-child(2){
+  .reserve-form :nth-child(2) {
     order: 1;
   }
-  .reserve-form :nth-child(3){
+
+  .reserve-form :nth-child(3) {
     order: 3;
   }
 
