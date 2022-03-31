@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import NavigationPanel from './navLink';
 import ARROW from '../../assets/images/arrow.png';
 import './detail.css';
@@ -10,16 +11,26 @@ import FORWARD from '../../assets/images/forward.png';
 
 const Detail = () => {
   const item = useSelector((state) => state.current_car);
-  console.log(item);
   const adjustSize = () => {
     const nav = document.querySelector('.nav-wrapper');
     const h = window.innerHeight;
     nav.style.height = `${h}px`;
   };
+  const deletHandler = async () => {
+    const carId = item.id;
+    const url = `http://127.0.0.1:3002/api/cars/${carId}`;
+    const retour = await fetch(url, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+      },
+    });
+    console.log(retour);
+  };
   useEffect(() => adjustSize(), []);
   return (
     <div className="detail-wrapper">
-      <NavigationPanel />
+      <NavigationPanel deleteHandler={deletHandler} />
       <div className="item-data-wrapper">
         <div className="datas-inf">
           <img src={item.photo_url} alt="item" className="item-img" />
@@ -62,11 +73,11 @@ const Detail = () => {
           </div>
         </div>
         <div className="command-part">
-          <a href="/Reserve" className="reserve-btn">
+          <Link to="/Reserve" className="reserve-btn">
             <img src={PARAM} className="btn-icons" alt="param-icon" />
             <p className="reserve-txt">Reserve</p>
             <img src={FORWARD} className="btn-icons" alt="forward-icon" />
-          </a>
+          </Link>
           <img src={ROTATE} alt="rotate-icon" className="rotate-icon" />
           <img src={BACK} alt="back-icon" className="back-icon" />
         </div>

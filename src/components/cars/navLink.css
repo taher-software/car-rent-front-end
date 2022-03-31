@@ -48,3 +48,8 @@
   color: white;
   opacity: 1;
 }
+
+.delete {
+  background-color: white;
+  border: none;
+}
