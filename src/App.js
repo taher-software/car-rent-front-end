@@ -15,7 +15,7 @@ import fetchAllCars from './Redux/cars/fetch/fetchcars';
 import DOWN from './assets/images/down.png';
 import './app.css';
 
-function App() {
+const App = () => {
   const dispatch = useDispatch();
   const session = useSelector((state) => state.session);
   const currentUser = useSelector((state) => state.current_user);
@@ -136,6 +136,6 @@ function App() {
       </Router>
     </div>
   );
-}
+};
 
 export default App;
