@@ -2,20 +2,27 @@ form {
   width: 100%;
 }
 
+.new-reserve-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #97bf0f20;
+  height: 100%
+}
+
 .reserve-form {
   display: flex;
   justify-content: space-around;
   width: 100%;
   align-items: center;
-  background-color: red;
   height: 100vh;
 }
 
 .reserve-form button {
   padding: 10px;
   border-radius: 30px;
-  color: red;
-  background-color: blue;
+  color: #97bf0f;
+  background-color: #fff;
+  border-color: #97bf0f;
 }
 
 .city-style {
@@ -27,14 +34,14 @@ form {
   border-radius: 30px;
   display: flex;
   justify-content: space-around;
-  color: blue;
-  background-color: red;
+  color: #fff;
+  background-color: #97bf0f;
 }
 
-.city-style select:hover {
+/* .city-style select:hover {
   color: rgb(53, 53, 148);
   background-color: red;
-}
+} */
 
 div select {
   display: flex;
@@ -56,4 +63,28 @@ div select {
 #dropdown-date select:hover {
   color: rgb(53, 53, 148);
   background-color: red;
+}
+
+@media screen and (max-width: 720px) {
+
+  .reserve-form{
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+  }
+
+  .reserve-form :nth-child(1){
+    order: 2;
+  }
+
+  .reserve-form :nth-child(2){
+    order: 1;
+  }
+  .reserve-form :nth-child(3){
+    order: 3;
+  }
+
+  .city-style {
+    margin-right: 0;
+  }
 }
