@@ -164,7 +164,7 @@ const Splash = () => {
                  -
                  <p className="car-model">{car.model}</p>
                </div>
-               <p>{car.model_year}</p>
+               <p className="model-year">{car.model_year}</p>
              </li>
            ))}
 

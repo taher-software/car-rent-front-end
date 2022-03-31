@@ -1,6 +1,6 @@
 import { loadCars, failCars } from '../actions/actions';
 
-const fetchCars = () => fetch('http://127.0.0.1:3002/api/cars');
+const fetchCars = () => fetch('http://[::1]:3000/api/cars');
 
 const fetchAllCars = () => (dispatch) => {
   fetchCars()
