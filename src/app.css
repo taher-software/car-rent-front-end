@@ -2,7 +2,7 @@
   background: white;
   border: 1px solid rgb(224, 224, 224);
   border-radius: 10px;
-  display: 'flex';
+  display: flex;
   flex-direction: column;
   width: 10%;
   position: absolute;
@@ -48,11 +48,11 @@ hr {
   color: black;
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1000px) {
   .sign-out-wrapper {
     width: 30%;
     left: 67.5%;
-    top : 6%;
+    top: 6%;
   }
 
   .btn-secondary {
@@ -81,6 +81,7 @@ hr {
   .dropdown-item {
     color: black;
   }
+
   .dropdown-menu-dark .dropdown-item {
     color: black;
   }
