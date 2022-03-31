@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 import { Form, Col, Button } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 
 const AddForm = () => {
+    let navigate = useNavigate();
 
-    // const [userId, setUserId] = useState('')
     const [brand, setBrand] = useState('')
     const [model, setModel] = useState('')
     const [photo_url, setPhoto_url] = useState('')
     const [description, setDescription] = useState('')
     const [rent_fee, setRent_fee] = useState('')
-    const [reserved, setReserved] = useState('')
-    const [likes_counter, setLikes_counter] = useState('')
-    const [reservation_counter, setReservation_counter] = useState('')
     const [model_year, setModel_year] = useState('');
+    const [message, setMessage] = useState('');
 
 
     let handleSubmit = async(e) => {
@@ -27,13 +26,15 @@ const AddForm = () => {
                 photoUrl: photo_url,
                 rentFee: rent_fee,
                 modelYear: model_year,
-                reserved: reserved,
-                likes_counter: likes_counter,
-                reservation_counter: reservation_counter
+                description: description
 
             }
+
             let res = await fetch("http://127.0.0.1:3000/api/cars", {
                 method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
                 body: JSON.stringify(car),
             });
             let resJson = await res.json();
@@ -42,8 +43,10 @@ const AddForm = () => {
                 setModel("");
                 setPhoto_url("");
                 setRent_fee("");
-                setModel_fee("");
+                setModel("");
+                setDescription("")
                 setMessage("User created successfully");
+                navigate('/');
             } else {
                 setMessage("Some error occured");
             }
@@ -95,7 +98,7 @@ const AddForm = () => {
         className = "model-year mt-3" /
         >
         <
-        Form.Control placeholder = "Decription"
+        Form.Control placeholder = "Description"
         onChange = {
             (e) => setDescription(e.target.value)
         }
@@ -123,36 +126,6 @@ const AddForm = () => {
         type = "text"
         id = "model "
         className = "model mt-3" /
-        >
-        <
-        Form.Control placeholder = "Reserved"
-        onChange = {
-            (e) => setReserved(e.target.value)
-        }
-        value = { reserved }
-        type = "checkbox"
-        id = "model "
-        className = "reserved mt-3" /
-        >
-        <
-        Form.Control placeholder = "Likes Counter"
-        onChange = {
-            (e) => setLikes_counter(e.target.value)
-        }
-        value = { likes_counter }
-        type = "number"
-        id = "likes_counter "
-        className = "model mt-3" /
-        >
-        <
-        Form.Control placeholder = "Reservation_counter"
-        onChange = {
-            (e) => setReservation_counter(e.target.value)
-        }
-        value = { reservation_counter }
-        type = "number"
-        id = "reservation_counter "
-        className = "reservation_counter mt-3" /
         >
         <
         button type = "submit"
