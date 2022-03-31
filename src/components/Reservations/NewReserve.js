@@ -71,14 +71,11 @@ const NewReservation = () => {
       });
       const message = await result.json();
       setAlertMessage(message);
-      useEffect(() => {
-        console.log('testing effects');
-      });
     } else {
       setAlertMessage('Kindly select a city');
     }
   };
-
+  useEffect(() => {})
   return (
     <>
       <h1>MyReservations page</h1>
