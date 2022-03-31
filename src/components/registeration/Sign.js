@@ -98,7 +98,7 @@ const Sign = () => {
     const city = document.querySelector('.adress').value;
     const photo = document.querySelector('.photo').value;
     const user = { username, city, photo };
-    const userUrl = 'http://127.0.0.1:3001/api/users';
+    const userUrl = 'http://127.0.0.1:3002/api/users';
     const result = await fetch(userUrl, {
       method: 'POST',
       headers: {
