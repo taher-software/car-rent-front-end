@@ -1,3 +1,73 @@
 .detail-wrapper {
   border: 12px solid rgb(241, 241, 241);
+  display: flex;
+}
+
+.item-data-wrapper {
+  display: flex;
+  width: 80%;
+}
+
+.item-img {
+  width: 70%;
+}
+
+.item-data {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-brand {
+  text-transform: uppercase;
+  margin-top: 100px;
+  margin-bottom: 0;
+}
+
+.item-description {
+  margin-top: 0;
+  font-weight: 900;
+  opacity: 0.75;
+  font-size: small;
+  line-height: 100%;
+  margin-bottom: 50px;
+}
+
+.card-inf {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3.75% 5%;
+}
+
+.grey {
+  background-color: rgb(226, 227, 229);
+}
+.title-data {
+  margin: 0;
+  font-family: monospace;
+  opacity: 0.8;
+}
+.value-data {
+  margin: 0;
+  font-family: monospace;
+  opacity: 0.8;
+}
+
+.more-model {
+  display: flex;
+  align-self: end;
+  align-items: center;
+  width: fit-content;
+}
+
+.more-text {
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-right: 2.5px;
+}
+
+.arrow-icon {
+  align-self: flex-start;
+  margin-top: 2px;
 }
