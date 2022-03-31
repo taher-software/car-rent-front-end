@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import NavigationPanel from './navLink';
+import './detail.css';
 
 const Detail = () => {
   const adjustSize = () => {
@@ -9,7 +10,9 @@ const Detail = () => {
   };
   useEffect(() => adjustSize(), []);
   return (
-    <NavigationPanel />
+    <div className="detail-wrapper">
+      <NavigationPanel />
+    </div>
   );
 };
 
