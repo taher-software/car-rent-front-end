@@ -18,13 +18,69 @@
 }
 
 
+.menu-bars {
+  display: none;
+}
+
+.nav-element {
+  position: relative;
+  display: flex;
+  width: 180px;
+  height: 100vh;
+  background-color: #f3f6f5;
+}
+
+.message-alert {
+  position: absolute;
+  top: 38px;
+}
+
+.social-icon {
+  margin: 0;
+  padding: 0;
+  justify-content: space-around;
+  padding-bottom: 20px;
+}
+
+a.logo {
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+  margin: 10px 0 0 18px;
+}
+
+.justify-self {
+  justify-self: flex-end;
+}
+
+.nav-element ul li img {
+  width: auto;
+  height: 18px;
+  filter: invert(35%) sepia(0%) saturate(0%) hue-rotate(146deg) brightness(95%) contrast(91%);
+}
+
+.main-nav a {
+  color: #000;
+  font-weight: 600;
+  padding: 18px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.main-nav a:hover {
+  background-color: #97bf0f;
+  color: #fff;
+}
+
+.active-link {
+  background-color: #97bf0f !important;
+  color: #fff !important;
+}
 
 .cars-list {
   margin-top: 3%;
   overflow-x: hidden;
   white-space: nowrap;
-  border: 1px solid aqua;
-  box-shadow: 1px 1px 10px 15px lightgrey;
   height: 300px;
   margin-left: 6%;
   display: flex;
@@ -87,17 +143,9 @@
 }
 @media screen and (max-width: 720px) {
 
-  .main-nav {
-    display: none;
-    height: 100%;
-    width: 100%;
-    position: fixed; 
-    z-index: 1; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0, 0.9); 
-    overflow-x: hidden; 
-    transition: 0.5s;
-  }
+   .header {
+     display: none;
+   }
 
   .scroll-btns {
     display: none
@@ -121,6 +169,7 @@
     width: 100%;
     border: 1px solid blueviolet;
     box-shadow: 2px 2px 2px 5px rgb(180, 180, 180);
+    background-color: whitesmoke;
   }
 
   .brand-model {
@@ -130,6 +179,7 @@
     font-size: 2.6vh;
     width: 50%;
     margin-left: 5%;
+    font-size: 1rem;
   }
 
   .car-brand {
@@ -141,20 +191,36 @@
     right: 50%;
     margin-top: 12%;
     margin-left: 3%;
-  }
-
-  .hamburger-btn {
-    position: relative;
-    color: black;
-    z-index: 5;
-  }
-
-  .close-btn {
-    display: none;
-    z-index: 1;
+    font-size: 1rem;
   }
 
   .cars-element {
     text-align: center;
+  }
+
+  .menu-bars {
+    position: fixed;
+    display: inline-block;
+  }
+
+  .nav-element {
+    position: fixed;
+    left: -180px;
+  }
+
+  .cars-element {
+    width: 100%;
+  }
+
+  .dateandtime {
+    display: none;
+  }
+
+  .main-nav a {
+    color: #000;
+    font-weight: 600;
+    padding: 18px;
+    text-decoration: none;
+    font-size: 17px;
   }
 }
