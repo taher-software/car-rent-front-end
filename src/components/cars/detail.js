@@ -1,7 +1,8 @@
 import React from 'react';
+import NavigationPanel from './navLink';
 
 const Detail = () => (
-  <h1>Detail page</h1>
+  <NavigationPanel />
 );
 
 export default Detail;

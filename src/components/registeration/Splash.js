@@ -1,19 +1,21 @@
 import React, { useEffect, useRef } from 'react';
-import { useLocation, Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { Col, Nav, Row } from 'react-bootstrap';
-import fetchAllCars from '../../Redux/cars/fetch/fetchcars';
+import { selectCar } from '../../Redux/SelectedCar/selectedCar';
 import LOGO from '../../assets/images/logo.png';
 import CLOSE from '../../assets/images/close.png';
+import fetchAllCars from '../../Redux/cars/fetch/fetchcars';
 import './splash.css';
 
 const Splash = () => {
+  const navigate = useNavigate();
   const { state } = useLocation();
+  const dispatch = useDispatch();
   let alert = '';
   if (state) {
     alert = state.alert;
   }
-  const dispatch = useDispatch();
   useEffect(() => dispatch(fetchAllCars()), []);
   const session = useSelector((state) => state.session);
   const carData = useSelector((state) => state.Cars);
@@ -69,6 +71,15 @@ const Splash = () => {
   const closeAlert = () => {
     const alert = document.querySelector('.alert');
     alert.style.display = 'none';
+  };
+  const showItem = (e) => {
+    let parent = e.target;
+    while (parent.className !== 'car-item') {
+      parent = parent.parentNode;
+    }
+    const selectedCar = cars.filter((car) => car.id === parseInt(parent.id, 10))[0];
+    dispatch(selectCar(selectedCar));
+    navigate('/Details');
   };
   useEffect(() => adjustSize(), []);
   useEffect(() => setInterval(animation, 2000));
@@ -146,8 +157,8 @@ const Splash = () => {
          </Row>
          <ul className="cars-list" ref={ref}>
            {cars.map((car) => (
-             <li className="car-item" key={car.id}>
-               <a href="/"><img className="car-image" src={car.photo_url} alt="car" width={180} height={180} /></a>
+             <li className="car-item" id={car.id} key={car.id} onClick={(e) => showItem(e)} onKeyDown={(e) => showItem(e)} aria-hidden="true">
+               <img className="car-image" src={car.photo_url} alt="car" width={180} height={180} />
                <div className="brand-model">
                  <p className="car-brand">{car.brand}</p>
                  -
