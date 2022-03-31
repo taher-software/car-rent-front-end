@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DropdownDate } from 'react-dropdown-date';
 import './NewReserve.css';
 
@@ -52,12 +52,37 @@ const cities = [
 ];
 
 const NewReservation = () => {
-  const [selectedCity, setSelectedCity] = useState('');
+  const [selectedCity, setSelectedCity] = useState('---Select City---');
   const [selectDate, setSelectedDate] = useState(TodayDate());
+  const [Alertmessage, setAlertMessage] = useState('');
+
+  const handleSubmit = async () => {
+    if (selectedCity !== '---Select City---') {
+      const reservation = {
+        user_id: 1, car_id: 1, start_date: selectDate, city: selectedCity,
+      };
+      const reserveUrl = 'http://localhost:3001/api/reservations';
+      const result = await fetch(reserveUrl, {
+        method: 'POST', // or 'PUT'
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(reservation),
+      });
+      const message = await result.json();
+      setAlertMessage(message);
+      useEffect(() => {
+        console.log('testing effects');
+      });
+    } else {
+      setAlertMessage('Kindly select a city');
+    }
+  };
 
   return (
     <>
       <h1>MyReservations page</h1>
+      <p>{Alertmessage}</p>
       <form>
         <div className="reserve-form">
           <div className="city-style">
@@ -92,7 +117,7 @@ const NewReservation = () => {
               }}
             />
           </div>
-          <button type="button">Reserve</button>
+          <button type="button" onClick={handleSubmit}>Reserve</button>
         </div>
       </form>
     </>
