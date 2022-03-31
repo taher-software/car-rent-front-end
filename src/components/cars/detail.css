@@ -4,10 +4,12 @@
 }
 
 .item-data-wrapper {
-  display: flex;
   width: 80%;
 }
 
+.datas-inf{
+  display: flex;
+}
 .item-img {
   width: 70%;
 }
@@ -70,4 +72,42 @@
 .arrow-icon {
   align-self: flex-start;
   margin-top: 2px;
+}
+
+.command-part {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.reserve-btn {
+  text-decoration: none;
+  display: flex;
+  background-color: rgb(136, 213, 14);
+  justify-content: space-between;
+  border: 1px solid white;
+  border-radius: 40px;
+  align-items: center;
+  width: 20%;
+  align-self: flex-end;
+  box-sizing: content-box;
+  padding: 1% 2.5%;
+}
+
+.back-icon {
+  width: 10%;
+  margin-right: 10%;
+}
+
+.rotate-icon {
+  width: 5%;
+  align-self: center;
+}
+
+.reserve-txt{
+  color: white;
+  vertical-align: middle;
+  margin: 0;
+  font-weight: 800;
+  font-size: x-large;
 }
