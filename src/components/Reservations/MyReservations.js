@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Nav, Table } from 'react-bootstrap';
 import './MyReservations.css';
 import { useSelector, useDispatch } from 'react-redux';
 import fetchReserve from '../../Redux/Reserve/thunk/Fetch_reserve';
 
 const MyReservations = () => {
-  const [userid, Setuserid] = useState('');
-  const [currentuserreservations, Setcurrentuserreservations] = useState('');
   const dispatch = useDispatch();
   useEffect(() => dispatch(fetchReserve()), []);
   const myreservations = useSelector((state) => state.my_reserves);
+  let reserves = [];
+  if (Object.keys(myreservations).includes('reserves')) {
+    reserves = myreservations.reserves;
+  }
   const currentuser = useSelector((state) => state.current_user);
- 
-  Setuserid(currentuser.id);
+  const filteredreservations = reserves.filter((item) => item.user_id === currentuser.id);
 
+  console.log(filteredreservations);
   return (
     <div className="myreservations">
       <div className="nav-element">
