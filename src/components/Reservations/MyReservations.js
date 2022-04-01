@@ -7,8 +7,8 @@ import fetchReserve from '../../Redux/Reserve/thunk/Fetch_reserve';
 const MyReservations = () => {
   const dispatch = useDispatch();
   useEffect(() => dispatch(fetchReserve()), []);
-  const myreserves = useSelector((state) => state.my_reserves);
-  console.log(myreserves);
+  const myreservations = useSelector((state) => state.my_reserves);
+  console.log(myreservations);
 
   return (
     <div className="myreservations">
