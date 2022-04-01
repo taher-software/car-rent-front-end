@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Nav } from 'react-bootstrap';
+import { Nav, Table } from 'react-bootstrap';
 import './MyReservations.css';
 import { useSelector, useDispatch } from 'react-redux';
 import fetchReserve from '../../Redux/Reserve/thunk/Fetch_reserve';
@@ -23,6 +23,27 @@ const MyReservations = () => {
       </div>
       <div className="myreserve-body">
         <h1 className="myreserve-title">My Reservations</h1>
+        <div className="myreserve-table">
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Reservation ID</th>
+                <th>Car ID #</th>
+                <th>Start Date</th>
+                <th>City</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+            </tbody>
+          </Table>
+
+        </div>
       </div>
     </div>
   );
