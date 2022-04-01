@@ -9,6 +9,7 @@ import BACK from '../../assets/images/back-green.png';
 import PARAM from '../../assets/images/param.png';
 import FORWARD from '../../assets/images/forward.png';
 import CLOSE from '../../assets/images/close.png';
+import LIKE from '../../assets/images/like.png';
 
 const Detail = () => {
   const [info, setInfo] = useState('');
@@ -39,6 +40,10 @@ const Detail = () => {
     const alert = document.querySelector('.alert');
     alert.style.display = 'none';
   };
+  const rotateItem = () => {
+    const item = document.querySelector('.item-img');
+    item.style.transform += 'rotate(10deg)';
+  };
   useEffect(() => adjustSize(), []);
   return (
     <div className="detail-wrapper">
@@ -51,7 +56,10 @@ const Detail = () => {
           </div>
         </div>
         <div className="datas-inf">
-          <img src={item.photo_url} alt="item" className="item-img" />
+          <div className="item-img-wrapper">
+            <img src={item.photo_url} alt="item" className="item-img" />
+            <img src={LIKE} alt="like-icon" className="like-icon" />
+          </div>
           <div className="item-data">
             <h1 className="item-brand">
               {item.brand}
@@ -96,7 +104,7 @@ const Detail = () => {
             <p className="reserve-txt">Reserve</p>
             <img src={FORWARD} className="btn-icons" alt="forward-icon" />
           </Link>
-          <img src={ROTATE} alt="rotate-icon" className="rotate-icon" />
+          <img src={ROTATE} alt="rotate-icon" className="rotate-icon" onClick={rotateItem} onKeyDown={rotateItem} aria-hidden="true" />
           <img src={BACK} alt="back-icon" className="back-icon" />
         </div>
       </div>

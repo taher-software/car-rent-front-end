@@ -17,7 +17,7 @@ const Splash = () => {
   if (state) {
     alert = state.alert;
   }
-  useEffect(() => setTimeout(() => (navigate(location.pathname, { replace: true })), 10000), []);
+  useEffect(() => setTimeout(() => (navigate(location.pathname, { replace: true })), 20000), []);
   useEffect(() => dispatch(fetchAllCars()), []);
   const session = useSelector((state) => state.session);
   const carData = useSelector((state) => state.Cars);
@@ -80,6 +80,7 @@ const Splash = () => {
     }
     const selectedCar = cars.filter((car) => car.id === parseInt(parent.id, 10))[0];
     dispatch(selectCar(selectedCar));
+    location.pathname = '/Details';
     navigate('/Details');
   };
   useEffect(() => adjustSize(), []);
@@ -133,12 +134,6 @@ const Splash = () => {
    && (
      <div className="home-main">
        <div className="nav-element">
-         <div className="alert alert-success" style={{ display: alert === '' ? 'none' : 'flex', justifyContent: 'space-between' }}>
-           <p>{alert}</p>
-           <div className="close-icon-wrapper" onClick={closeAlert} onKeyDown={closeAlert} aria-hidden="true">
-             <img src={CLOSE} alt="close-icon" className="close-icon" />
-           </div>
-         </div>
          <Nav bg="light" className="main-nav flex-column">
            <Nav.Link href="/">All Cars</Nav.Link>
            <Nav.Link href="/Reserve">Reserve</Nav.Link>
@@ -148,6 +143,12 @@ const Splash = () => {
          </Nav>
        </div>
        <div className="cars-element">
+         <div className="alert alert-success" style={{ display: alert === '' ? 'none' : 'flex', justifyContent: 'space-between' }}>
+           <p>{alert}</p>
+           <div className="close-icon-wrapper" onClick={closeAlert} onKeyDown={closeAlert} aria-hidden="true">
+             <img src={CLOSE} alt="close-icon" className="close-icon" />
+           </div>
+         </div>
          <h2>Our List Of Cars</h2>
          <h3>Please select a car to rent</h3>
          <Row className="scroll-btns">

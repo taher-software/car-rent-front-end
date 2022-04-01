@@ -10,8 +10,18 @@
 .datas-inf{
   display: flex;
 }
-.item-img {
+.item-img-wrapper {
   width: 70%;
+}
+
+.item-img {
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.like-icon {
+  width: 5%;
+  margin-left: 47.5%;
 }
 
 .item-data {
@@ -102,6 +112,7 @@
 .rotate-icon {
   width: 5%;
   align-self: center;
+  cursor: pointer;
 }
 
 .reserve-txt{
