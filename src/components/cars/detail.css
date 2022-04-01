@@ -1,6 +1,7 @@
 .detail-wrapper {
   border: 12px solid rgb(241, 241, 241);
   display: flex;
+  width: 100%;
 }
 
 .item-data-wrapper {
@@ -121,4 +122,63 @@
   margin: 0;
   font-weight: 800;
   font-size: x-large;
+}
+@media screen and (max-width: 1000px) {
+  .desktop-nav-panel{
+    display: none;
+    width: 0;
+  }
+
+  .datas-inf {
+    display: block;
+    width: 100%;
+  }
+
+  .item-img-wrapper {
+    width: 100%;
+  }
+
+  .item-data-wrapper {
+    width: 100%;
+  }
+
+  .item-img {
+    margin-bottom: 0;
+  }
+
+  .like-icon {
+    width: 10%;
+    margin-left: 45%;
+  }
+  
+  .item-data { width: 100%; }
+  .item-brand {
+    margin-top: 0;
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .item-description {
+    margin-bottom: 25px;
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .card-inf {
+    width: 90%;
+    margin-left: 5%;
+  }
+  
+  .more-model {
+    margin-right: 5%;
+  }
+
+  .reserve-btn {
+    width: auto;
+    margin-right: 5%;
+  }
+
+  .rotate-icon {
+    width: 25%;
+  }
 }

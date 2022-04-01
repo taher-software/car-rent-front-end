@@ -53,3 +53,9 @@
   background-color: white;
   border: none;
 }
+
+@media screen and (max-width: 1000px){
+  .nav-wrapper {
+      display: none;
+  }
+}
