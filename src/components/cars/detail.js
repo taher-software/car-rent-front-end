@@ -11,11 +11,13 @@ import FORWARD from '../../assets/images/forward.png';
 import CLOSE from '../../assets/images/close.png';
 import LIKE from '../../assets/images/like.png';
 import fetchAllCars from '../../Redux/cars/fetch/fetchcars';
+import { selectCar } from '../../Redux/SelectedCar/selectedCar';
 
 const Detail = () => {
   const dispatch = useDispatch();
   const [info, setInfo] = useState('');
   const item = useSelector((state) => state.current_car);
+  const cars = useSelector((state) => state.Cars);
   const adjustSize = () => {
     const nav = document.querySelector('.nav-wrapper');
     const h = window.innerHeight;
@@ -60,6 +62,20 @@ const Detail = () => {
       like.textContent = likeNbr + 1;
       dispatch(fetchAllCars);
     }
+  };
+  const moreHandler = () => {
+    const { id } = item;
+    const allCars = cars.cars;
+    const index = allCars.findIndex((car) => car.id === id);
+    const l = allCars.length;
+    let nextIndex = 0;
+    if (index < l - 1) {
+      nextIndex = index + 1;
+    } else {
+      nextIndex = 0;
+    }
+    const nextCar = allCars[nextIndex];
+    dispatch(selectCar(nextCar));
   };
   useEffect(() => adjustSize(), []);
   return (
@@ -111,7 +127,7 @@ const Detail = () => {
             </div>
             <div className="more-model">
               <p className="more-text">Discover more Models</p>
-              <img src={ARROW} alt="arrow-icon" className="arrow-icon" />
+              <img src={ARROW} alt="arrow-icon" className="arrow-icon" onClick={moreHandler} onKeyDown={moreHandler} aria-hidden="true" />
             </div>
           </div>
         </div>
