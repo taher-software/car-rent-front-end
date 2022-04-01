@@ -32,15 +32,23 @@
     }
 
     .table-header {
-        font-size: 1.2vh;
+        font-size: 1.3vh;
     }
 
     .table-info {
-        font-size: 1.2vh;
-        font-weight: bolder;
+        font-size: 1.1vh;
+        font-weight: bold;
     }
 
     .myreserve-body {
         width: 80%;
+    }
+
+    #reservation-id {
+        width: 30px;
+    }
+
+    #reserved-car-model {
+        width: 45px;
     }
 }

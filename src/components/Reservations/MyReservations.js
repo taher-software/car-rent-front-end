@@ -41,9 +41,9 @@ const MyReservations = () => {
           <Table responsive="sm" striped bordered hover>
             <thead>
               <tr>
-                <th className="table-header">Reservation ID</th>
+                <th id="reservation-id" className="table-header">Reservation ID</th>
                 <th className="table-header">Car Brand</th>
-                <th className="table-header">Car Model</th>
+                <th id="reserved-car-model" className="table-header">Car Model</th>
                 <th className="table-header">Start Date</th>
                 <th className="table-header">City</th>
               </tr>
