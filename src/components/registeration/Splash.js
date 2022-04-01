@@ -10,12 +10,14 @@ import './splash.css';
 
 const Splash = () => {
   const navigate = useNavigate();
-  const { state } = useLocation();
+  const location = useLocation();
+  const { state } = location;
   const dispatch = useDispatch();
   let alert = '';
   if (state) {
     alert = state.alert;
   }
+  useEffect(() => setTimeout(() => (navigate(location.pathname, { replace: true })), 10000), []);
   useEffect(() => dispatch(fetchAllCars()), []);
   const session = useSelector((state) => state.session);
   const carData = useSelector((state) => state.Cars);
@@ -46,7 +48,6 @@ const Splash = () => {
       }
     }
   };
-
   const animation = () => {
     const w = window.innerWidth;
     let t = 30;
