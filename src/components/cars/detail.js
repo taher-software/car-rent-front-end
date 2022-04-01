@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import NavigationPanel from './navLink';
 import ARROW from '../../assets/images/arrow.png';
 import './detail.css';
@@ -8,14 +8,17 @@ import ROTATE from '../../assets/images/rotate.png';
 import BACK from '../../assets/images/back-green.png';
 import PARAM from '../../assets/images/param.png';
 import FORWARD from '../../assets/images/forward.png';
+import CLOSE from '../../assets/images/close.png';
 
 const Detail = () => {
+  const [info, setInfo] = useState('');
   const item = useSelector((state) => state.current_car);
   const adjustSize = () => {
     const nav = document.querySelector('.nav-wrapper');
     const h = window.innerHeight;
     nav.style.height = `${h}px`;
   };
+  const navigate = useNavigate();
   const deletHandler = async () => {
     const carId = item.id;
     const url = `http://127.0.0.1:3002/api/cars/${carId}`;
@@ -25,13 +28,28 @@ const Detail = () => {
         'content-type': 'application/json',
       },
     });
-    console.log(retour);
+    const status = retour.statusText;
+    if (status === 'OK') {
+      navigate('/', { state: { alert: 'Item deleted successfully.' } });
+    } else {
+      setInfo('Something went wrong!');
+    }
+  };
+  const closeAlert = () => {
+    const alert = document.querySelector('.alert');
+    alert.style.display = 'none';
   };
   useEffect(() => adjustSize(), []);
   return (
     <div className="detail-wrapper">
       <NavigationPanel deleteHandler={deletHandler} />
       <div className="item-data-wrapper">
+        <div className="alert alert-success" style={{ display: info === '' ? 'none' : 'flex', justifyContent: 'space-between' }}>
+          <p>{info}</p>
+          <div className="close-icon-wrapper" onClick={closeAlert} onKeyDown={closeAlert} aria-hidden="true">
+            <img src={CLOSE} alt="close-icon" className="close-icon" />
+          </div>
+        </div>
         <div className="datas-inf">
           <img src={item.photo_url} alt="item" className="item-img" />
           <div className="item-data">
