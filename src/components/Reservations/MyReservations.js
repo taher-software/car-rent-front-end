@@ -38,8 +38,8 @@ const MyReservations = () => {
             <thead>
               <tr>
                 <th>Reservation ID</th>
-                <th>Car brand</th>
-                <th>Car model</th>
+                <th>Car Brand</th>
+                <th>Car Model</th>
                 <th>Start Date</th>
                 <th>City</th>
               </tr>
