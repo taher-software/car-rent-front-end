@@ -2,7 +2,7 @@
   background: white;
   border: 1px solid rgb(224, 224, 224);
   border-radius: 10px;
-  display: 'flex';
+  display: flex;
   flex-direction: column;
   width: 10%;
   position: absolute;
