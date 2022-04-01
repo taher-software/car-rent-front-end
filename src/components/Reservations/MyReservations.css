@@ -21,3 +21,26 @@
     border: 1px solid black;
     box-shadow: 3px 3px 3px 7px  lightblue;
 }
+
+@media screen and (max-width: 720px) {
+
+    .myreserve-table {
+        margin-top: 5%;
+        border: 1px solid black;
+        box-shadow: 3px 3px 3px 7px  lightblue;
+        width: 100%;
+    }
+
+    .table-header {
+        font-size: 1.2vh;
+    }
+
+    .table-info {
+        font-size: 1.2vh;
+        font-weight: bolder;
+    }
+
+    .myreserve-body {
+        width: 80%;
+    }
+}
