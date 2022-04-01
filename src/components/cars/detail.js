@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import NavigationPanel from './navLink';
 import ARROW from '../../assets/images/arrow.png';
@@ -10,8 +10,10 @@ import PARAM from '../../assets/images/param.png';
 import FORWARD from '../../assets/images/forward.png';
 import CLOSE from '../../assets/images/close.png';
 import LIKE from '../../assets/images/like.png';
+import fetchAllCars from '../../Redux/cars/fetch/fetchcars';
 
 const Detail = () => {
+  const dispatch = useDispatch();
   const [info, setInfo] = useState('');
   const item = useSelector((state) => state.current_car);
   const adjustSize = () => {
@@ -44,6 +46,21 @@ const Detail = () => {
     const item = document.querySelector('.item-img');
     item.style.transform += 'rotate(10deg)';
   };
+
+  const addLike = async () => {
+    const carId = item.id;
+    const url = `http://127.0.0.1:3002/api/cars/${carId}`;
+    const retour = await fetch(url, {
+      method: 'PUT',
+    });
+    const status = retour.statusText;
+    if (status === 'OK') {
+      const like = document.querySelector('.like-value');
+      const likeNbr = parseInt(like.textContent, 10);
+      like.textContent = likeNbr + 1;
+      dispatch(fetchAllCars);
+    }
+  };
   useEffect(() => adjustSize(), []);
   return (
     <div className="detail-wrapper">
@@ -58,7 +75,7 @@ const Detail = () => {
         <div className="datas-inf">
           <div className="item-img-wrapper">
             <img src={item.photo_url} alt="item" className="item-img" />
-            <img src={LIKE} alt="like-icon" className="like-icon" />
+            <img src={LIKE} alt="like-icon" className="like-icon" onKeyDown={addLike} onClick={addLike} aria-hidden="true" />
           </div>
           <div className="item-data">
             <h1 className="item-brand">
@@ -76,7 +93,7 @@ const Detail = () => {
             </div>
             <div className="card-inf">
               <p className="title-data">Likes</p>
-              <p className="value-data">
+              <p className="value-data like-value">
                 {item.likes_counter}
               </p>
             </div>
