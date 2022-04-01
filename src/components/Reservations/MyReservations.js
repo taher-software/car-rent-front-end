@@ -12,10 +12,14 @@ const MyReservations = () => {
   if (Object.keys(myreservations).includes('reserves')) {
     reserves = myreservations.reserves;
   }
+  const carsData = useSelector((state) => state.Cars);
+  let cars = [];
+  if (Object.keys(carsData).includes('cars')) {
+    cars = carsData.cars;
+  }
   const currentuser = useSelector((state) => state.current_user);
   const filteredreservations = reserves.filter((item) => item.user_id === currentuser.id);
 
-  console.log(filteredreservations);
   return (
     <div className="myreservations">
       <div className="nav-element">
@@ -34,7 +38,8 @@ const MyReservations = () => {
             <thead>
               <tr>
                 <th>Reservation ID</th>
-                <th>Car ID #</th>
+                <th>Car brand</th>
+                <th>Car model</th>
                 <th>Start Date</th>
                 <th>City</th>
               </tr>
@@ -43,7 +48,12 @@ const MyReservations = () => {
               { filteredreservations.map((reserve) => (
                 <tr key={reserve.id}>
                   <td>{reserve.id}</td>
-                  <td>{reserve.car_id}</td>
+                  <td>
+                    {(cars.filter((car) => car.id === reserve.id))[0].brand}
+                  </td>
+                  <td>
+                    {(cars.filter((car) => car.id === reserve.id))[0].model}
+                  </td>
                   <td>{reserve.start_date}</td>
                   <td>{reserve.city}</td>
                 </tr>
