@@ -40,13 +40,16 @@ const MyReservations = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
+              { filteredreservations.map((reserve) => (
+                <tr key={reserve.id}>
+                  <td>{reserve.id}</td>
+                  <td>{reserve.car_id}</td>
+                  <td>{reserve.start_date}</td>
+                  <td>{reserve.city}</td>
+                </tr>
+              ))}
             </tbody>
+
           </Table>
 
         </div>
