@@ -1,6 +1,6 @@
 import { allReserve, failReserve } from '../actions/action';
 
-const reserveUrl = 'http://[::1]:3001/api/reservations';
+const reserveUrl = 'http://[::1]:3000/api/reservations';
 
 const getReserveUrl = () => fetch(reserveUrl);
 
