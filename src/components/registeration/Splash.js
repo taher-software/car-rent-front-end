@@ -166,7 +166,7 @@ const Splash = () => {
            </Modal.Header>
            <Modal.Body>
              {cars.map((car) => (
-               <li className="c-item" id={car.id} key={car.id} onClick={(e) => showItem(e)} onKeyDown={(e) => showItem(e)} aria-hidden="true">
+               <li className="c-item" id={car.id} key={car.id} aria-hidden="true">
                  <div className="car-info">
                    <img className="car-image" src={car.photo_url} alt="car" width={50} height={50} />
                    <div className="brand-model">
@@ -174,7 +174,7 @@ const Splash = () => {
                      -
                      <p className="car-model">{car.model}</p>
                    </div>
-                   <button className="delete-button btn btn-danger" type="button" onClick={handleDelete(car.id)}>Delete</button>
+                   <button className="delete-button btn btn-danger" type="button" onClick={() => handleDelete(car.id)}>Delete</button>
                  </div>
                </li>
              ))}
