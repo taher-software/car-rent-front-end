@@ -1,7 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Col, Nav, Row } from 'react-bootstrap';
+import {
+  Col, Nav, Row, Modal,
+} from 'react-bootstrap';
 import { selectCar } from '../../Redux/SelectedCar/selectedCar';
 import LOGO from '../../assets/images/logo.png';
 import CLOSE from '../../assets/images/close.png';
@@ -9,6 +11,7 @@ import fetchAllCars from '../../Redux/cars/fetch/fetchcars';
 import './splash.css';
 
 const Splash = () => {
+  const [lgShow, setLgShow] = useState(false);
   const navigate = useNavigate();
   const { state } = useLocation();
   const dispatch = useDispatch();
@@ -143,8 +146,21 @@ const Splash = () => {
            <Nav.Link href="/Reserve">Reserve</Nav.Link>
            <Nav.Link href="/Myreservations">My Reservations</Nav.Link>
            <Nav.Link href="/NewCar">Add a Car</Nav.Link>
-           <Nav.Link>Delete a Car</Nav.Link>
+           <Nav.Link onClick={() => setLgShow(true)}>Delete a Car</Nav.Link>
          </Nav>
+         <Modal
+           size="lg"
+           show={lgShow}
+           onHide={() => setLgShow(false)}
+           aria-labelledby="example-modal-sizes-title-lg"
+         >
+           <Modal.Header closeButton>
+             <Modal.Title id="example-modal-sizes-title-lg">
+               Please Choose A Car To Delete
+             </Modal.Title>
+           </Modal.Header>
+           <Modal.Body>...</Modal.Body>
+         </Modal>
        </div>
        <div className="cars-element">
          <h2>Our List Of Cars</h2>
