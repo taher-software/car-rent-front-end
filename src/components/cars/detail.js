@@ -26,7 +26,7 @@ const Detail = () => {
   const navigate = useNavigate();
   const deletHandler = async () => {
     const carId = item.id;
-    const url = `http://127.0.0.1:3002/api/cars/${carId}`;
+    const url = `https://warm-inlet-48309.herokuapp.com/api/cars/${carId}`;
     const retour = await fetch(url, {
       method: 'DELETE',
       headers: {
@@ -51,7 +51,7 @@ const Detail = () => {
 
   const addLike = async () => {
     const carId = item.id;
-    const url = `http://127.0.0.1:3002/api/cars/${carId}`;
+    const url = `https://warm-inlet-48309.herokuapp.com/api/cars/${carId}`;
     const retour = await fetch(url, {
       method: 'PUT',
     });

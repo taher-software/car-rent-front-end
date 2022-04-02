@@ -1,6 +1,6 @@
 import { loadUsername, failUsername } from '../actions/action';
 
-const fetchUser = () => fetch('http://127.0.0.1:3002/api/users');
+const fetchUser = () => fetch('https://warm-inlet-48309.herokuapp.com/api/users');
 
 const thunkUser = () => (dispatch) => {
   fetchUser()
