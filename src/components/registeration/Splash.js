@@ -84,6 +84,11 @@ const Splash = () => {
     dispatch(selectCar(selectedCar));
     navigate('/Details');
   };
+
+  const handleDelete = (carid) => {
+    const url = `http://[::1]:3000/api/cars/${carid}`;
+    fetch(url, { method: 'DELETE' });
+  };
   useEffect(() => adjustSize(), []);
   useEffect(() => setInterval(animation, 2000));
   return (
@@ -159,7 +164,21 @@ const Splash = () => {
                Please Choose A Car To Delete
              </Modal.Title>
            </Modal.Header>
-           <Modal.Body>...</Modal.Body>
+           <Modal.Body>
+             {cars.map((car) => (
+               <li className="c-item" id={car.id} key={car.id} onClick={(e) => showItem(e)} onKeyDown={(e) => showItem(e)} aria-hidden="true">
+                 <div className="car-info">
+                   <img className="car-image" src={car.photo_url} alt="car" width={50} height={50} />
+                   <div className="brand-model">
+                     <p className="car-brand">{car.brand}</p>
+                     -
+                     <p className="car-model">{car.model}</p>
+                   </div>
+                   <button className="delete-button btn btn-danger" type="button" onClick={handleDelete(car.id)}>Delete</button>
+                 </div>
+               </li>
+             ))}
+           </Modal.Body>
          </Modal>
        </div>
        <div className="cars-element">

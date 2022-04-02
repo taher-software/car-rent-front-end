@@ -201,6 +201,20 @@ body { margin: 0; }
   display: none;
 }
 
+.car-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.c-item {
+
+}
+
+.delete-button {
+  position: absolute;
+  margin-left: 80%;
+}
+
 @media screen and (min-width: 1024px) {
   .app-presentation {
     display: grid;
