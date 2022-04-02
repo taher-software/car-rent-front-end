@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { DropdownDate } from 'react-dropdown-date';
 import fetchReserve from '../../Redux/Reserve/thunk/Fetch_reserve';
@@ -58,8 +58,6 @@ const NewReservation = () => {
   const [selectedCity, setSelectedCity] = useState('---Select City---');
   const [selectDate, setSelectedDate] = useState(TodayDate());
   const [Alertmessage, setAlertMessage] = useState('');
-  const reserves = useSelector((state) => state.my_reserves);
-  const currentCar = useSelector((state) => state.current_car);
   const currentUser = useSelector((state) => state.current_user);
 
   const handleSubmit = async () => {
@@ -77,18 +75,16 @@ const NewReservation = () => {
       });
       const message = await result.json();
       setAlertMessage(message);
+      dispatch(fetchReserve());
     } else {
       setAlertMessage('Kindly select a city');
     }
   };
-  useEffect(() => dispatch(fetchReserve()), []);
-  console.log(reserves);
-  console.log(currentCar);
-  console.log(currentUser);
   return (
     <>
       <div className="new-reserve-container">
-        <h1>MyReservations page</h1>
+        <h2 className="reserve-heading">Reserve a Car</h2>
+        <p className="alert-reserve">{Alertmessage}</p>
         <form>
           <div className="reserve-form">
             <div className="city-style">
@@ -101,7 +97,6 @@ const NewReservation = () => {
                 <option>---Select City---</option>
                 {cities.map((city) => <option key={city.id}>{city.name}</option>)}
               </select>
-              <p className="alert-reserve">{Alertmessage}</p>
             </div>
             <div className="date-style">
               <DropdownDate
