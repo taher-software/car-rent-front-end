@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Nav, Table } from 'react-bootstrap';
+import { Nav, Table, Modal } from 'react-bootstrap';
 import './MyReservations.css';
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom';
 import fetchReserve from '../../Redux/Reserve/thunk/Fetch_reserve';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [lgShow, setLgShow] = useState(false);
   const [data, setData] = useState('');
   const loadData = async () => {
     const res = await fetch('https://warm-inlet-48309.herokuapp.com/api/cars');
@@ -21,6 +24,19 @@ const MyReservations = () => {
   const currentuser = useSelector((state) => state.current_user);
   const filteredreservations = reserves.filter((item) => item.user_id === currentuser.id);
 
+  const handleDelete = (carid) => {
+    const url = `https://warm-inlet-48309.herokuapp.com/api/cars/${carid}`;
+    fetch(url, { method: 'DELETE' }).then((response) => {
+      if (response.status === 200) {
+        window.location.reload();
+        navigate('/', { state: { alert: 'Car Deleted successfully!' } });
+      } else {
+        navigate('/', { state: { alert: 'Sorry, Car Could Not be Deleted' } });
+      }
+    });
+    setLgShow(false);
+  };
+
   if (!data) {
     return null;
   }
@@ -28,12 +44,39 @@ const MyReservations = () => {
     <div className="myreservations">
       <div className="nav-element">
         <Nav bg="light" className="main-nav flex-column">
-          <Nav.Link href="/">All Cars</Nav.Link>
-          <Nav.Link href="/Reserve">Reserve</Nav.Link>
-          <Nav.Link href="/Myreservations">My Reservations</Nav.Link>
-          <Nav.Link href="/NewCar">Add a Car</Nav.Link>
-          <Nav.Link>Delete a Car</Nav.Link>
+          <NavLink to="/">All Cars</NavLink>
+          <NavLink to="/Reserve">Reserve</NavLink>
+          <NavLink to="/Myreservations">My Reservations</NavLink>
+          <NavLink to="/NewCar">Add a Car</NavLink>
+          <Nav.Link onClick={() => setLgShow(true)}>Delete a Car</Nav.Link>
         </Nav>
+        <Modal
+          size="lg"
+          show={lgShow}
+          onHide={() => setLgShow(false)}
+          aria-labelledby="example-modal-sizes-title-lg"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="example-modal-sizes-title-lg">
+              Please Choose A Car To Delete
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {data.cars.map((car) => (
+              <li className="c-item" id={car.id} key={car.id} aria-hidden="true">
+                <div className="car-info">
+                  <img className="car-image" src={car.photo_url} alt="car" width={50} height={50} />
+                  <div className="c-brand-model">
+                    <p className="car-brand">{car.brand}</p>
+                    -
+                    <p className="car-model">{car.model}</p>
+                  </div>
+                  <button className="delete-button btn btn-danger" type="button" onClick={() => handleDelete(car.id)}>Delete</button>
+                </div>
+              </li>
+            ))}
+          </Modal.Body>
+        </Modal>
       </div>
       <div className="myreserve-body">
         <h1 className="myreserve-title">My Reservations</h1>
