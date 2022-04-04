@@ -6,6 +6,10 @@ form {
   height: 100vh;
 }
 
+.z-index1 {
+  z-index: 1;
+}
+
 .new-reserve-container {
   color: #fff;
   position: relative;
@@ -13,6 +17,23 @@ form {
   flex-direction: column;
   justify-content: center;
   width: 100%;
+}
+
+.reserve-brand {
+  font-size: 33px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20px;
+  text-align: center;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.change-reserve {
+  top: 100px;
+  left: 10px;
 }
 
 .overLay {
@@ -27,6 +48,7 @@ form {
   margin-top: 20px;
   text-align: center;
   z-index: 1;
+  margin-top: 80px;
 }
 
 .reserve-form {
