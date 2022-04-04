@@ -61,7 +61,6 @@ const NewReservation = () => {
   const [Alertmessage, setAlertMessage] = useState('');
   const currentUser = useSelector((state) => state.current_user);
   const currentCar = useSelector((state) => state.current_car);
-  const reservations = useSelector((state) => state.my_reserves);
   const handleSubmit = async () => {
     if (selectedCity !== '---Select City---') {
       const reservation = {
@@ -83,7 +82,6 @@ const NewReservation = () => {
     }
   };
 
-  console.log(reservations);
   return (
     <>
       <div
