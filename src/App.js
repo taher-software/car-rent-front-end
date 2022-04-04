@@ -124,11 +124,11 @@ const App = () => {
                 {cars.map((car) => (
                   <li className="c-item" id={car.id} key={car.id} aria-hidden="true">
                     <div className="car-info">
-                      <img className="car-image" src={car.photo_url} alt="car" width={50} height={50} />
+                      <img className="car-image-mobile" src={car.photo_url} alt="car" width={50} height={50} />
                       <div className="c-brand-model">
-                        <p className="car-brand">{car.brand}</p>
+                        <p className="car-brand-mobile">{car.brand}</p>
                         -
-                        <p className="car-model">{car.model}</p>
+                        <p className="car-model-mobile">{car.model}</p>
                       </div>
                       <button className="delete-button btn btn-danger" type="button" onClick={() => handleDelete(car.id)}>Delete</button>
                     </div>

@@ -89,7 +89,6 @@ const Splash = () => {
     const url = `http://[::1]:3000/api/cars/${carid}`;
     fetch(url, { method: 'DELETE' });
     setLgShow(false);
-    // navigate('/', { state: { alert: 'Car Deleted Successfuly!' } });
   };
   useEffect(() => adjustSize(), []);
   useEffect(() => setInterval(animation, 2000));
