@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Nav, Table } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import './MyReservations.css';
 import { useSelector, useDispatch } from 'react-redux';
 import fetchReserve from '../../Redux/Reserve/thunk/Fetch_reserve';
@@ -28,11 +29,11 @@ const MyReservations = () => {
     <div className="myreservations">
       <div className="nav-element">
         <Nav bg="light" className="main-nav flex-column">
-          <Nav.Link to="/">All Cars</Nav.Link>
-          <Nav.Link to="/Reserve">Reserve</Nav.Link>
-          <Nav.Link to="/Myreservations">My Reservations</Nav.Link>
-          <Nav.Link to="/NewCar">Add a Car</Nav.Link>
-          <Nav.Link>Delete a Car</Nav.Link>
+          <NavLink to="/">All Cars</NavLink>
+          <NavLink to="/Reserve">Reserve</NavLink>
+          <NavLink to="/Myreservations">My Reservations</NavLink>
+          <NavLink to="/NewCar">Add a Car</NavLink>
+          <NavLink>Delete a Car</NavLink>
         </Nav>
       </div>
       <div className="myreserve-body">
