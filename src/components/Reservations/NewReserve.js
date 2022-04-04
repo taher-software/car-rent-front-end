@@ -58,8 +58,6 @@ const NewReservation = () => {
   const [selectedCity, setSelectedCity] = useState('---Select City---');
   const [selectDate, setSelectedDate] = useState(TodayDate());
   const [Alertmessage, setAlertMessage] = useState('');
-  const reserves = useSelector((state) => state.my_reserves);
-  const currentCar = useSelector((state) => state.current_car);
   const currentUser = useSelector((state) => state.current_user);
 
   const handleSubmit = async () => {
@@ -82,9 +80,6 @@ const NewReservation = () => {
     }
   };
   useEffect(() => dispatch(fetchReserve()), []);
-  console.log(reserves);
-  console.log(currentCar);
-  console.log(currentUser);
   return (
     <>
       <div className="new-reserve-container">
@@ -119,7 +114,6 @@ const NewReservation = () => {
           }
                 onDateChange={(date) => {
                   // optional
-                  console.log(date);
                   setSelectedDate(formatDate(date));
                 }}
               />
