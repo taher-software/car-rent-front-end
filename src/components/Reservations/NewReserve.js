@@ -61,7 +61,7 @@ const NewReservation = () => {
   const [Alertmessage, setAlertMessage] = useState('');
   const currentUser = useSelector((state) => state.current_user);
   const currentCar = useSelector((state) => state.current_car);
-
+  const reservations = useSelector((state) => state.my_reserves);
   const handleSubmit = async () => {
     if (selectedCity !== '---Select City---') {
       const reservation = {
@@ -82,6 +82,8 @@ const NewReservation = () => {
       setAlertMessage('Kindly select a city');
     }
   };
+
+  console.log(reservations);
   return (
     <>
       <div
@@ -98,7 +100,7 @@ const NewReservation = () => {
         <div
           className="new-reserve-container"
           style={{
-            backgroundImage: 'url("https://www.mercedes-benz.com/en/vehicles/passenger-cars/concept-cars/_jcr_content/root/slider_copy/sliderchilditems/slideritem_copy/image/MQ7-0-image-20210517163818/01-mercedes-benz-eq-concept-cars-3400x1440.jpeg")',
+            backgroundImage: `url(${currentCar.photo_url})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
