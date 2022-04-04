@@ -41,10 +41,11 @@ const MyReservations = () => {
           <Table responsive="sm" striped bordered hover>
             <thead>
               <tr>
-                <th id="reservation-id" className="table-header">Reservation ID</th>
+                <th id="reservation-id" className="table-header">ID #</th>
                 <th className="table-header">Car Brand</th>
                 <th id="reserved-car-model" className="table-header">Car Model</th>
                 <th className="table-header">Start Date</th>
+                <th className="table-header">Rent fee per Day</th>
                 <th className="table-header">City</th>
               </tr>
             </thead>
@@ -59,6 +60,11 @@ const MyReservations = () => {
                     {(data.cars.filter((car) => car.id === reserve.car_id))[0].brand}
                   </td>
                   <td className="table-info">{reserve.start_date}</td>
+                  <td className="table-info">
+                    {(data.cars.filter((car) => car.id === reserve.car_id))[0].rent_fee}
+                    {' '}
+                    $
+                  </td>
                   <td className="table-info">{reserve.city}</td>
                 </tr>
               ))}
