@@ -60,11 +60,12 @@ const NewReservation = () => {
   const [selectDate, setSelectedDate] = useState(TodayDate());
   const [Alertmessage, setAlertMessage] = useState('');
   const currentUser = useSelector((state) => state.current_user);
+  const currentCar = useSelector((state) => state.current_car);
 
   const handleSubmit = async () => {
     if (selectedCity !== '---Select City---') {
       const reservation = {
-        user_id: currentUser.id, car_id: 1, start_date: selectDate, city: selectedCity,
+        user_id: currentUser.id, car_id: currentCar.id, start_date: selectDate, city: selectedCity,
       };
       const reserveUrl = 'https://warm-inlet-48309.herokuapp.com/api/reservations';
       const result = await fetch(reserveUrl, {
