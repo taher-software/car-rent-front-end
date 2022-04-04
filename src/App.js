@@ -13,6 +13,7 @@ import MyReservations from './components/Reservations/MyReservations';
 import NewReservation from './components/Reservations/NewReserve';
 import NewCar from './components/cars/newcar';
 import fetchAllCars from './Redux/cars/fetch/fetchcars';
+import fetchReserve from './Redux/Reserve/thunk/Fetch_reserve';
 import DOWN from './assets/images/down.png';
 import './app.css';
 
@@ -72,7 +73,7 @@ const App = () => {
     });
   };
   const handleDelete = (carid) => {
-    const url = `http://[::1]:3000/api/cars/${carid}`;
+    const url = `https://warm-inlet-48309.herokuapp.com/api/cars/${carid}`;
     fetch(url, { method: 'DELETE' }).then((response) => {
       if (response.status === 200) {
         window.location.reload();
@@ -85,6 +86,7 @@ const App = () => {
   if (Object.keys(carData).includes('cars')) {
     cars = carData.cars;
   }
+  useEffect(() => dispatch(fetchReserve()), []);
   useEffect(() => dispatch(thunkUser()), []);
   useEffect(() => dispatch(fetchAllCars()), []);
   useEffect(() => adjustSize());
@@ -175,6 +177,7 @@ const App = () => {
           <Route path="/Myreservations" element={<MyReservations />} />
           <Route path="/Newcar" element={<NewCar />} />
           <Route path="/Reserve" element={<NewReservation />} />
+          <Route path="/Detail" element={<Detail />} />
         </Routes>
       </Router>
     </div>
