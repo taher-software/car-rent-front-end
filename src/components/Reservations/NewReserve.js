@@ -87,7 +87,7 @@ const NewReservation = () => {
   return (
     <>
       <div
-        className="d-flex"
+        className="d-flex reserve-contain"
       >
         <div className="nav-element">
           <Nav bg="light" className="main-nav flex-column">

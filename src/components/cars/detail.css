@@ -8,9 +8,10 @@
   width: 80%;
 }
 
-.datas-inf{
+.datas-inf {
   display: flex;
 }
+
 .item-img-wrapper {
   width: 70%;
 }
@@ -56,11 +57,13 @@
 .grey {
   background-color: rgb(226, 227, 229);
 }
+
 .title-data {
   margin: 0;
   font-family: monospace;
   opacity: 0.8;
 }
+
 .value-data {
   margin: 0;
   font-family: monospace;
@@ -116,15 +119,16 @@
   cursor: pointer;
 }
 
-.reserve-txt{
+.reserve-txt {
   color: white;
   vertical-align: middle;
   margin: 0;
   font-weight: 800;
   font-size: x-large;
 }
+
 @media screen and (max-width: 1000px) {
-  .desktop-nav-panel{
+  .desktop-nav-panel {
     display: none;
     width: 0;
   }
@@ -150,8 +154,9 @@
     width: 10%;
     margin-left: 45%;
   }
-  
+
   .item-data { width: 100%; }
+
   .item-brand {
     margin-top: 0;
     width: 90%;
@@ -168,7 +173,7 @@
     width: 90%;
     margin-left: 5%;
   }
-  
+
   .more-model {
     margin-right: 5%;
   }
