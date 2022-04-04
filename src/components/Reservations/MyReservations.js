@@ -28,10 +28,10 @@ const MyReservations = () => {
     <div className="myreservations">
       <div className="nav-element">
         <Nav bg="light" className="main-nav flex-column">
-          <Nav.Link href="/">All Cars</Nav.Link>
-          <Nav.Link href="/Reserve">Reserve</Nav.Link>
-          <Nav.Link href="/Myreservations">My Reservations</Nav.Link>
-          <Nav.Link href="/NewCar">Add a Car</Nav.Link>
+          <Nav.Link to="/">All Cars</Nav.Link>
+          <Nav.Link to="/Reserve">Reserve</Nav.Link>
+          <Nav.Link to="/Myreservations">My Reservations</Nav.Link>
+          <Nav.Link to="/NewCar">Add a Car</Nav.Link>
           <Nav.Link>Delete a Car</Nav.Link>
         </Nav>
       </div>
