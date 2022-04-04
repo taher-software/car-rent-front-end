@@ -65,7 +65,7 @@ const NewReservation = () => {
       const reservation = {
         user_id: currentUser.id, car_id: 1, start_date: selectDate, city: selectedCity,
       };
-      const reserveUrl = 'http://localhost:3001/api/reservations';
+      const reserveUrl = 'https://warm-inlet-48309.herokuapp.com/api/reservations';
       const result = await fetch(reserveUrl, {
         method: 'POST',
         headers: {
