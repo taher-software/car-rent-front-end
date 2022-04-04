@@ -136,17 +136,11 @@ const NewReservation = () => {
           }
                   onDateChange={(date) => {
                   // optional
-<<<<<<< HEAD
                     setSelectedDate(formatDate(date));
                   }}
                 />
               </div>
               <button type="button" onClick={handleSubmit}>Reserve</button>
-=======
-                  setSelectedDate(formatDate(date));
-                }}
-              />
->>>>>>> my-reservations
             </div>
           </form>
         </div>
