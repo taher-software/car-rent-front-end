@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useLocation, Link, useNavigate } from 'react-router-dom';
+import {
+  useLocation, Link, useNavigate, NavLink,
+} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Col, Nav, Row, Modal,
@@ -151,10 +153,10 @@ const Splash = () => {
      <div className="home-main">
        <div className="nav-element">
          <Nav bg="light" className="main-nav flex-column">
-           <Nav.Link href="/">All Cars</Nav.Link>
-           <Nav.Link href="/Reserve">Reserve</Nav.Link>
-           <Nav.Link href="/Myreservations">My Reservations</Nav.Link>
-           <Nav.Link href="/NewCar">Add a Car</Nav.Link>
+           <NavLink to="/">All Cars</NavLink>
+           <NavLink to="/Reserve">Reserve</NavLink>
+           <NavLink to="/Myreservations">My Reservations</NavLink>
+           <NavLink to="/NewCar">Add a Car</NavLink>
            <Nav.Link onClick={() => setLgShow(true)}>Delete a Car</Nav.Link>
          </Nav>
          <Modal
