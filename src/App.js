@@ -12,6 +12,7 @@ import MyReservations from './components/Reservations/MyReservations';
 import NewReservation from './components/Reservations/NewReserve';
 import NewCar from './components/cars/newcar';
 import fetchAllCars from './Redux/cars/fetch/fetchcars';
+import fetchReserve from './Redux/Reserve/thunk/Fetch_reserve';
 import DOWN from './assets/images/down.png';
 import './app.css';
 
@@ -69,6 +70,7 @@ const App = () => {
       signOut.style.display = 'none';
     });
   };
+  useEffect(() => dispatch(fetchReserve()), []);
   useEffect(() => dispatch(thunkUser()), []);
   useEffect(() => dispatch(fetchAllCars()), []);
   useEffect(() => adjustSize());
