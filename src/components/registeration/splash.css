@@ -204,10 +204,10 @@ body { margin: 0; }
 .c-item {
   border-bottom: 2px dotted lightblue;
 }
+
 .car-info {
   display: flex;
   flex-direction: row;
-  
 }
 
 .c-brand-model {
