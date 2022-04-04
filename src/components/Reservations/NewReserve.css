@@ -12,7 +12,6 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #97bf0f20;
   width: 100%;
 }
 
@@ -21,7 +20,7 @@ form {
   top: 0;
   height: 100vh;
   width: 100%;
-  background: rgba(157, 255, 0, 0.8);
+  background: rgba(152, 191, 25, 0.7);
 }
 
 .reserve-heading {
