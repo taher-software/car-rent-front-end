@@ -2,8 +2,9 @@ import {
   BrowserRouter as Router, Route, Routes,
 } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Nav, Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import thunkUser from './Redux/Username/thunk/thunk';
 import Splash from './components/registeration/Splash';
 import Sign from './components/registeration/Sign';
@@ -17,6 +18,7 @@ import './app.css';
 
 const App = () => {
   const dispatch = useDispatch();
+  const [lgShow, setLgShow] = useState(false);
   const session = useSelector((state) => state.session);
   const currentUser = useSelector((state) => state.current_user);
   let userPhoto = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyYOyr5Ec8JLXH9PnLVHZ2QKcW43XQs47vnQ&usqp=CAU';
@@ -69,6 +71,17 @@ const App = () => {
       signOut.style.display = 'none';
     });
   };
+  const handleDelete = (carid) => {
+    const url = `http://[::1]:3000/api/cars/${carid}`;
+    fetch(url, { method: 'DELETE' });
+    setLgShow(false);
+    // navigate('/', { state: { alert: 'Car Deleted Successfuly!' } });
+  };
+  const carData = useSelector((state) => state.Cars);
+  let cars = [];
+  if (Object.keys(carData).includes('cars')) {
+    cars = carData.cars;
+  }
   useEffect(() => dispatch(thunkUser()), []);
   useEffect(() => dispatch(fetchAllCars()), []);
   useEffect(() => adjustSize());
@@ -95,7 +108,34 @@ const App = () => {
             <li><a className="dropdown-item" href="/Myreservations">My Reservations</a></li>
             <li><hr className="dropdown-divider" /></li>
             <li><a className="dropdown-item" href="/NewCar">Add a Car</a></li>
-            <li className="dropdown-item">Delete a Car</li>
+            <li className="dropdown-item"><Nav.Link onClick={() => setLgShow(true)}>Delete a Car</Nav.Link></li>
+            <Modal
+              size="lg"
+              show={lgShow}
+              onHide={() => setLgShow(false)}
+              aria-labelledby="example-modal-sizes-title-lg"
+            >
+              <Modal.Header closeButton>
+                <Modal.Title id="example-modal-sizes-title-lg">
+                  Please Choose A Car To Delete
+                </Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                {cars.map((car) => (
+                  <li className="c-item" id={car.id} key={car.id} aria-hidden="true">
+                    <div className="car-info">
+                      <img className="car-image" src={car.photo_url} alt="car" width={50} height={50} />
+                      <div className="c-brand-model">
+                        <p className="car-brand">{car.brand}</p>
+                        -
+                        <p className="car-model">{car.model}</p>
+                      </div>
+                      <button className="delete-button btn btn-danger" type="button" onClick={() => handleDelete(car.id)}>Delete</button>
+                    </div>
+                  </li>
+                ))}
+              </Modal.Body>
+            </Modal>
           </ul>
         </div>
         <div

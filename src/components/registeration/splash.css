@@ -201,13 +201,21 @@ body { margin: 0; }
   display: none;
 }
 
+.c-item {
+  border-bottom: 2px dotted lightblue;
+}
 .car-info {
   display: flex;
   flex-direction: row;
+  
 }
 
-.c-item {
-
+.c-brand-model {
+  display: flex;
+  flex-direction: row;
+  margin-left: 5%;
+  width: 45%;
+  margin-top: 1%;
 }
 
 .delete-button {

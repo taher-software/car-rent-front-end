@@ -53,10 +53,10 @@ const MyReservations = () => {
                 <tr key={reserve.id}>
                   <td className="table-info">{reserve.id}</td>
                   <td className="table-info">
-                    {(data.cars.filter((car) => car.id === reserve.id))[0].brand}
+                    {(data.cars.filter((car) => car.id === reserve.car_id))[0].brand}
                   </td>
                   <td className="table-info">
-                    {(data.cars.filter((car) => car.id === reserve.id))[0].model}
+                    {(data.cars.filter((car) => car.id === reserve.car_id))[0].model}
                   </td>
                   <td className="table-info">{reserve.start_date}</td>
                   <td className="table-info">{reserve.city}</td>

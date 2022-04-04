@@ -88,6 +88,8 @@ const Splash = () => {
   const handleDelete = (carid) => {
     const url = `http://[::1]:3000/api/cars/${carid}`;
     fetch(url, { method: 'DELETE' });
+    setLgShow(false);
+    // navigate('/', { state: { alert: 'Car Deleted Successfuly!' } });
   };
   useEffect(() => adjustSize(), []);
   useEffect(() => setInterval(animation, 2000));
@@ -169,7 +171,7 @@ const Splash = () => {
                <li className="c-item" id={car.id} key={car.id} aria-hidden="true">
                  <div className="car-info">
                    <img className="car-image" src={car.photo_url} alt="car" width={50} height={50} />
-                   <div className="brand-model">
+                   <div className="c-brand-model">
                      <p className="car-brand">{car.brand}</p>
                      -
                      <p className="car-model">{car.model}</p>
