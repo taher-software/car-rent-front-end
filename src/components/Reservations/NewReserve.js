@@ -7,7 +7,7 @@ import fetchReserve from '../../Redux/Reserve/thunk/Fetch_reserve';
 import { selectCar } from '../../Redux/SelectedCar/selectedCar';
 import './NewReserve.css';
 
-const DateFormatter = (d, numOfyear) => { // formats a JS date to 'yyyy-mm-dd'
+const DateFormatter = (d, numOfyear) => { 
   let month = `${d.getMonth() + 1}`;
   let day = `${d.getDate()}`;
   const year = `${d.getFullYear() + numOfyear}`;
@@ -84,7 +84,7 @@ const NewReservation = () => {
       setAlertMessage('Kindly select a city');
     }
   };
-
+  
   const { id } = currentCar;
   const allCars = cars.cars;
   let index = 0;
@@ -105,7 +105,7 @@ const NewReservation = () => {
     const nextCar = allCars[nextIndex];
     dispatch(selectCar(nextCar));
   };
-
+  
   return (
     <>
       <div
