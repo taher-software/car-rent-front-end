@@ -87,7 +87,11 @@ const Splash = () => {
 
   const handleDelete = (carid) => {
     const url = `http://[::1]:3000/api/cars/${carid}`;
-    fetch(url, { method: 'DELETE' });
+    fetch(url, { method: 'DELETE' }).then((response) => {
+      if (response.status === 200) {
+        window.location.reload();
+      }
+    });
     setLgShow(false);
   };
   useEffect(() => adjustSize(), []);

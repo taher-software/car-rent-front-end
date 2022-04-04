@@ -73,9 +73,12 @@ const App = () => {
   };
   const handleDelete = (carid) => {
     const url = `http://[::1]:3000/api/cars/${carid}`;
-    fetch(url, { method: 'DELETE' });
+    fetch(url, { method: 'DELETE' }).then((response) => {
+      if (response.status === 200) {
+        window.location.reload();
+      }
+    });
     setLgShow(false);
-    // navigate('/', { state: { alert: 'Car Deleted Successfuly!' } });
   };
   const carData = useSelector((state) => state.Cars);
   let cars = [];
@@ -108,7 +111,7 @@ const App = () => {
             <li><a className="dropdown-item" href="/Myreservations">My Reservations</a></li>
             <li><hr className="dropdown-divider" /></li>
             <li><a className="dropdown-item" href="/NewCar">Add a Car</a></li>
-            <li className="dropdown-item"><Nav.Link onClick={() => setLgShow(true)}>Delete a Car</Nav.Link></li>
+            <li><Nav.Link className="dropdown-item" onClick={() => setLgShow(true)}>Delete a Car</Nav.Link></li>
             <Modal
               size="lg"
               show={lgShow}
