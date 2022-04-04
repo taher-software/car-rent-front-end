@@ -5,7 +5,7 @@ import { DropdownDate } from 'react-dropdown-date';
 import fetchReserve from '../../Redux/Reserve/thunk/Fetch_reserve';
 import './NewReserve.css';
 
-const DateFormatter = (d, numOfyear) => { // formats a JS date to 'yyyy-mm-dd'
+const DateFormatter = (d, numOfyear) => { 
   let month = `${d.getMonth() + 1}`;
   let day = `${d.getDate()}`;
   const year = `${d.getFullYear() + numOfyear}`;
