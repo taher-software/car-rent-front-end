@@ -1,6 +1,6 @@
 import { loadCars, failCars } from '../actions/actions';
 
-const fetchCars = () => fetch('http://[::1]:3001/api/cars');
+const fetchCars = () => fetch('https://warm-inlet-48309.herokuapp.com/api/cars');
 
 const fetchAllCars = () => (dispatch) => {
   fetchCars()

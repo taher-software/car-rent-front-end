@@ -1,0 +1,184 @@
+.detail-wrapper {
+  border: 12px solid rgb(241, 241, 241);
+  display: flex;
+  width: 100%;
+}
+
+.item-data-wrapper {
+  width: 80%;
+}
+
+.datas-inf{
+  display: flex;
+}
+.item-img-wrapper {
+  width: 70%;
+}
+
+.item-img {
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.like-icon {
+  width: 5%;
+  margin-left: 47.5%;
+}
+
+.item-data {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-brand {
+  text-transform: uppercase;
+  margin-top: 100px;
+  margin-bottom: 0;
+}
+
+.item-description {
+  margin-top: 0;
+  font-weight: 900;
+  opacity: 0.75;
+  font-size: small;
+  line-height: 100%;
+  margin-bottom: 50px;
+}
+
+.card-inf {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3.75% 5%;
+}
+
+.grey {
+  background-color: rgb(226, 227, 229);
+}
+.title-data {
+  margin: 0;
+  font-family: monospace;
+  opacity: 0.8;
+}
+.value-data {
+  margin: 0;
+  font-family: monospace;
+  opacity: 0.8;
+}
+
+.more-model {
+  display: flex;
+  align-self: end;
+  align-items: center;
+  width: fit-content;
+}
+
+.more-text {
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-right: 2.5px;
+}
+
+.arrow-icon {
+  align-self: flex-start;
+  margin-top: 2px;
+}
+
+.command-part {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.reserve-btn {
+  text-decoration: none;
+  display: flex;
+  background-color: rgb(136, 213, 14);
+  justify-content: space-between;
+  border: 1px solid white;
+  border-radius: 40px;
+  align-items: center;
+  width: 20%;
+  align-self: flex-end;
+  box-sizing: content-box;
+  padding: 1% 2.5%;
+}
+
+.back-icon {
+  width: 10%;
+  margin-right: 10%;
+}
+
+.rotate-icon {
+  width: 5%;
+  align-self: center;
+  cursor: pointer;
+}
+
+.reserve-txt{
+  color: white;
+  vertical-align: middle;
+  margin: 0;
+  font-weight: 800;
+  font-size: x-large;
+}
+@media screen and (max-width: 1000px) {
+  .desktop-nav-panel{
+    display: none;
+    width: 0;
+  }
+
+  .datas-inf {
+    display: block;
+    width: 100%;
+  }
+
+  .item-img-wrapper {
+    width: 100%;
+  }
+
+  .item-data-wrapper {
+    width: 100%;
+  }
+
+  .item-img {
+    margin-bottom: 0;
+  }
+
+  .like-icon {
+    width: 10%;
+    margin-left: 45%;
+  }
+  
+  .item-data { width: 100%; }
+  .item-brand {
+    margin-top: 0;
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .item-description {
+    margin-bottom: 25px;
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .card-inf {
+    width: 90%;
+    margin-left: 5%;
+  }
+  
+  .more-model {
+    margin-right: 5%;
+  }
+
+  .reserve-btn {
+    width: auto;
+    margin-right: 5%;
+  }
+
+  .rotate-icon {
+    width: 25%;
+  }
+}

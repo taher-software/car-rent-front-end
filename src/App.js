@@ -134,6 +134,7 @@ const App = () => {
           <Route path="/Myreservations" element={<MyReservations />} />
           <Route path="/Newcar" element={<NewCar />} />
           <Route path="/Reserve" element={<NewReservation />} />
+          <Route path="/Detail" element={<Detail />} />
         </Routes>
       </Router>
     </div>
