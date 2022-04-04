@@ -108,11 +108,11 @@ const App = () => {
             Dropdown button
           </button>
           <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-            <li><a className="dropdown-item active" to="/">All Cars</a></li>
-            <li><a className="dropdown-item" to="/Reserve">Reserve</a></li>
-            <li><a className="dropdown-item" to="/Myreservations">My Reservations</a></li>
+            <li><a className="dropdown-item active" href="/">All Cars</a></li>
+            <li><a className="dropdown-item" href="/Reserve">Reserve</a></li>
+            <li><a className="dropdown-item" href="/Myreservations">My Reservations</a></li>
             <li><hr className="dropdown-divider" /></li>
-            <li><a className="dropdown-item" to="/NewCar">Add a Car</a></li>
+            <li><a className="dropdown-item" href="/NewCar">Add a Car</a></li>
             <li><Nav.Link className="dropdown-item" onClick={() => setLgShow(true)}>Delete a Car</Nav.Link></li>
             <Modal
               size="lg"

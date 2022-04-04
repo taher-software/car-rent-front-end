@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Nav } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
 import { DropdownDate } from 'react-dropdown-date';
 import fetchReserve from '../../Redux/Reserve/thunk/Fetch_reserve';
 import './NewReserve.css';
@@ -89,10 +88,10 @@ const NewReservation = () => {
       >
         <div className="nav-element">
           <Nav bg="light" className="main-nav flex-column">
-            <NavLink to="/">All Cars</NavLink>
-            <NavLink to="/Myreservations">My Reservations</NavLink>
-            <NavLink to="/NewCar">Add a Car</NavLink>
-            <NavLink>Delete a Car</NavLink>
+            <Nav.Link href="/">All Cars</Nav.Link>
+            <Nav.Link href="/Myreservations">My Reservations</Nav.Link>
+            <Nav.Link href="/NewCar">Add a Car</Nav.Link>
+            <Nav.Link>Delete a Car</Nav.Link>
           </Nav>
         </div>
         <div
