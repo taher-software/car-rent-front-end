@@ -1,4 +1,4 @@
-import { GET_USERNAME_DATA, FAIL_USERNAME_DATA } from '../actions/action';
+import { GET_USERNAME_DATA, FAIL_USERNAME_DATA } from "../actions/action";
 
 const initialState = {};
 

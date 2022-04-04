@@ -1,12 +1,12 @@
-import { populateStorage, fetchStorage } from '../../helper/localStorage';
+import { populateStorage, fetchStorage } from "../../helper/localStorage";
 
-export const UPDATE_CURRENT_USER = 'CAR-RENT/CURRENT-USER/UPDATE';
+export const UPDATE_CURRENT_USER = "CAR-RENT/CURRENT-USER/UPDATE";
 
 export const updateCurrentUser = (payload) => ({
   type: UPDATE_CURRENT_USER,
   payload,
 });
-let initialUser = fetchStorage('current_user');
+let initialUser = fetchStorage("current_user");
 if (!initialUser) {
   initialUser = {};
 }

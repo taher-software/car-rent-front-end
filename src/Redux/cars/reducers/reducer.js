@@ -1,4 +1,4 @@
-import { GET_CARS_DATA, FAIL_CARS_DATA } from '../actions/actions';
+import { GET_CARS_DATA, FAIL_CARS_DATA } from "../actions/actions";
 
 const intialState = {};
 

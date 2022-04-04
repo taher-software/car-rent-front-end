@@ -1,4 +1,4 @@
-const SELECT = 'CAR-RENT/SELECTED-CAR/SELECT';
+const SELECT = "CAR-RENT/SELECTED-CAR/SELECT";
 export const selectCar = (payload) => ({
   type: SELECT,
   payload,

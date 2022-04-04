@@ -1,8 +1,6 @@
-import React from 'react';
-import NavigationPanel from './navLink';
+import React from "react";
+import NavigationPanel from "./navLink";
 
-const Detail = () => (
-  <NavigationPanel />
-);
+const Detail = () => <NavigationPanel />;
 
 export default Detail;

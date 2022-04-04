@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 // import { NavLink } from 'react-router-dom';
-import LOGO from '../../assets/images/logo.png';
+import LOGO from "../../assets/images/logo.png";
 
 const NavigationPanel = () => (
   <div>
