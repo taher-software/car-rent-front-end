@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Nav } from 'react-bootstrap';
 import { DropdownDate } from 'react-dropdown-date';
 import fetchReserve from '../../Redux/Reserve/thunk/Fetch_reserve';
 import './NewReserve.css';
@@ -82,46 +83,66 @@ const NewReservation = () => {
   };
   return (
     <>
-      <div className="new-reserve-container">
-        <h2 className="reserve-heading">Reserve a Car</h2>
-        <p className="alert-reserve">{Alertmessage}</p>
-        <form>
-          <div className="reserve-form">
-            <div className="city-style">
-              <select
-                id="cityId"
-                placeholder="city"
-                value={selectedCity}
-                onChange={(e) => setSelectedCity(e.target.value)}
-              >
-                <option>---Select City---</option>
-                {cities.map((city) => <option key={city.id}>{city.name}</option>)}
-              </select>
-            </div>
-            <div className="date-style">
-              <DropdownDate
-                startDate={
+      <div
+        className="d-flex"
+      >
+        <div className="nav-element">
+          <Nav bg="light" className="main-nav flex-column">
+            <Nav.Link href="/">All Cars</Nav.Link>
+            <Nav.Link href="/Myreservations">My Reservations</Nav.Link>
+            <Nav.Link href="/NewCar">Add a Car</Nav.Link>
+            <Nav.Link>Delete a Car</Nav.Link>
+          </Nav>
+        </div>
+        <div
+          className="new-reserve-container"
+          style={{
+            backgroundImage: 'url("https://www.mercedes-benz.com/en/vehicles/passenger-cars/concept-cars/_jcr_content/root/slider_copy/sliderchilditems/slideritem_copy/image/MQ7-0-image-20210517163818/01-mercedes-benz-eq-concept-cars-3400x1440.jpeg")',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <div className="overLay" />
+          <h2 className="reserve-heading">Reserve a Car</h2>
+          <p className="alert-reserve">{Alertmessage}</p>
+          <form>
+            <div className="reserve-form">
+              <div className="city-style">
+                <select
+                  id="cityId"
+                  placeholder="city"
+                  value={selectedCity}
+                  onChange={(e) => setSelectedCity(e.target.value)}
+                >
+                  <option>---Select City---</option>
+                  {cities.map((city) => <option key={city.id}>{city.name}</option>)}
+                </select>
+              </div>
+              <div className="date-style">
+                <DropdownDate
+                  startDate={
             // optional, if not provided 1900-01-01 is startDate
             TodayDate() // 'yyyy-mm-dd' format only
           }
-                endDate={
+                  endDate={
             // optional, if not provided current date is endDate
             extendDate(5) // 'yyyy-mm-dd' format only
           }
-                selectedDate={
+                  selectedDate={
             // optional
             selectDate // 'yyyy-mm-dd' format only
           }
-                onDateChange={(date) => {
+                  onDateChange={(date) => {
                   // optional
-                  console.log(date);
-                  setSelectedDate(formatDate(date));
-                }}
-              />
+                    setSelectedDate(formatDate(date));
+                  }}
+                />
+              </div>
+              <button type="button" onClick={handleSubmit}>Reserve</button>
             </div>
-            <button type="button" onClick={handleSubmit}>Reserve</button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </>
   );

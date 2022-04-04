@@ -3,16 +3,27 @@ form {
 }
 
 .new-reserve-container {
+  color: #fff;
   position: relative;
   display: flex;
   flex-direction: column;
   background-color: #97bf0f20;
   height: 100%;
+  width: 100%;
+}
+
+.overLay {
+ position: absolute;
+ top: 0;
+ height: 100%;
+ width: 100%;
+ background: rgba(136, 255, 0, 0.555);
 }
 
 .reserve-heading {
   margin-top: 20px;
   text-align: center;
+  z-index: 1;
 }
 
 .reserve-form {
@@ -46,6 +57,7 @@ form {
 div select {
   display: flex;
   flex-direction: row;
+  cursor: pointer;
 }
 
 .city-style select {
@@ -71,6 +83,7 @@ div select {
 
 .alert-reserve {
   position: absolute;
+  z-index: 1;
   top: 30%;
   left: 50%;
   transform: translate(-50%, -30%);
