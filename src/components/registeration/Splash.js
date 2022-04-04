@@ -90,6 +90,9 @@ const Splash = () => {
     fetch(url, { method: 'DELETE' }).then((response) => {
       if (response.status === 200) {
         window.location.reload();
+        navigate('/', { state: { alert: 'Car Deleted successfully!' } });
+      } else {
+        navigate('/', { state: { alert: 'Sorry, Car Could Not be Deleted' } });
       }
     });
     setLgShow(false);
