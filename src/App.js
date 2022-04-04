@@ -94,7 +94,7 @@ const App = () => {
           <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
             <li><a className="dropdown-item active" href="/">All Cars</a></li>
             <li><a className="dropdown-item" href="/Reserve">Reserve</a></li>
-            <li><a className="dropdown-item" href="/Myreservation">My Reservations</a></li>
+            <li><a className="dropdown-item" href="/Myreservations">My Reservations</a></li>
             <li><hr className="dropdown-divider" /></li>
             <li><a className="dropdown-item" href="/NewCar">Add a Car</a></li>
             <li className="dropdown-item">Delete a Car</li>
