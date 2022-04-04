@@ -107,7 +107,8 @@ const NewReservation = () => {
           }}
         >
           <div className="overLay" />
-          <h2 className="reserve-heading">Reserve a Car</h2>
+          <h2 className="reserve-heading">Reserve a Car Today</h2>
+          <p className="reserve-content">Our cars are available in all five major cities everyday, reserve a car today</p>
           <p className="alert-reserve">{Alertmessage}</p>
           <form>
             <div className="reserve-form">
