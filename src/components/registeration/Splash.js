@@ -86,7 +86,7 @@ const Splash = () => {
   };
 
   const handleDelete = (carid) => {
-    const url = `http://[::1]:3000/api/cars/${carid}`;
+    const url = `https://warm-inlet-48309.herokuapp.com/api/cars/${carid}`;
     fetch(url, { method: 'DELETE' }).then((response) => {
       if (response.status === 200) {
         window.location.reload();

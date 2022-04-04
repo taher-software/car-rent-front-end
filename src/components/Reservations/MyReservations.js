@@ -8,7 +8,7 @@ const MyReservations = () => {
   const dispatch = useDispatch();
   const [data, setData] = useState('');
   const loadData = async () => {
-    const res = await fetch('http://[::1]:3000/api/cars');
+    const res = await fetch('https://warm-inlet-48309.herokuapp.com/api/cars');
     setData(await res.json());
   };
   useEffect(() => loadData(), []);
