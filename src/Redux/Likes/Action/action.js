@@ -12,5 +12,5 @@ export const failGetLikes = (payload) => ({
   payload,
 });
 export const startGetLIkes = () => ({
-  type : START_LIKES_DATA,
+  type: START_LIKES_DATA,
 });

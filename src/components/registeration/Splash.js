@@ -79,7 +79,6 @@ const Splash = () => {
     }
     const selectedCar = cars.filter((car) => car.id === parseInt(parent.id, 10))[0];
     dispatch(selectCar(selectedCar));
-
     navigate('/Details');
   };
   useEffect(() => adjustSize(), []);
@@ -91,13 +90,9 @@ const Splash = () => {
     <div className="splash-wrapper">
       <div className="app-presentation">
         <div className="logo-wrapper">
-
-
+          <img src={LOGO} alt="logo" className="logo-img" />
           <p className="logo-text">CARRENTAL</p>
         </div>
-
-
-
         <div className="app-inf">
           <h1 className="app-name"> CAR RENTAL</h1>
           <hr />
