@@ -20,9 +20,9 @@ const AddForm = () => {
       const car = {
         brand,
         model,
-        photoUrl,
-        rentFee,
-        modelYear,
+        photo_url: photoUrl,
+        rent_fee: rentFee,
+        model_year: modelYear,
         description,
       };
 
@@ -39,7 +39,7 @@ const AddForm = () => {
         setModel('');
         setPhotoUrl('');
         setRentFee('');
-        setModel('');
+        setModelYear('');
         setDescription('');
         setMessage('User created successfully');
         navigate('/');
@@ -124,6 +124,7 @@ const AddForm = () => {
       >
         Submit
         {' '}
+        { ' ' }
       </button>
     </form>
   );
