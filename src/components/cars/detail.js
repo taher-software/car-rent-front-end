@@ -18,6 +18,7 @@ const Detail = () => {
   const [info, setInfo] = useState('');
   const item = useSelector((state) => state.current_car);
   const cars = useSelector((state) => state.Cars);
+  const currentUser = useSelector((state) => state.current_user);
   const adjustSize = () => {
     const nav = document.querySelector('.nav-wrapper');
     const h = window.innerHeight;
