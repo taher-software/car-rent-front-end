@@ -1,11 +1,10 @@
 import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
+  BrowserRouter as Router, NavLink, Route, Routes,
 } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Nav, Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import thunkUser from './Redux/Username/thunk/thunk';
 import thunkLikes from './Redux/Likes/Thunk/thunk';
 import Splash from './components/registeration/Splash';
@@ -21,6 +20,7 @@ import './app.css';
 
 const App = () => {
   const dispatch = useDispatch();
+  const [lgShow, setLgShow] = useState(false);
   const session = useSelector((state) => state.session);
   const currentUser = useSelector((state) => state.current_user);
   let userPhoto = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyYOyr5Ec8JLXH9PnLVHZ2QKcW43XQs47vnQ&usqp=CAU';
@@ -73,6 +73,20 @@ const App = () => {
       signOut.style.display = 'none';
     });
   };
+  const handleDelete = (carid) => {
+    const url = `https://warm-inlet-48309.herokuapp.com/api/cars/${carid}`;
+    fetch(url, { method: 'DELETE' }).then((response) => {
+      if (response.status === 200) {
+        window.location.reload();
+      }
+    });
+    setLgShow(false);
+  };
+  const carData = useSelector((state) => state.Cars);
+  let cars = [];
+  if (Object.keys(carData).includes('cars')) {
+    cars = carData.cars;
+  }
   useEffect(() => dispatch(fetchReserve()), []);
   useEffect(() => dispatch(thunkUser()), []);
   useEffect(() => dispatch(fetchAllCars()), []);
@@ -80,82 +94,85 @@ const App = () => {
   useEffect(() => dispatch(thunkLikes()), []);
   return (
     <div className="wrapper-app">
-      <header
-        className="header"
-        style={
-            {
-              display: session ? 'flex' : 'none',
-              backgroundColor: 'rgb(152, 191, 25)',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              padding: '5% 0',
-            }
-        }
-      >
+      <Router>
+        <header
+          className="header"
+          style={{
+            display: session ? 'flex' : 'none',
+            backgroundColor: 'rgb(152, 191, 25)',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: '5% 0',
+          }}
+        >
 
-        <div className="dropdown menu-icon">
-          <button
-            className="btn btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton2"
-            toggle="dropdown"
-            expanded="false"
-          >
-            Dropdown button
-          </button>
-          <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-            <li><a className="dropdown-item active" href="/">All Cars</a></li>
-            <li><a className="dropdown-item" href="/Reserve">Reserve</a></li>
-            <li><a className="dropdown-item" href="/Myreservations">My Reservations</a></li>
-            <li><hr className="dropdown-divider" /></li>
-            <li><a className="dropdown-item" href="/NewCar">Add a Car</a></li>
-            <li className="dropdown-item">Delete a Car</li>
-          </ul>
-          {' '}
-
-        </div>
-        {' '}
-        <div
-          className="profile-icon"
-          style={
-            {
+          <div className="dropdown menu-icon">
+            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown button
+            </button>
+            <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+              <li><NavLink className="dropdown-item active" to="/">All Cars</NavLink></li>
+              <li><NavLink className="dropdown-item" to="/Reserve">Reserve</NavLink></li>
+              <li><NavLink className="dropdown-item" to="/Myreservations">My Reservations</NavLink></li>
+              <li><hr className="dropdown-divider" /></li>
+              <li><NavLink className="dropdown-item" to="/NewCar">Add a Car</NavLink></li>
+              <li><Nav.Link className="dropdown-item" onClick={() => setLgShow(true)}>Delete a Car</Nav.Link></li>
+              <Modal
+                size="lg"
+                show={lgShow}
+                onHide={() => setLgShow(false)}
+                aria-labelledby="example-modal-sizes-title-lg"
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title id="example-modal-sizes-title-lg">
+                    Please Choose A Car To Delete
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  {cars.map((car) => (
+                    <li className="c-item" id={car.id} key={car.id} aria-hidden="true">
+                      <div className="car-info">
+                        <img className="car-image-mobile" src={car.photo_url} alt="car" width={50} height={50} />
+                        <div className="c-brand-model">
+                          <p className="car-brand-mobile">{car.brand}</p>
+                          -
+                          <p className="car-model-mobile">{car.model}</p>
+                        </div>
+                        <button className="delete-button btn btn-danger" type="button" onClick={() => handleDelete(car.id)}>Delete</button>
+                      </div>
+                    </li>
+                  ))}
+                </Modal.Body>
+              </Modal>
+            </ul>
+          </div>
+          <div
+            className="profile-icon"
+            style={{
               display: 'flex',
               alignItems: 'center',
               marginRight: '2.5%',
               width: '10%',
-            }
-        }
-          onClick={profileMenu}
-          onKeyDown={profileMenu}
-          aria-hidden="true"
-        >
-          <img
-            src={userPhoto}
-            className="user-photo"
-            alt="profile"
-            width="75%"
-            style={
-            {
-              border: '1px solid rgb(152, 191, 25)',
-              borderRadius: '50%',
-              height: '32px',
-            }
-        }
-          />
-          {' '}
-          <img
-            src={DOWN}
-            className="down-option"
-            alt="account-option"
-            width="25%"
-            height="8px"
-          />
-        </div>
-        {' '}
+            }}
+            onClick={profileMenu}
+            onKeyDown={profileMenu}
+            aria-hidden="true"
+          >
+            <img
+              src={userPhoto}
+              className="user-photo"
+              alt="profile"
+              width="75%"
+              style={{
+                border: '1px solid rgb(152, 191, 25)',
+                borderRadius: '50%',
+                height: '32px',
+              }}
+            />
+            <img src={DOWN} className="down-option" alt="account-option" width="25%" height="8px" />
+          </div>
+        </header>
 
-      </header>
-      {' '}
-      <Router>
         <Routes>
           <Route path="/" element={<Splash />} />
           <Route path="/Sign" element={<Sign />} />
@@ -165,11 +182,7 @@ const App = () => {
           <Route path="/Reserve" element={<NewReservation />} />
           <Route path="/Detail" element={<Detail />} />
         </Routes>
-        {' '}
-
       </Router>
-      {' '}
-
     </div>
   );
 };

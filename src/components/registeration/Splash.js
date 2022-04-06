@@ -1,7 +1,11 @@
-import React, { useEffect, useRef } from 'react';
-import { useLocation, Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
+import {
+  useLocation, Link, useNavigate, NavLink,
+} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Col, Nav, Row } from 'react-bootstrap';
+import {
+  Col, Nav, Row, Modal,
+} from 'react-bootstrap';
 import { selectCar } from '../../Redux/SelectedCar/selectedCar';
 import LOGO from '../../assets/images/logo.png';
 import CLOSE from '../../assets/images/close.png';
@@ -9,6 +13,7 @@ import fetchAllCars from '../../Redux/cars/fetch/fetchcars';
 import './splash.css';
 
 const Splash = () => {
+  const [lgShow, setLgShow] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const { state } = location;
@@ -81,6 +86,19 @@ const Splash = () => {
     dispatch(selectCar(selectedCar));
     navigate('/Details');
   };
+
+  const handleDelete = (carid) => {
+    const url = `https://warm-inlet-48309.herokuapp.com/api/cars/${carid}`;
+    fetch(url, { method: 'DELETE' }).then((response) => {
+      if (response.status === 200) {
+        window.location.reload();
+        navigate('/', { state: { alert: 'Car Deleted successfully!' } });
+      } else {
+        navigate('/', { state: { alert: 'Sorry, Car Could Not be Deleted' } });
+      }
+    });
+    setLgShow(false);
+  };
   useEffect(() => adjustSize(), []);
   useEffect(() => setInterval(animation, 2000));
   return (
@@ -131,14 +149,45 @@ const Splash = () => {
       {session
    && (
      <div className="home-main">
-       <div className="nav-element">
-         <Nav bg="light" className="main-nav flex-column">
-           <Nav.Link href="/">All Cars</Nav.Link>
-           <Nav.Link href="/Reserve">Reserve</Nav.Link>
-           <Nav.Link href="/Myreservations">My Reservations</Nav.Link>
-           <Nav.Link href="/NewCar">Add a Car</Nav.Link>
-           <Nav.Link>Delete a Car</Nav.Link>
-         </Nav>
+       <div className="nav-wrapper">
+         <div className="nav-logo-wrapper">
+           <img src={LOGO} alt="logo" className="nav-logo-img" />
+           <span className="nav-logo-text">CARRENTAL</span>
+         </div>
+         <div className="link-wrapper">
+           <NavLink to="/" className="link-btn">All Cars</NavLink>
+           <NavLink to="/Reserve" className="link-btn">Reserve</NavLink>
+           <NavLink to="/Myreservations" className="link-btn">My Reservations</NavLink>
+           <NavLink to="/NewCar" className="link-btn">Add a Car</NavLink>
+           <Nav.Link onClick={() => setLgShow(true)} className="link-btn">Delete a Car</Nav.Link>
+         </div>
+         <Modal
+           size="lg"
+           show={lgShow}
+           onHide={() => setLgShow(false)}
+           aria-labelledby="example-modal-sizes-title-lg"
+         >
+           <Modal.Header closeButton>
+             <Modal.Title id="example-modal-sizes-title-lg">
+               Please Choose A Car To Delete
+             </Modal.Title>
+           </Modal.Header>
+           <Modal.Body>
+             {cars.map((car) => (
+               <li className="c-item" id={car.id} key={car.id} aria-hidden="true">
+                 <div className="car-info">
+                   <img className="car-image" src={car.photo_url} alt="car" width={50} height={50} />
+                   <div className="c-brand-model">
+                     <p className="car-brand">{car.brand}</p>
+                     -
+                     <p className="car-model">{car.model}</p>
+                   </div>
+                   <button className="delete-button btn btn-danger" type="button" onClick={() => handleDelete(car.id)}>Delete</button>
+                 </div>
+               </li>
+             ))}
+           </Modal.Body>
+         </Modal>
        </div>
        <div className="cars-element">
          <div className="alert alert-success" style={{ display: alert === '' ? 'none' : 'flex', justifyContent: 'space-between' }}>
@@ -161,7 +210,7 @@ const Splash = () => {
                <img className="car-image" src={car.photo_url} alt="car" width={180} height={180} />
                <div className="brand-model">
                  <p className="car-brand">{car.brand}</p>
-                 -
+                 &nbsp;
                  <p className="car-model">{car.model}</p>
                </div>
                <p className="model-year">{car.model_year}</p>

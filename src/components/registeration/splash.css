@@ -96,6 +96,7 @@ a.logo {
 
 .car-image {
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .car-brand {
@@ -119,6 +120,16 @@ a.logo {
 .brand-model {
   display: flex;
   flex-direction: row;
+  cursor: pointer;
+}
+
+.brand-model:hover {
+  color: gray;
+}
+
+.model-year:hover {
+  cursor: pointer;
+  color: gray;
 }
 
 .leftscrollbtn {
@@ -202,6 +213,28 @@ body {
 
 .app-inf {
   display: none;
+}
+
+.c-item {
+  border-bottom: 2px dotted lightblue;
+}
+
+.car-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.c-brand-model {
+  display: flex;
+  flex-direction: row;
+  margin-left: 5%;
+  width: 45%;
+  margin-top: 1%;
+}
+
+.delete-button {
+  position: absolute;
+  margin-left: 80%;
 }
 
 @media screen and (min-width: 1024px) {

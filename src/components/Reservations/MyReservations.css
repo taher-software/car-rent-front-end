@@ -1,54 +1,53 @@
 .myreservations {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .myreserve-body {
-    margin-left: 8%;
-    margin-top: 5%;
-    width: 60%;
+  margin-left: 8%;
+  margin-top: 5%;
+  width: 60%;
 }
 
 .myreserve-title {
-    border: 1px solid lightblue;
-    box-shadow: 3px 3px 3px 7px  lightblue;
-    text-align: center;
-    border-radius: 2%;
+  border: 1px solid lightblue;
+  box-shadow: 3px 3px 3px 7px  lightblue;
+  text-align: center;
+  border-radius: 2%;
 }
 
 .myreserve-table {
-    margin-top: 5%;
-    border: 1px solid black;
-    box-shadow: 3px 3px 3px 7px  lightblue;
+  margin-top: 5%;
+  border: 1px solid black;
+  box-shadow: 3px 3px 3px 7px  lightblue;
 }
 
 @media screen and (max-width: 720px) {
+  .myreserve-table {
+    margin-top: 5%;
+    border: 1px solid black;
+    box-shadow: 3px 3px 3px 7px  lightblue;
+    width: 100%;
+  }
 
-    .myreserve-table {
-        margin-top: 5%;
-        border: 1px solid black;
-        box-shadow: 3px 3px 3px 7px  lightblue;
-        width: 100%;
-    }
+  .table-header {
+    font-size: 1.3vh;
+  }
 
-    .table-header {
-        font-size: 1.3vh;
-    }
+  .table-info {
+    font-size: 1.1vh;
+    font-weight: bold;
+  }
 
-    .table-info {
-        font-size: 1.1vh;
-        font-weight: bold;
-    }
+  .myreserve-body {
+    width: 80%;
+  }
 
-    .myreserve-body {
-        width: 80%;
-    }
+  #reservation-id {
+    width: 30px;
+  }
 
-    #reservation-id {
-        width: 30px;
-    }
-
-    #reserved-car-model {
-        width: 45px;
-    }
+  #reserved-car-model {
+    width: 45px;
+  }
 }
