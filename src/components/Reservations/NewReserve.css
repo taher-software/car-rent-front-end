@@ -123,6 +123,12 @@ div select {
   color: rgb(179, 71, 71);
 }
 
+@media (min-width: 721px) and (max-width: 1000px) {
+  .new-reserve-container {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 720px) {
   .reserve-form {
     flex-direction: column;
