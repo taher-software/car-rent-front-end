@@ -26,7 +26,7 @@ const AddForm = () => {
         description,
       };
 
-      const res = await fetch('http://127.0.0.1:3000/api/cars', {
+      const res = await fetch('https://warm-inlet-48309.herokuapp.com/api/cars', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
