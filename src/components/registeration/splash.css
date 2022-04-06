@@ -107,7 +107,6 @@ a.logo {
   font-size: 3vh;
 }
 
-
 .car-item {
   display: flex;
   flex-direction: column;
@@ -132,7 +131,6 @@ a.logo {
   cursor: pointer;
   color: gray;
 }
-
 
 .leftscrollbtn {
   background-color: rgb(199, 253, 235);
