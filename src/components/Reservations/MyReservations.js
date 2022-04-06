@@ -4,6 +4,7 @@ import './MyReservations.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import fetchReserve from '../../Redux/Reserve/thunk/Fetch_reserve';
+import LOGO from '../../assets/images/logo.png';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
@@ -42,14 +43,18 @@ const MyReservations = () => {
   }
   return (
     <div className="myreservations">
-      <div className="nav-element">
-        <Nav bg="light" className="main-nav flex-column">
-          <NavLink to="/">All Cars</NavLink>
-          <NavLink to="/Reserve">Reserve</NavLink>
-          <NavLink to="/Myreservations">My Reservations</NavLink>
-          <NavLink to="/NewCar">Add a Car</NavLink>
-          <Nav.Link onClick={() => setLgShow(true)}>Delete a Car</Nav.Link>
-        </Nav>
+      <div className="nav-wrapper">
+        <div className="nav-logo-wrapper">
+          <img src={LOGO} alt="logo" className="nav-logo-img" />
+          <span className="nav-logo-text">CARRENTAL</span>
+        </div>
+        <div className="link-wrapper">
+          <NavLink to="/" className="link-btn">All Cars</NavLink>
+          <NavLink to="/Reserve" className="link-btn">Reserve</NavLink>
+          <NavLink to="/Myreservations" className="link-btn">My Reservations</NavLink>
+          <NavLink to="/NewCar" className="link-btn">Add a Car</NavLink>
+          <Nav.Link onClick={() => setLgShow(true)} className="link-btn">Delete a Car</Nav.Link>
+        </div>
         <Modal
           size="lg"
           show={lgShow}

@@ -6,6 +6,7 @@ import { Nav, Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import thunkUser from './Redux/Username/thunk/thunk';
+import thunkLikes from './Redux/Likes/Thunk/thunk';
 import Splash from './components/registeration/Splash';
 import Sign from './components/registeration/Sign';
 import Detail from './components/cars/detail';
@@ -89,7 +90,8 @@ const App = () => {
   useEffect(() => dispatch(fetchReserve()), []);
   useEffect(() => dispatch(thunkUser()), []);
   useEffect(() => dispatch(fetchAllCars()), []);
-  useEffect(() => adjustSize());
+  useEffect(() => adjustSize(), []);
+  useEffect(() => dispatch(thunkLikes()), []);
   return (
     <div className="wrapper-app">
       <Router>
@@ -180,7 +182,6 @@ const App = () => {
           <Route path="/Reserve" element={<NewReservation />} />
           <Route path="/Detail" element={<Detail />} />
         </Routes>
-
       </Router>
     </div>
   );

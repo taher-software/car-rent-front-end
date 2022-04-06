@@ -12,12 +12,16 @@ import CLOSE from '../../assets/images/close.png';
 import LIKE from '../../assets/images/like.png';
 import fetchAllCars from '../../Redux/cars/fetch/fetchcars';
 import { selectCar } from '../../Redux/SelectedCar/selectedCar';
+import thunkLikes from '../../Redux/Likes/Thunk/thunk';
 
 const Detail = () => {
   const dispatch = useDispatch();
   const [info, setInfo] = useState('');
   const item = useSelector((state) => state.current_car);
   const cars = useSelector((state) => state.Cars);
+  const currentUser = useSelector((state) => state.current_user);
+  const likesData = useSelector((state) => state.likes.likes);
+  const [disable, setDisable] = useState(false);
   const adjustSize = () => {
     const nav = document.querySelector('.nav-wrapper');
     const h = window.innerHeight;
@@ -51,17 +55,28 @@ const Detail = () => {
 
   const addLike = async () => {
     const carId = item.id;
-    const url = `https://warm-inlet-48309.herokuapp.com/api/cars/${carId}`;
-    const retour = await fetch(url, {
-      method: 'PUT',
-    });
-    const status = retour.statusText;
-    if (status === 'OK') {
-      const like = document.querySelector('.like-value');
-      const likeNbr = parseInt(like.textContent, 10);
+    const userId = currentUser.id;
+    const likes = { user_id: userId, car_id: carId };
+    const checkLike = likesData.filter((like) => like.user_id === userId && like.car_id === carId);
+    const like = document.querySelector('.like-value');
+    const likeNbr = parseInt(like.textContent, 10);
+    setDisable(true);
+    if (checkLike.length === 0) {
       like.textContent = likeNbr + 1;
-      dispatch(fetchAllCars);
+    } else {
+      like.textContent = likeNbr - 1;
     }
+    const url = 'https://warm-inlet-48309.herokuapp.com/api/likes';
+    await fetch(url, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({ likes }),
+    });
+    dispatch(thunkLikes());
+    dispatch(fetchAllCars());
+    setTimeout(() => setDisable(false), 1000);
   };
   const moreHandler = () => {
     const { id } = item;
@@ -91,7 +106,7 @@ const Detail = () => {
         <div className="datas-inf">
           <div className="item-img-wrapper">
             <img src={item.photo_url} alt="item" className="item-img" />
-            <img src={LIKE} alt="like-icon" className="like-icon" onKeyDown={addLike} onClick={addLike} aria-hidden="true" />
+            <img src={LIKE} alt="like-icon" className="like-icon" onKeyDown={disable ? null : addLike} onClick={disable ? null : addLike} aria-hidden="true" />
           </div>
           <div className="item-data">
             <h1 className="item-brand">

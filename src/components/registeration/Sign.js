@@ -124,80 +124,242 @@ const Sign = () => {
   useEffect(() => adjustSize(), [operation]);
   return (
     <>
-      { operation === 'up'
-    && (
-      <div className="sign-wrapper">
-        <div className="other-option-up">
-          <h1 className="other-option-title">Welcome Back!</h1>
-          <p className="option-description">
-            To keep connected with us please
-            login with your personal info.
-          </p>
-          <button type="submit" onClick={signChange} className="switch-btn"> SIGN IN </button>
-        </div>
-        <div className="sign-form-wrapper">
-          <div className="alert alert-warning " style={{ display: disp, justifyContent: 'space-between' }}>
-            <p>{message}</p>
-            <div className="close-icon-wrapper" onClick={closeAlert} onKeyDown={closeAlert} aria-hidden="true">
-              <img src={CLOSE} alt="close-icon" className="close-icon" />
-            </div>
-          </div>
-          <h2 className="sign-title">Create Account</h2>
-          <form className="form-sign">
-            <div className="user-info">
-              <div className="icon-data">
-                <img src={USER} alt="user-icon" />
-              </div>
-              <input type="text" placeholder="USERNAME" className="input-data username" required />
-            </div>
-            <div className="user-info">
-              <div className="icon-data">
-                <img src={ADRESS} alt="adress-icon" />
-              </div>
-              <input type="text" placeholder="CITY" className="input-data adress" />
-            </div>
-            <div className="user-info">
-              <div className="icon-data">
-                <img src={PHOTO} alt="profile-icon" />
-              </div>
-              <input type="url" placeholder="PHOTO URL" className="input-data photo" />
-            </div>
-            <button type="submit" className="submit-btn" onClick={handleSignUp}>SIGN UP</button>
-          </form>
-        </div>
-      </div>
-    )}
-      { operation === 'in'
-  && (
-  <div className="sign-wrapper-in">
-    <div className="sign-form-wrapper-in">
-      <div className="alert alert-warning" style={{ display: disp, justifyContent: 'space-between' }}>
-        <p>{message}</p>
-        <div className="close-icon-wrapper" onClick={closeAlert} onKeyDown={closeAlert} aria-hidden="true">
-          <img src={CLOSE} alt="close-icon" className="close-icon" />
-        </div>
-      </div>
-      <h2 className="sign-title">Sign in to CARRENTAL</h2>
-      <form className="form-sign">
-        <div className="user-info">
-          <div className="icon-data">
-            <img src={USER} alt="user-icon" />
-          </div>
-          <input type="text" placeholder="USERNAME" className="input-data username" required />
-        </div>
-        <button type="submit" className="submit-btn" onClick={handleSignin}>SIGN IN</button>
-      </form>
-    </div>
-    <div className="other-option-in">
-      <h1 className="other-option-title">Hello, Friend!</h1>
-      <p className="option-description">
-        Enter your personal details and start journey with us.
-      </p>
-      <button type="submit" onClick={signChange} className="switch-btn"> SIGN UP </button>
-    </div>
-  </div>
+      {
+            operation === 'up'
+            && (
+            <div className="sign-wrapper">
+              <div className="other-option-up">
+                <h1 className="other-option-title">
+                  {' '}
+                  Welcome Back!
+                  {' '}
+                </h1>
+                {' '}
+                <p className="option-description">
+                  To keep connected with us please login with your personal info.
+                </p>
+                {' '}
+                <button
+                  type="submit"
+                  onClick={signChange}
+                  className="switch-btn"
+                >
+                  {' '}
+                  SIGN IN
+                  {' '}
+                </button>
+                {' '}
 
-  )}
+              </div>
+              {' '}
+              <div className="sign-form-wrapper">
+                <div
+                  className="alert alert-warning "
+                  style={
+                    { display: disp, justifyContent: 'space-between' }
+                }
+                >
+                  <p>
+                    {' '}
+                    { message }
+                    {' '}
+
+                  </p>
+                  {' '}
+                  <div
+                    className="close-icon-wrapper"
+                    onClick={closeAlert}
+                    onKeyDown={closeAlert}
+                    aria-hidden="true"
+                  >
+                    <img
+                      src={CLOSE}
+                      alt="close-icon"
+                      className="close-icon"
+                    />
+                  </div>
+                  {' '}
+
+                </div>
+                {' '}
+                <h2 className="sign-title">
+                  {' '}
+                  Create Account
+                  {' '}
+                </h2>
+                {' '}
+                <form className="form-sign">
+                  <div className="user-info">
+                    <div className="icon-data">
+                      <img
+                        src={USER}
+                        alt="user-icon"
+                      />
+                    </div>
+                    {' '}
+                    <input
+                      type="text"
+                      placeholder="USERNAME"
+                      className="input-data username"
+                      required
+                    />
+                  </div>
+                  {' '}
+                  <div className="user-info">
+                    <div className="icon-data">
+                      <img
+                        src={ADRESS}
+                        alt="adress-icon"
+                      />
+                    </div>
+                    {' '}
+                    <input
+                      type="text"
+                      placeholder="CITY"
+                      className="input-data adress"
+                    />
+                  </div>
+                  {' '}
+                  <div className="user-info">
+                    <div className="icon-data">
+                      <img
+                        src={PHOTO}
+                        alt="profile-icon"
+                      />
+                    </div>
+                    {' '}
+                    <input
+                      type="url"
+                      placeholder="PHOTO URL"
+                      className="input-data photo"
+                    />
+                  </div>
+                  {' '}
+                  <button
+                    type="submit"
+                    className="submit-btn"
+                    onClick={handleSignUp}
+                  >
+                    {' '}
+                    SIGN UP
+                    {' '}
+                  </button>
+                  {' '}
+
+                </form>
+                {' '}
+
+              </div>
+              {' '}
+
+            </div>
+            )
+        }
+      {' '}
+      {
+            operation === 'in'
+                && (
+                <div className="sign-wrapper-in">
+                  <div className="sign-form-wrapper-in">
+                    <div
+                      className="alert alert-warning"
+                      style={
+                        { display: disp, justifyContent: 'space-between' }
+                    }
+                    >
+                      <p>
+                        {' '}
+                        { message }
+                        {' '}
+
+                      </p>
+                      {' '}
+                      <div
+                        className="close-icon-wrapper"
+                        onClick={closeAlert}
+                        onKeyDown={closeAlert}
+                        aria-hidden="true"
+                      >
+                        <img
+                          src={CLOSE}
+                          alt="close-icon"
+                          className="close-icon"
+                        />
+                      </div>
+                      {' '}
+
+                    </div>
+                    {' '}
+                    <h2 className="sign-title">
+                      {' '}
+                      Sign in to CARRENTAL
+                      {' '}
+                    </h2>
+                    {' '}
+                    <form className="form-sign">
+                      <div className="user-info">
+                        <div className="icon-data">
+                          <img
+                            src={USER}
+                            alt="user-icon"
+                          />
+                        </div>
+                        {' '}
+                        <input
+                          type="text"
+                          placeholder="USERNAME"
+                          className="input-data username"
+                          required
+                        />
+                      </div>
+                      {' '}
+                      <button
+                        type="submit"
+                        className="submit-btn"
+                        onClick={handleSignin}
+                      >
+                        {' '}
+                        SIGN IN
+                        {' '}
+                      </button>
+                      {' '}
+
+                    </form>
+                    {' '}
+
+                  </div>
+                  {' '}
+                  <div className="other-option-in">
+                    <h1 className="other-option-title">
+                      {' '}
+                      Hello, Friend!
+                      {' '}
+                    </h1>
+                    {' '}
+                    <p className="option-description">
+                      Enter your personal details and start journey with us.
+                    </p>
+                    {' '}
+                    <button
+                      type="submit"
+                      onClick={signChange}
+                      className="switch-btn"
+                    >
+                      {' '}
+                      SIGN UP
+                      {' '}
+                    </button>
+                    {' '}
+
+                  </div>
+                  {' '}
+
+                </div>
+
+                )
+        }
+      {' '}
+
     </>
   );
 };

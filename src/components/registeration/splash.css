@@ -68,7 +68,7 @@ a.logo {
 }
 
 .nav-element {
-  width: 20%;
+  width: 250px;
   border: 2px solid lightblue;
 }
 
@@ -96,6 +96,7 @@ a.logo {
 
 .car-image {
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .car-brand {
@@ -105,6 +106,7 @@ a.logo {
 .car-model {
   font-size: 3vh;
 }
+
 
 .car-item {
   display: flex;
@@ -119,7 +121,18 @@ a.logo {
 .brand-model {
   display: flex;
   flex-direction: row;
+  cursor: pointer;
 }
+
+.brand-model:hover {
+  color: gray;
+}
+
+.model-year:hover {
+  cursor: pointer;
+  color: gray;
+}
+
 
 .leftscrollbtn {
   background-color: rgb(199, 253, 235);
@@ -135,7 +148,10 @@ a.logo {
   text-align: center;
   border: 1px solid transparent;
 }
-body { margin: 0; }
+
+body {
+  margin: 0;
+}
 
 .splash-wrapper {
   width: 100%;
