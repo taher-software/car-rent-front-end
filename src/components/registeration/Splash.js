@@ -10,7 +10,8 @@ import './splash.css';
 
 const Splash = () => {
   const navigate = useNavigate();
-  const { state } = useLocation();
+  const location = useLocation();
+  const { state } = location;
   const dispatch = useDispatch();
   let alert = '';
   if (state) {
@@ -46,7 +47,6 @@ const Splash = () => {
       }
     }
   };
-
   const animation = () => {
     const w = window.innerWidth;
     let t = 30;
@@ -132,12 +132,6 @@ const Splash = () => {
    && (
      <div className="home-main">
        <div className="nav-element">
-         <div className="alert alert-success" style={{ display: alert === '' ? 'none' : 'flex', justifyContent: 'space-between' }}>
-           <p>{alert}</p>
-           <div className="close-icon-wrapper" onClick={closeAlert} onKeyDown={closeAlert} aria-hidden="true">
-             <img src={CLOSE} alt="close-icon" className="close-icon" />
-           </div>
-         </div>
          <Nav bg="light" className="main-nav flex-column">
            <Nav.Link href="/">All Cars</Nav.Link>
            <Nav.Link href="/Reserve">Reserve</Nav.Link>
@@ -147,6 +141,12 @@ const Splash = () => {
          </Nav>
        </div>
        <div className="cars-element">
+         <div className="alert alert-success" style={{ display: alert === '' ? 'none' : 'flex', justifyContent: 'space-between' }}>
+           <p>{alert}</p>
+           <div className="close-icon-wrapper" onClick={closeAlert} onKeyDown={closeAlert} aria-hidden="true">
+             <img src={CLOSE} alt="close-icon" className="close-icon" />
+           </div>
+         </div>
          <h2>Our List Of Cars</h2>
          <h3>Please select a car to rent</h3>
          <Row className="scroll-btns">

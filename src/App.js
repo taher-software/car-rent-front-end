@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import thunkUser from './Redux/Username/thunk/thunk';
+import thunkLikes from './Redux/Likes/Thunk/thunk';
 import Splash from './components/registeration/Splash';
 import Sign from './components/registeration/Sign';
 import Detail from './components/cars/detail';
@@ -14,6 +15,7 @@ import MyReservations from './components/Reservations/MyReservations';
 import NewReservation from './components/Reservations/NewReserve';
 import NewCar from './components/cars/newcar';
 import fetchAllCars from './Redux/cars/fetch/fetchcars';
+import fetchReserve from './Redux/Reserve/thunk/Fetch_reserve';
 import DOWN from './assets/images/down.png';
 import './app.css';
 
@@ -71,9 +73,11 @@ const App = () => {
             signOut.style.display = 'none';
         });
     };
+    useEffect(() => dispatch(fetchReserve()), []);
     useEffect(() => dispatch(thunkUser()), []);
     useEffect(() => dispatch(fetchAllCars()), []);
-    useEffect(() => adjustSize());
+    useEffect(() => adjustSize(), []);
+    useEffect(() => dispatch(thunkLikes()), []);
     return ( <
         div className = "wrapper-app" >
         <
@@ -94,12 +98,12 @@ const App = () => {
         button className = "btn btn-secondary dropdown-toggle"
         type = "button"
         id = "dropdownMenuButton2"
-        toggle = "dropdown"
-        expanded = "false" >
+        data - bs - toggle = "dropdown"
+        aria - expanded = "false" >
         Dropdown button <
         /button> <
         ul className = "dropdown-menu dropdown-menu-dark"
-        labelledby = "dropdownMenuButton2" >
+        aria - labelledby = "dropdownMenuButton2" >
         <
         li > < a className = "dropdown-item active"
         href = "/" > All Cars < /a></li >
@@ -108,7 +112,7 @@ const App = () => {
         href = "/Reserve" > Reserve < /a></li >
         <
         li > < a className = "dropdown-item"
-        href = "/Myreservation" > My Reservations < /a></li >
+        href = "/Myreservations" > My Reservations < /a></li >
         <
         li > < hr className = "dropdown-divider" / > < /li> <
         li > < a className = "dropdown-item"
@@ -128,7 +132,7 @@ const App = () => {
         }
         onClick = { profileMenu }
         onKeyDown = { profileMenu }
-        hidden = "true" >
+        aria - hidden = "true" >
         <
         img src = { userPhoto }
         className = "user-photo"
@@ -171,6 +175,9 @@ const App = () => {
         /> <
         Route path = "/Reserve"
         element = { < NewReservation / > }
+        /> <
+        Route path = "/Detail"
+        element = { < Detail / > }
         /> < /
         Routes > <
         /Router> < /
