@@ -98,7 +98,7 @@ const Sign = () => {
     const city = document.querySelector('.adress').value;
     const photo = document.querySelector('.photo').value;
     const user = { username, city, photo };
-    const userUrl = 'http://127.0.0.1:3000/api/users';
+    const userUrl = 'https://warm-inlet-48309.herokuapp.com/api/users';
     const result = await fetch(userUrl, {
       method: 'POST',
       headers: {
@@ -123,8 +123,7 @@ const Sign = () => {
   };
   useEffect(() => adjustSize(), [operation]);
   return (
-    <
-        >
+    <>
       {
             operation === 'up'
             && (
@@ -171,7 +170,7 @@ const Sign = () => {
                     className="close-icon-wrapper"
                     onClick={closeAlert}
                     onKeyDown={closeAlert}
-                    hidden="true"
+                    aria-hidden="true"
                   >
                     <img
                       src={CLOSE}
@@ -279,7 +278,7 @@ const Sign = () => {
                         className="close-icon-wrapper"
                         onClick={closeAlert}
                         onKeyDown={closeAlert}
-                        hidden="true"
+                        aria-hidden="true"
                       >
                         <img
                           src={CLOSE}
@@ -361,8 +360,7 @@ const Sign = () => {
         }
       {' '}
 
-    <
-        />
+    </>
   );
 };
 export default Sign;
