@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Nav } from 'react-bootstrap';
 import { DropdownDate } from 'react-dropdown-date';
+import { FaChevronCircleRight } from 'react-icons/fa';
 import fetchReserve from '../../Redux/Reserve/thunk/Fetch_reserve';
+import { selectCar } from '../../Redux/SelectedCar/selectedCar';
 import './NewReserve.css';
 
-const DateFormatter = (d, numOfyear) => { 
+const DateFormatter = (d, numOfyear) => {
   let month = `${d.getMonth() + 1}`;
   let day = `${d.getDate()}`;
   const year = `${d.getFullYear() + numOfyear}`;
@@ -59,6 +61,7 @@ const NewReservation = () => {
   const [selectedCity, setSelectedCity] = useState('---Select City---');
   const [selectDate, setSelectedDate] = useState(TodayDate());
   const [Alertmessage, setAlertMessage] = useState('');
+  const cars = useSelector((state) => state.Cars);
   const currentUser = useSelector((state) => state.current_user);
   const currentCar = useSelector((state) => state.current_car);
   const handleSubmit = async () => {
@@ -81,6 +84,28 @@ const NewReservation = () => {
       setAlertMessage('Kindly select a city');
     }
   };
+
+  const { id } = currentCar;
+  const allCars = cars.cars;
+  let index = 0;
+  if (id) {
+    index = allCars.findIndex((car) => car.id === id);
+  }
+  if (allCars !== undefined) {
+    dispatch(selectCar(allCars[index]));
+  }
+  const moreHandler = () => {
+    const l = allCars.length;
+    let nextIndex = 0;
+    if (index < l - 1) {
+      nextIndex = index + 1;
+    } else {
+      nextIndex = 0;
+    }
+    const nextCar = allCars[nextIndex];
+    dispatch(selectCar(nextCar));
+  };
+
   return (
     <>
       <div
@@ -103,7 +128,20 @@ const NewReservation = () => {
             backgroundPosition: 'center',
           }}
         >
-          <div className="overLay" />
+          <div className="overLay position-absolute" />
+          <h2 className="z-index1 reserve-brand position-absolute">{currentCar.brand}</h2>
+          <div className="z-index1 d-flex flex-column change-reserve position-absolute">
+            <p style={{ marginBottom: '5px', textAlign: 'center', marginRight: '25px' }}>More cars</p>
+            <div className="d-flex align-items-center">
+              <img src={currentCar.photo_url} alt={currentCar.brand} className="z-index1" style={{ width: '100px', height: '100px' }} />
+              <span className="z-index1" onClick={moreHandler} aria-hidden="true">
+                <FaChevronCircleRight style={{
+                  width: '20px', height: '20px', color: '#fff', marginLeft: '10px', cursor: 'pointer',
+                }}
+                />
+              </span>
+            </div>
+          </div>
           <h2 className="reserve-heading">Reserve a Car Today</h2>
           <p className="reserve-content">Our cars are available in all five major cities everyday, reserve a car today</p>
           <p className="alert-reserve">{Alertmessage}</p>
