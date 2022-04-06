@@ -17,7 +17,6 @@ const Splash = () => {
   if (state) {
     alert = state.alert;
   }
-  useEffect(() => setTimeout(() => (navigate(location.pathname, { replace: true })), 20000), []);
   useEffect(() => dispatch(fetchAllCars()), []);
   const session = useSelector((state) => state.session);
   const carData = useSelector((state) => state.Cars);
@@ -80,7 +79,6 @@ const Splash = () => {
     }
     const selectedCar = cars.filter((car) => car.id === parseInt(parent.id, 10))[0];
     dispatch(selectCar(selectedCar));
-    location.pathname = '/Details';
     navigate('/Details');
   };
   useEffect(() => adjustSize(), []);

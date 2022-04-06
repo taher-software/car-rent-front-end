@@ -7,6 +7,7 @@ import { currentUserReducer } from './Current_user/current_user';
 import { fetchStorage } from '../helper/localStorage';
 import { selectCarReducer } from './SelectedCar/selectedCar';
 import ReserveReducer from './Reserve/reducers/reducer';
+import likesReducer from './Likes/Reducers/reducer';
 
 const initialSession = fetchStorage('current_user') !== null;
 const sessionReducer = (state = initialSession, action) => {
@@ -26,6 +27,7 @@ const reducer = combineReducers({
   current_user: currentUserReducer,
   current_car: selectCarReducer,
   my_reserves: ReserveReducer,
+  likes: likesReducer,
 });
 
 const store = createStore(reducer, applyMiddleware(logger, thunk));
