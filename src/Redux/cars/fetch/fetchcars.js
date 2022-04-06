@@ -1,16 +1,12 @@
 import { loadCars, failCars } from '../actions/actions';
 
-<<<<<<< HEAD
-const fetchCars = () => fetch('http://[::1]:3000/api/cars');
-=======
 const fetchCars = () => fetch('https://warm-inlet-48309.herokuapp.com/api/cars');
->>>>>>> develop
 
 const fetchAllCars = () => (dispatch) => {
-  fetchCars()
-    .then((result) => result.json())
-    .then((res) => dispatch(loadCars(res)))
-    .catch((error) => dispatch(failCars(error.message)));
+    fetchCars()
+        .then((result) => result.json())
+        .then((res) => dispatch(loadCars(res)))
+        .catch((error) => dispatch(failCars(error.message)));
 };
 export default fetchAllCars;
 
