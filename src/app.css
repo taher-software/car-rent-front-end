@@ -85,4 +85,24 @@ hr {
   .dropdown-menu-dark .dropdown-item {
     color: black;
   }
+
+  .delete-button {
+    margin-left: 70%;
+    width: 80px;
+    font-size: 1.5vh;
+  }
+
+  .car-image-mobile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .car-brand-mobile {
+    font-size: 1.5vh;
+  }
+
+  .car-model-mobile {
+    font-size: 1.5vh;
+  }
 }

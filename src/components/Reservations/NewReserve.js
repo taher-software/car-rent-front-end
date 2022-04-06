@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Nav } from 'react-bootstrap';
+import { Nav, Modal } from 'react-bootstrap';
 import { DropdownDate } from 'react-dropdown-date';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { FaChevronCircleRight } from 'react-icons/fa';
 import fetchReserve from '../../Redux/Reserve/thunk/Fetch_reserve';
 import { selectCar } from '../../Redux/SelectedCar/selectedCar';
 import './NewReserve.css';
+import LOGO from '../../assets/images/logo.png';
 
 const DateFormatter = (d, numOfyear) => {
   let month = `${d.getMonth() + 1}`;
@@ -58,12 +60,20 @@ const cities = [
 
 const NewReservation = () => {
   const dispatch = useDispatch();
+  const [lgShow, setLgShow] = useState(false);
+  const navigate = useNavigate();
   const [selectedCity, setSelectedCity] = useState('---Select City---');
   const [selectDate, setSelectedDate] = useState(TodayDate());
   const [Alertmessage, setAlertMessage] = useState('');
   const cars = useSelector((state) => state.Cars);
   const currentUser = useSelector((state) => state.current_user);
   const currentCar = useSelector((state) => state.current_car);
+  const [data, setData] = useState('');
+  const loadData = async () => {
+    const res = await fetch('https://warm-inlet-48309.herokuapp.com/api/cars');
+    setData(await res.json());
+  };
+  useEffect(() => loadData(), []);
   const handleSubmit = async () => {
     if (selectedCity !== '---Select City---') {
       const reservation = {
@@ -83,6 +93,18 @@ const NewReservation = () => {
     } else {
       setAlertMessage('Kindly select a city');
     }
+  };
+  const handleDelete = (carid) => {
+    const url = `https://warm-inlet-48309.herokuapp.com/api/cars/${carid}`;
+    fetch(url, { method: 'DELETE' }).then((response) => {
+      if (response.status === 200) {
+        window.location.reload();
+        navigate('/', { state: { alert: 'Car Deleted successfully!' } });
+      } else {
+        navigate('/', { state: { alert: 'Sorry, Car Could Not be Deleted' } });
+      }
+    });
+    setLgShow(false);
   };
 
   const { id } = currentCar;
@@ -106,18 +128,53 @@ const NewReservation = () => {
     dispatch(selectCar(nextCar));
   };
 
+  if (!data) {
+    return null;
+  }
   return (
     <>
       <div
         className="d-flex reserve-contain"
       >
-        <div className="nav-element">
-          <Nav bg="light" className="main-nav flex-column">
-            <Nav.Link href="/">All Cars</Nav.Link>
-            <Nav.Link href="/Myreservations">My Reservations</Nav.Link>
-            <Nav.Link href="/NewCar">Add a Car</Nav.Link>
-            <Nav.Link>Delete a Car</Nav.Link>
-          </Nav>
+        <div className="nav-wrapper">
+          <div className="nav-logo-wrapper">
+            <img src={LOGO} alt="logo" className="nav-logo-img" />
+            <span className="nav-logo-text">CARRENTAL</span>
+          </div>
+          <div className="link-wrapper">
+            <NavLink to="/" className="link-btn">All Cars</NavLink>
+            <NavLink to="/Reserve" className="link-btn">Reserve</NavLink>
+            <NavLink to="/Myreservations" className="link-btn">My Reservations</NavLink>
+            <NavLink to="/NewCar" className="link-btn">Add a Car</NavLink>
+            <Nav.Link onClick={() => setLgShow(true)} className="link-btn">Delete a Car</Nav.Link>
+          </div>
+          <Modal
+            size="lg"
+            show={lgShow}
+            onHide={() => setLgShow(false)}
+            aria-labelledby="example-modal-sizes-title-lg"
+          >
+            <Modal.Header closeButton>
+              <Modal.Title id="example-modal-sizes-title-lg">
+                Please Choose A Car To Delete
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              {data.cars.map((car) => (
+                <li className="c-item" id={car.id} key={car.id} aria-hidden="true">
+                  <div className="car-info">
+                    <img className="car-image" src={car.photo_url} alt="car" width={50} height={50} />
+                    <div className="c-brand-model">
+                      <p className="car-brand">{car.brand}</p>
+                      -
+                      <p className="car-model">{car.model}</p>
+                    </div>
+                    <button className="delete-button btn btn-danger" type="button" onClick={() => handleDelete(car.id)}>Delete</button>
+                  </div>
+                </li>
+              ))}
+            </Modal.Body>
+          </Modal>
         </div>
         <div
           className="new-reserve-container"
