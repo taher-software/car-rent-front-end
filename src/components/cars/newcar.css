@@ -1,9 +1,13 @@
 .car-wrapper {
-  margin: 5% 10% 20% 25%;
+  margin: 2% 5% 5% 9%;
   height: 80%;
   width: 50%;
   box-shadow: 0 0 10px;
   padding: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
 
 .car-btn {
@@ -11,6 +15,10 @@
   flex-direction: row;
   justify-content: center;
   margin: auto;
+}
+
+.newcar-page {
+  display: flex;
 }
 
 @media screen and (max-width: 720px) {
