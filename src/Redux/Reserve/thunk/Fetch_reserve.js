@@ -2,7 +2,7 @@ import { allReserve, failReserve } from '../actions/action';
 
 const reserveUrl = 'https://warm-inlet-48309.herokuapp.com/api/reservations';
 
-const getReserveUrl = () => fetch(reserveUrl);
+export const getReserveUrl = () => fetch(reserveUrl);
 
 const fetchReserve = () => (dispatch) => {
   getReserveUrl()

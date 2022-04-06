@@ -1,7 +1,7 @@
 import { startGetLIkes, getLIkes, failGetLikes } from '../Action/action';
 
 const url = 'https://warm-inlet-48309.herokuapp.com/api/likes';
-const fetchLikes = () => (fetch(url));
+export const fetchLikes = () => (fetch(url));
 const thunkLikes = () => (dispatch) => {
   dispatch(startGetLIkes());
   fetchLikes()
