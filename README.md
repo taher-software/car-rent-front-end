@@ -1,5 +1,5 @@
 # CARRENTALS
-> In this Project, We created a Car service Webapp where users can add cars, a pop up page feature where users who is an admin can delete cars, The delete button is disabled for non-admin. There is an added feature for users to make reservation for the cars with easy access to all the available cars.
+> In this Project, We created a Car service Webapp where admin can add cars and delete cars. User can navigate smoothly across the differents pages, where he can explore all cars options and details, and make a reservation for a selected item and with his specific details. 
 
 ## Project Preview
 
