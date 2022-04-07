@@ -25,6 +25,7 @@ const Splash = () => {
   useEffect(() => dispatch(fetchAllCars()), []);
   const session = useSelector((state) => state.session);
   const carData = useSelector((state) => state.Cars);
+  const currentUser = useSelector((state) => state.current_user);
   let cars = [];
   if (Object.keys(carData).includes('cars')) {
     cars = carData.cars;
@@ -182,7 +183,7 @@ const Splash = () => {
                      -
                      <p className="car-model">{car.model}</p>
                    </div>
-                   <button className="delete-button btn btn-danger" type="button" onClick={() => handleDelete(car.id)}>Delete</button>
+                   <button className="delete-button btn btn-danger" disabled={currentUser.role !== 'admin'} type="button" onClick={() => handleDelete(car.id)}>Delete</button>
                  </div>
                </li>
              ))}
