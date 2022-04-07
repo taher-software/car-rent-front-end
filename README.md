@@ -12,6 +12,16 @@ Desktop-Home                             |  Mobile-reserve
 ![](./public/desktop-home.PNG)           |  ![](./public/mobile-reserve.PNG) 
 
 
+## Kaban board
+
+Kaban Before                             |  Kaban After
+:---------------------------------------:|:---------------------------------------:
+![](https://user-images.githubusercontent.com/85107514/159885633-744d6cab-e061-4df2-b9a3-06bcbfe2f3f8.png)        |  ![](./public/desktop-details.PNG)  
+
+> [Link to Kaban Board](https://github.com/Taher-web-dev/car-rent-rails/projects/1)
+> Total Number of Team members : 4
+
+
 ## Front-end Live Demo
 > Click [here](https://mic-car-rental.netlify.app/) to see the live preview of the project.
 
