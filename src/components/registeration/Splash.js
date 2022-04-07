@@ -92,7 +92,6 @@ const Splash = () => {
     const url = `https://warm-inlet-48309.herokuapp.com/api/cars/${carid}`;
     fetch(url, { method: 'DELETE' }).then((response) => {
       if (response.status === 200) {
-        window.location.reload();
         navigate('/', { state: { alert: 'Car Deleted successfully!' } });
       } else {
         navigate('/', { state: { alert: 'Sorry, Car Could Not be Deleted' } });
