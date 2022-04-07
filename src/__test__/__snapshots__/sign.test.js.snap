@@ -1,0 +1,280 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly Splash component should render with given state from redux store 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="home-main"
+      >
+        <div
+          class="nav-wrapper"
+        >
+          <div
+            class="nav-logo-wrapper"
+          >
+            <img
+              alt="logo"
+              class="nav-logo-img"
+              src="logo.png"
+            />
+            <span
+              class="nav-logo-text"
+            >
+              CARRENTAL
+            </span>
+          </div>
+          <div
+            class="link-wrapper"
+          >
+            <a
+              aria-current="page"
+              class="link-btn active"
+              href="/"
+            >
+              All Cars
+            </a>
+            <a
+              class="link-btn"
+              href="/Reserve"
+            >
+              Reserve
+            </a>
+            <a
+              class="link-btn"
+              href="/Myreservations"
+            >
+              My Reservations
+            </a>
+            <a
+              class="link-btn"
+              href="/NewCar"
+            >
+              Add a Car
+            </a>
+            <a
+              class="link-btn nav-link"
+              href="#"
+              role="button"
+              tabindex="0"
+            >
+              Delete a Car
+            </a>
+          </div>
+        </div>
+        <div
+          class="cars-element"
+        >
+          <div
+            class="alert alert-success"
+            style="display: none; justify-content: space-between;"
+          >
+            <p />
+            <div
+              aria-hidden="true"
+              class="close-icon-wrapper"
+            >
+              <img
+                alt="close-icon"
+                class="close-icon"
+                src="close.png"
+              />
+            </div>
+          </div>
+          <h2>
+            Our List Of Cars
+          </h2>
+          <h3>
+            Please select a car to rent
+          </h3>
+          <div
+            class="scroll-btns row"
+          >
+            <div
+              class="col"
+            >
+              <button
+                class="leftscrollbtn"
+                type="button"
+              >
+                &lt;
+              </button>
+              <button
+                class="rightscrollbtn"
+                type="button"
+              >
+                &gt;
+              </button>
+            </div>
+          </div>
+          <ul
+            class="cars-list"
+          />
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="home-main"
+    >
+      <div
+        class="nav-wrapper"
+      >
+        <div
+          class="nav-logo-wrapper"
+        >
+          <img
+            alt="logo"
+            class="nav-logo-img"
+            src="logo.png"
+          />
+          <span
+            class="nav-logo-text"
+          >
+            CARRENTAL
+          </span>
+        </div>
+        <div
+          class="link-wrapper"
+        >
+          <a
+            aria-current="page"
+            class="link-btn active"
+            href="/"
+          >
+            All Cars
+          </a>
+          <a
+            class="link-btn"
+            href="/Reserve"
+          >
+            Reserve
+          </a>
+          <a
+            class="link-btn"
+            href="/Myreservations"
+          >
+            My Reservations
+          </a>
+          <a
+            class="link-btn"
+            href="/NewCar"
+          >
+            Add a Car
+          </a>
+          <a
+            class="link-btn nav-link"
+            href="#"
+            role="button"
+            tabindex="0"
+          >
+            Delete a Car
+          </a>
+        </div>
+      </div>
+      <div
+        class="cars-element"
+      >
+        <div
+          class="alert alert-success"
+          style="display: none; justify-content: space-between;"
+        >
+          <p />
+          <div
+            aria-hidden="true"
+            class="close-icon-wrapper"
+          >
+            <img
+              alt="close-icon"
+              class="close-icon"
+              src="close.png"
+            />
+          </div>
+        </div>
+        <h2>
+          Our List Of Cars
+        </h2>
+        <h3>
+          Please select a car to rent
+        </h3>
+        <div
+          class="scroll-btns row"
+        >
+          <div
+            class="col"
+          >
+            <button
+              class="leftscrollbtn"
+              type="button"
+            >
+              &lt;
+            </button>
+            <button
+              class="rightscrollbtn"
+              type="button"
+            >
+              &gt;
+            </button>
+          </div>
+        </div>
+        <ul
+          class="cars-list"
+        />
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
