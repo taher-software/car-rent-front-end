@@ -16,7 +16,7 @@ Desktop-Home                             |  Mobile-reserve
 
 Kaban Before                             |  Kaban After
 :---------------------------------------:|:---------------------------------------:
-![kanban](https://user-images.githubusercontent.com/87448628/162205640-1c366a67-eec9-4f42-ae4d-c4b3b4b0eff5.png)   |  ![image](https://user-images.githubusercontent.com/43564324/162181362-52eb2178-3ebd-408a-ab52-f79332669027.png)  
+![kanban](https://user-images.githubusercontent.com/87448628/162205640-1c366a67-eec9-4f42-ae4d-c4b3b4b0eff5.png)   |  ![image](https://user-images.githubusercontent.com/43564324/162208359-e005cdac-e34d-463d-b3f5-4380b525be1c.png)  
 
 > [Link to Kaban Board](https://github.com/Taher-web-dev/car-rent-rails/projects/1)
 
