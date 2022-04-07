@@ -12,14 +12,6 @@
   display: none;
 }
 
-.nav-element {
-  position: relative;
-  display: flex;
-  width: 180px;
-  height: 100vh;
-  background-color: #f3f6f5;
-}
-
 .message-alert {
   position: absolute;
   top: 38px;
@@ -70,6 +62,10 @@ a.logo {
 .nav-element {
   width: 250px;
   border: 2px solid lightblue;
+  position: relative;
+  display: flex;
+  height: 100vh;
+  background-color: #f3f6f5;
 }
 
 .main-nav {
@@ -201,7 +197,7 @@ body {
 }
 
 .up {
-  background-color: linear-gradient(rgb(52, 155, 154), rgb(98, 200, 152));
+  background: linear-gradient(rgb(52, 155, 154), rgb(98, 200, 152));
   color: white;
   margin-bottom: 10px;
 }
@@ -295,7 +291,7 @@ body {
   }
 
   .sign {
-    width: 48, 75%;
+    width: 75%;
   }
 
   .up {
@@ -356,7 +352,6 @@ body {
 
   .car-model {
     font-size: 2.2vh;
-    font-style: bolder;
   }
 
   .model-year {
