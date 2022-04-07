@@ -169,7 +169,7 @@ const NewReservation = () => {
                       -
                       <p className="car-model">{car.model}</p>
                     </div>
-                    <button className="delete-button btn btn-danger" type="button" onClick={() => handleDelete(car.id)}>Delete</button>
+                    <button className="delete-button btn btn-danger" disabled={currentUser.role !== 'admin'} type="button" onClick={() => handleDelete(car.id)}>Delete</button>
                   </div>
                 </li>
               ))}

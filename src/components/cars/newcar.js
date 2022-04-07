@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import { Form, Modal, Nav } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+
 import './newcar.css';
 import './navLink.css';
 import LOGO from '../../assets/images/logo.png';
 
 const AddForm = () => {
   const navigate = useNavigate();
+  const currentUser = useSelector((state) => state.current_user);
 
   const [brand, setBrand] = useState('');
   const [lgShow, setLgShow] = useState(false);
@@ -87,7 +90,7 @@ const AddForm = () => {
           <NavLink to="/Reserve" className="link-btn">Reserve</NavLink>
           <NavLink to="/Myreservations" className="link-btn">My Reservations</NavLink>
           <NavLink to="/NewCar" className="link-btn">Add a Car</NavLink>
-          <Nav.Link onClick={() => setLgShow(true)} className="link-btn">Delete a Car</Nav.Link>
+          <Nav.Link disabled={currentUser.role !== 'admin'} onClick={() => setLgShow(true)} className="link-btn">Delete a Car</Nav.Link>
         </div>
         <Modal
           size="lg"
@@ -187,6 +190,7 @@ const AddForm = () => {
           button
           type="submit"
           className="btn btn-success btn-lg mt-5 car-btn"
+          disabled={currentUser.role !== 'admin'}
         >
           Submit
           {' '}

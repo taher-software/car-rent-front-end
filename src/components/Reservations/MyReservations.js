@@ -76,7 +76,7 @@ const MyReservations = () => {
                     -
                     <p className="car-model">{car.model}</p>
                   </div>
-                  <button className="delete-button btn btn-danger" type="button" onClick={() => handleDelete(car.id)}>Delete</button>
+                  <button className="delete-button btn btn-danger" disabled={currentuser.role !== 'admin'} type="button" onClick={() => handleDelete(car.id)}>Delete</button>
                 </div>
               </li>
             ))}
@@ -105,7 +105,7 @@ const MyReservations = () => {
                     {(data.cars.filter((car) => car.id === reserve.car_id))[0].brand}
                   </td>
                   <td className="table-info">
-                    {(data.cars.filter((car) => car.id === reserve.car_id))[0].brand}
+                    {(data.cars.filter((car) => car.id === reserve.car_id))[0].model}
                   </td>
                   <td className="table-info">{reserve.start_date}</td>
                   <td className="table-info">

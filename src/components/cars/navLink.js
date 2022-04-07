@@ -1,11 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import LOGO from '../../assets/images/logo.png';
 import './navLink.css';
 
 const NavigationPanel = (props) => {
   const { deleteHandler } = props;
+  const currentUser = useSelector((state) => state.current_user);
+
   return (
     <div className="nav-wrapper">
       <div className="nav-logo-wrapper">
@@ -17,7 +20,7 @@ const NavigationPanel = (props) => {
         <NavLink to="/Reserve" className="link-btn">Reserve</NavLink>
         <NavLink to="/Myreservations" className="link-btn">My Reservations</NavLink>
         <NavLink to="/Newcar" className="link-btn">Add a Car</NavLink>
-        <button type="submit" onClick={deleteHandler} className="link-btn delete">Delete</button>
+        <button type="submit" disabled={currentUser.role !== 'admin'} onClick={deleteHandler} className="link-btn delete">Delete</button>
       </div>
     </div>
   );

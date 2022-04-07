@@ -116,7 +116,7 @@ const App = () => {
               <li><NavLink className="dropdown-item" to="/Myreservations">My Reservations</NavLink></li>
               <li><hr className="dropdown-divider" /></li>
               <li><NavLink className="dropdown-item" to="/NewCar">Add a Car</NavLink></li>
-              <li><Nav.Link className="dropdown-item" onClick={() => setLgShow(true)}>Delete a Car</Nav.Link></li>
+              <li><Nav.Link disabled={currentUser.role !== 'admin'} className="dropdown-item" onClick={() => setLgShow(true)}>Delete a Car</Nav.Link></li>
               <Modal
                 size="lg"
                 show={lgShow}
