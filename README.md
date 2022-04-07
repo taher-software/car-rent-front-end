@@ -16,7 +16,7 @@ Desktop-Home                             |  Mobile-reserve
 
 Kaban Before                             |  Kaban After
 :---------------------------------------:|:---------------------------------------:
-![](https://user-images.githubusercontent.com/85107514/159885633-744d6cab-e061-4df2-b9a3-06bcbfe2f3f8.png)        |  ![](![image](https://user-images.githubusercontent.com/43564324/162180815-99596355-5a63-413e-8ed8-2e34a3a24559.png))  
+![](https://user-images.githubusercontent.com/85107514/159885633-744d6cab-e061-4df2-b9a3-06bcbfe2f3f8.png)        |  ![image](https://user-images.githubusercontent.com/43564324/162180815-99596355-5a63-413e-8ed8-2e34a3a24559.png)  
 
 > [Link to Kaban Board](https://github.com/Taher-web-dev/car-rent-rails/projects/1)
 > Total Number of Team members : 4
