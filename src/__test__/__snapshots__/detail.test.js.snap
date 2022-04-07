@@ -1,0 +1,480 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly Splash component should render with given state from redux store 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="detail-wrapper"
+      >
+        <div
+          class="nav-wrapper"
+          style="height: 768px;"
+        >
+          <div
+            class="nav-logo-wrapper"
+          >
+            <img
+              alt="logo"
+              class="nav-logo-img"
+              src="logo.png"
+            />
+            <span
+              class="nav-logo-text"
+            >
+              CARRENTAL
+            </span>
+          </div>
+          <div
+            class="link-wrapper"
+          >
+            <a
+              aria-current="page"
+              class="link-btn active"
+              href="/"
+            >
+              All Cars
+            </a>
+            <a
+              class="link-btn"
+              href="/Reserve"
+            >
+              Reserve
+            </a>
+            <a
+              class="link-btn"
+              href="/Myreservations"
+            >
+              My Reservations
+            </a>
+            <a
+              class="link-btn"
+              href="/Newcar"
+            >
+              Add a Car
+            </a>
+            <button
+              class="link-btn delete"
+              type="submit"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+        <div
+          class="item-data-wrapper"
+        >
+          <div
+            class="alert alert-success"
+            style="display: none; justify-content: space-between;"
+          >
+            <p />
+            <div
+              aria-hidden="true"
+              class="close-icon-wrapper"
+            >
+              <img
+                alt="close-icon"
+                class="close-icon"
+                src="close.png"
+              />
+            </div>
+          </div>
+          <div
+            class="datas-inf"
+          >
+            <div
+              class="item-img-wrapper"
+            >
+              <img
+                alt="item"
+                class="item-img"
+              />
+              <img
+                alt="like-icon"
+                aria-hidden="true"
+                class="like-icon"
+                src="like.png"
+              />
+            </div>
+            <div
+              class="item-data"
+            >
+              <h1
+                class="item-brand"
+              >
+                 
+              </h1>
+              <span
+                class="item-description"
+              />
+              <div
+                class="card-inf grey"
+              >
+                <p
+                  class="title-data"
+                >
+                  Rent fee
+                </p>
+                <p
+                  class="value-data"
+                >
+                  $
+                </p>
+              </div>
+              <div
+                class="card-inf"
+              >
+                <p
+                  class="title-data"
+                >
+                  Likes
+                </p>
+                <p
+                  class="value-data like-value"
+                />
+              </div>
+              <div
+                class="card-inf grey"
+              >
+                <p
+                  class="title-data"
+                >
+                  Model year
+                </p>
+                <p
+                  class="value-data"
+                />
+              </div>
+              <div
+                class="card-inf"
+              >
+                <p
+                  class="title-data"
+                >
+                  Reservation history number
+                </p>
+                <p
+                  class="value-data"
+                />
+              </div>
+              <div
+                class="more-model"
+              >
+                <p
+                  class="more-text"
+                >
+                  Discover more Models
+                </p>
+                <img
+                  alt="arrow-icon"
+                  aria-hidden="true"
+                  class="arrow-icon"
+                  src="arrow.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="command-part"
+          >
+            <a
+              class="reserve-btn"
+              href="/Reserve"
+            >
+              <img
+                alt="param-icon"
+                class="btn-icons"
+                src="param.png"
+              />
+              <p
+                class="reserve-txt"
+              >
+                Reserve
+              </p>
+              <img
+                alt="forward-icon"
+                class="btn-icons"
+                src="forward.png"
+              />
+            </a>
+            <img
+              alt="rotate-icon"
+              aria-hidden="true"
+              class="rotate-icon"
+              src="rotate.png"
+            />
+            <img
+              alt="back-icon"
+              class="back-icon"
+              src="back-green.png"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="detail-wrapper"
+    >
+      <div
+        class="nav-wrapper"
+        style="height: 768px;"
+      >
+        <div
+          class="nav-logo-wrapper"
+        >
+          <img
+            alt="logo"
+            class="nav-logo-img"
+            src="logo.png"
+          />
+          <span
+            class="nav-logo-text"
+          >
+            CARRENTAL
+          </span>
+        </div>
+        <div
+          class="link-wrapper"
+        >
+          <a
+            aria-current="page"
+            class="link-btn active"
+            href="/"
+          >
+            All Cars
+          </a>
+          <a
+            class="link-btn"
+            href="/Reserve"
+          >
+            Reserve
+          </a>
+          <a
+            class="link-btn"
+            href="/Myreservations"
+          >
+            My Reservations
+          </a>
+          <a
+            class="link-btn"
+            href="/Newcar"
+          >
+            Add a Car
+          </a>
+          <button
+            class="link-btn delete"
+            type="submit"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+      <div
+        class="item-data-wrapper"
+      >
+        <div
+          class="alert alert-success"
+          style="display: none; justify-content: space-between;"
+        >
+          <p />
+          <div
+            aria-hidden="true"
+            class="close-icon-wrapper"
+          >
+            <img
+              alt="close-icon"
+              class="close-icon"
+              src="close.png"
+            />
+          </div>
+        </div>
+        <div
+          class="datas-inf"
+        >
+          <div
+            class="item-img-wrapper"
+          >
+            <img
+              alt="item"
+              class="item-img"
+            />
+            <img
+              alt="like-icon"
+              aria-hidden="true"
+              class="like-icon"
+              src="like.png"
+            />
+          </div>
+          <div
+            class="item-data"
+          >
+            <h1
+              class="item-brand"
+            >
+               
+            </h1>
+            <span
+              class="item-description"
+            />
+            <div
+              class="card-inf grey"
+            >
+              <p
+                class="title-data"
+              >
+                Rent fee
+              </p>
+              <p
+                class="value-data"
+              >
+                $
+              </p>
+            </div>
+            <div
+              class="card-inf"
+            >
+              <p
+                class="title-data"
+              >
+                Likes
+              </p>
+              <p
+                class="value-data like-value"
+              />
+            </div>
+            <div
+              class="card-inf grey"
+            >
+              <p
+                class="title-data"
+              >
+                Model year
+              </p>
+              <p
+                class="value-data"
+              />
+            </div>
+            <div
+              class="card-inf"
+            >
+              <p
+                class="title-data"
+              >
+                Reservation history number
+              </p>
+              <p
+                class="value-data"
+              />
+            </div>
+            <div
+              class="more-model"
+            >
+              <p
+                class="more-text"
+              >
+                Discover more Models
+              </p>
+              <img
+                alt="arrow-icon"
+                aria-hidden="true"
+                class="arrow-icon"
+                src="arrow.png"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="command-part"
+        >
+          <a
+            class="reserve-btn"
+            href="/Reserve"
+          >
+            <img
+              alt="param-icon"
+              class="btn-icons"
+              src="param.png"
+            />
+            <p
+              class="reserve-txt"
+            >
+              Reserve
+            </p>
+            <img
+              alt="forward-icon"
+              class="btn-icons"
+              src="forward.png"
+            />
+          </a>
+          <img
+            alt="rotate-icon"
+            aria-hidden="true"
+            class="rotate-icon"
+            src="rotate.png"
+          />
+          <img
+            alt="back-icon"
+            class="back-icon"
+            src="back-green.png"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

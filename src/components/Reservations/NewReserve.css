@@ -1,0 +1,157 @@
+form {
+  width: 100%;
+}
+
+.reserve-contain {
+  height: 100vh;
+}
+
+.z-index1 {
+  z-index: 1;
+}
+
+.new-reserve-container {
+  color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 86%;
+}
+
+.reserve-brand {
+  font-size: 33px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20px;
+  text-align: center;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.change-reserve {
+  top: 100px;
+  left: 10px;
+}
+
+.overLay {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(152, 191, 25, 0.7);
+}
+
+.reserve-heading {
+  text-align: center;
+  z-index: 1;
+  margin-top: 80px;
+}
+
+.reserve-form {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  align-items: center;
+  height: 100%;
+}
+
+.reserve-form button {
+  padding: 10px;
+  border-radius: 30px;
+  color: #465a03;
+  background-color: #fff;
+  border-color: #97bf0f;
+}
+
+.reserve-form button:hover {
+  color: #fff;
+  background-color: #465a03;
+  border-color: #fff;
+}
+
+.city-style {
+  margin-right: 20px;
+}
+
+div select {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+}
+
+.city-style select {
+  padding: 10px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+  background-color: #97bf0f;
+}
+
+#dropdown-date {
+  display: flex;
+  gap: 10px;
+}
+
+#dropdown-date select {
+  padding: 10px;
+  border-radius: 30px;
+  color: #fff;
+  background-color: #97bf0f;
+}
+
+.reserve-content {
+  margin-bottom: 20px;
+  z-index: 1;
+  text-align: center;
+}
+
+.alert-reserve {
+  position: absolute;
+  z-index: 1;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  margin-bottom: 0;
+  text-align: center;
+  color: rgb(179, 71, 71);
+}
+
+@media (min-width: 721px) and (max-width: 1000px) {
+  .new-reserve-container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .reserve-form {
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+  }
+
+  .reserve-form :nth-child(1) {
+    order: 2;
+  }
+
+  .reserve-form :nth-child(2) {
+    order: 1;
+  }
+
+  .reserve-form :nth-child(3) {
+    order: 3;
+  }
+
+  .city-style {
+    margin-right: 0;
+  }
+
+  .new-reserve-container {
+    width: 100%;
+  }
+}

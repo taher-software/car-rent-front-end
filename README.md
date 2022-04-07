@@ -1,70 +1,96 @@
+# CARRENTALS
+> In this Project, We created a Car service Webapp where admin can add cars and delete cars. User can navigate smoothly across the differents pages, where he can explore all cars options and details, and make a reservation for a selected item and with his specific details. 
+
+## Project Preview
+
+Desktop-details                          |  Mobile-details
+:---------------------------------------:|:---------------------------------------:
+![](./public/desktop-details.PNG)        |  ![](./public/mobile-details.PNG)  
+
+Desktop-Home                             |  Mobile-reserve
+:---------------------------------------:|:---------------------------------------:
+![](./public/desktop-home.PNG)           |  ![](./public/mobile-reserve.PNG) 
+
+
+## Kaban board
+
+Kaban Before                             |  Kaban After
+:---------------------------------------:|:---------------------------------------:
+![](https://user-images.githubusercontent.com/85107514/159885633-744d6cab-e061-4df2-b9a3-06bcbfe2f3f8.png)        |  ![image](https://user-images.githubusercontent.com/43564324/162181362-52eb2178-3ebd-408a-ab52-f79332669027.png)  
+
+> [Link to Kaban Board](https://github.com/Taher-web-dev/car-rent-rails/projects/1)
+
+> Total Number of Team members : 4
+
+
+## Front-end Live Demo
+> Click [here](https://mic-car-rental.netlify.app/) to see the live preview of the project.
+
+> [link to Backend](https://github.com/Taher-web-dev/car-rent-rails)
+
+### Built With
+
+- [React](https://es.reactjs.org/)
+- [HTML](https://www.w3schools.com/html/)
+- [CSS](https://www.w3schools.com/css/)
+- [JS](https://www.javascript.com/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Installation
 
-In the project directory, you can run:
+1. Clone the repository
+   ```sh
+   git clone https://github.com/Taher-web-dev/car-rent-front-end.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Run server
+   ```sh
+   npm start
+   ```
+   
+### Testing
+   ```sh
+   npm test
+   ```
+## Authors
 
-### `npm start`
+👤 **Okpara Tochukwu**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- GitHub: [@xtrahuman](https://github.com/xtrahuman)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/tochukwuokpara)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+👤 **Taher Haggui**
 
-### `npm test`
+- GitHub: [@Taher-web-dev](https://github.com/Taher-web-dev)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/taher-haggui/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+👤 **Daniel Shdeed**
 
-### `npm run build`
+- GitHub: [@Danieldotcomcoder](https://github.com/Danieldotcomcoder)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/daniel-shdeed/)
+- Twitter: [twitter](https://twitter.com/DannyDotcoder)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+👤 **Gabriel Nwachukwu**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- GitHub: [@codepriest](https://github.com/gabrielcoder247)
+- LinkedIn: [@codepriest](https://www.linkedin.com/in/gabriel-nwachukwu-209613173/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🤝 Contributing
 
-### `npm run eject`
+Contributions, issues, and feature requests are welcome!
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Feel free to check the [issues page](../../issues/).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Acknowledgments
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Original design idea by [Murat Korkmaz]((!https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) on Behance.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Show your support
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Give a ⭐️ if you like this project!
