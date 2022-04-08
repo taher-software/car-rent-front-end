@@ -109,10 +109,9 @@ const NewReservation = () => {
   const { id } = currentCar;
   const allCars = cars.cars;
   let index = 0;
-  if (id) {
-    index = allCars.findIndex((car) => car.id === id);
-  }
+
   if (allCars !== undefined) {
+    index = allCars.findIndex((car) => car.id === id);
     dispatch(selectCar(allCars[index]));
   }
   const moreHandler = () => {
