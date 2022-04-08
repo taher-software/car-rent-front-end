@@ -89,7 +89,7 @@ Feel free to check the [issues page](../../issues/).
 
 ## Acknowledgments
 
-Original design idea by [Murat Korkmaz]((!https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) on Behance.
+Original design idea by [Murat Korkmaz](!https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) on Behance.
 
 ## Show your support
 
