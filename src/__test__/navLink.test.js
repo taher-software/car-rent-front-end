@@ -25,12 +25,12 @@ describe('render correctly Splash component', () => {
     tree = render(
       <Provider store={store}>
         <Router>
-          <NavigationPanel deleteHandler={jest.fn()}/>
+          <NavigationPanel deleteHandler={jest.fn()} />
         </Router>
-      </Provider>
+      </Provider>,
     );
   });
-  it('should render with given state from redux store', ()=> {
+  it('should render with given state from redux store', () => {
     expect(tree).toMatchSnapshot();
   });
 });
