@@ -1,6 +1,6 @@
 import { loadCars, failCars } from '../actions/actions';
 
-export const fetchCars = () => fetch('https://warm-inlet-48309.herokuapp.com/api/cars');
+export const fetchCars = () => fetch('https://car-rentals-backend.fly.dev/api/cars');
 
 const fetchAllCars = () => (dispatch) => {
   fetchCars()

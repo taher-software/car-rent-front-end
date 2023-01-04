@@ -30,7 +30,7 @@ const Detail = () => {
   const navigate = useNavigate();
   const deletHandler = async () => {
     const carId = item.id;
-    const url = `https://warm-inlet-48309.herokuapp.com/api/cars/${carId}`;
+    const url = `https://car-rentals-backend.fly.dev/api/cars/${carId}`;
     const retour = await fetch(url, {
       method: 'DELETE',
       headers: {
@@ -66,7 +66,7 @@ const Detail = () => {
     } else {
       like.textContent = likeNbr - 1;
     }
-    const url = 'https://warm-inlet-48309.herokuapp.com/api/likes';
+    const url = 'https://car-rentals-backend.fly.dev/api/likes';
     await fetch(url, {
       method: 'POST',
       headers: {

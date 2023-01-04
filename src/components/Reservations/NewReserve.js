@@ -70,7 +70,7 @@ const NewReservation = () => {
   const currentCar = useSelector((state) => state.current_car);
   const [data, setData] = useState('');
   const loadData = async () => {
-    const res = await fetch('https://warm-inlet-48309.herokuapp.com/api/cars');
+    const res = await fetch('https://car-rentals-backend.fly.dev/api/cars');
     setData(await res.json());
   };
   useEffect(() => loadData(), []);
@@ -79,7 +79,7 @@ const NewReservation = () => {
       const reservation = {
         user_id: currentUser.id, car_id: currentCar.id, start_date: selectDate, city: selectedCity,
       };
-      const reserveUrl = 'https://warm-inlet-48309.herokuapp.com/api/reservations';
+      const reserveUrl = 'https://car-rentals-backend.fly.dev/api/reservations';
       const result = await fetch(reserveUrl, {
         method: 'POST',
         headers: {
@@ -95,7 +95,7 @@ const NewReservation = () => {
     }
   };
   const handleDelete = (carid) => {
-    const url = `https://warm-inlet-48309.herokuapp.com/api/cars/${carid}`;
+    const url = `https://car-rentals-backend.fly.dev/api/cars/${carid}`;
     fetch(url, { method: 'DELETE' }).then((response) => {
       if (response.status === 200) {
         navigate('/Reserve', { state: { alert: 'Car Deleted successfully!' } });
