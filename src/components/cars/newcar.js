@@ -186,7 +186,7 @@ const AddForm = () => {
           className="model mt-3"
         />
         <button
-          button
+          // button
           type="submit"
           className="btn btn-success btn-lg mt-5 car-btn"
           disabled={currentUser.role !== 'admin'}
