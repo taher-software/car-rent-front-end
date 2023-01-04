@@ -1,6 +1,6 @@
 import { startGetLIkes, getLIkes, failGetLikes } from '../Action/action';
 
-const url = 'https://warm-inlet-48309.herokuapp.com/api/likes';
+const url = 'https://car-rentals-backend.fly.dev/api/likes';
 export const fetchLikes = () => (fetch(url));
 const thunkLikes = () => (dispatch) => {
   dispatch(startGetLIkes());

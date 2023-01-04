@@ -74,7 +74,7 @@ const App = () => {
     });
   };
   const handleDelete = (carid) => {
-    const url = `https://warm-inlet-48309.herokuapp.com/api/cars/${carid}`;
+    const url = `https://car-rentals-backend.fly.dev/api/cars/${carid}`;
     fetch(url, { method: 'DELETE' }).then((response) => {
       if (response.status === 200) {
         window.location.reload();

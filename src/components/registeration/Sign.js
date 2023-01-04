@@ -98,7 +98,7 @@ const Sign = () => {
     const city = document.querySelector('.adress').value;
     const photo = document.querySelector('.photo').value;
     const user = { username, city, photo };
-    const userUrl = 'https://warm-inlet-48309.herokuapp.com/api/users';
+    const userUrl = 'https://car-rentals-backend.fly.dev/api/users';
     const result = await fetch(userUrl, {
       method: 'POST',
       headers: {

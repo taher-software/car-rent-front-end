@@ -26,10 +26,10 @@ describe('render correctly Splash component', () => {
         <Router>
           <Sign />
         </Router>
-      </Provider>
+      </Provider>,
     );
   });
-  it('should render with given state from redux store', ()=> {
+  it('should render with given state from redux store', () => {
     expect(tree).toMatchSnapshot();
   });
 });

@@ -1,6 +1,6 @@
 import { loadUsername, failUsername } from '../actions/action';
 
-export const fetchUser = () => fetch('https://warm-inlet-48309.herokuapp.com/api/users');
+export const fetchUser = () => fetch('https://car-rentals-backend.fly.dev/api/users');
 
 const thunkUser = () => (dispatch) => {
   fetchUser()

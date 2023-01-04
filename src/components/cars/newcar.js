@@ -32,7 +32,7 @@ const AddForm = () => {
         description,
       };
 
-      const res = await fetch('https://warm-inlet-48309.herokuapp.com/api/cars', {
+      const res = await fetch('https://car-rentals-backend.fly.dev/api/cars', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ const AddForm = () => {
     }
   };
   const handleDelete = (carid) => {
-    const url = `https://warm-inlet-48309.herokuapp.com/api/cars/${carid}`;
+    const url = `https://car-rentals-backend.fly.dev/api/cars/${carid}`;
     fetch(url, { method: 'DELETE' }).then((response) => {
       if (response.status === 200) {
         navigate('/Newcar', { state: { alert: 'Car Deleted successfully!' } });
@@ -69,7 +69,7 @@ const AddForm = () => {
   };
   const [data, setData] = useState('');
   const loadData = async () => {
-    const res = await fetch('https://warm-inlet-48309.herokuapp.com/api/cars');
+    const res = await fetch('https://car-rentals-backend.fly.dev/api/cars');
     setData(await res.json());
   };
   useEffect(() => loadData(), []);
@@ -186,7 +186,7 @@ const AddForm = () => {
           className="model mt-3"
         />
         <button
-          button
+          // button
           type="submit"
           className="btn btn-success btn-lg mt-5 car-btn"
           disabled={currentUser.role !== 'admin'}

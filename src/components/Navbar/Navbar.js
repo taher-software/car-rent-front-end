@@ -12,7 +12,10 @@ const Navbar = () => (
 
     <div>
       <NavLink to="/" className="logo">car logo</NavLink>
-      <div bg="light" className="main-nav d-flex flex-column">
+      <div
+      // bg="light"
+        className="main-nav d-flex flex-column"
+      >
         <NavLink to="/" className={(navData) => (navData.isActive ? 'active-link' : '')}>All Cars</NavLink>
         <NavLink to="/Reserve" className={(navData) => (navData.isActive ? 'active-link' : '')}>Reserve</NavLink>
         <NavLink to="/Myreservations" className={(navData) => (navData.isActive ? 'active-link' : '')}>My Reservations</NavLink>
